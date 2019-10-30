@@ -1,0 +1,11 @@
+{
+    "/assets/backend/js/codebase.app.js": "/assets/backend/js/codebase.app.js",
+    "/assets/backend/js/laravel.app.js": "/assets/backend/js/laravel.app.js",
+    "/assets/backend/css/codebase.css": "/assets/backend/css/codebase.css",
+    "/assets/backend/css/themes/corporate.css": "/assets/backend/css/themes/corporate.css",
+    "/assets/backend/css/themes/earth.css": "/assets/backend/css/themes/earth.css",
+    "/assets/backend/css/themes/elegance.css": "/assets/backend/css/themes/elegance.css",
+    "/assets/backend/css/themes/flat.css": "/assets/backend/css/themes/flat.css",
+    "/assets/backend/css/themes/pulse.css": "/assets/backend/css/themes/pulse.css",
+    "/assets/backend/js/pages/tables_datatables.js": "/assets/backend/js/pages/tables_datatables.js"
+}

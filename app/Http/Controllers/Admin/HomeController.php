@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**
-     * Only Authenticated users for "admin" guard 
+     * Only Authenticated users for "admin" guard
      * are allowed.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -20,10 +20,10 @@ class HomeController extends Controller
 
     /**
      * Show Admin Dashboard.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('admin.home');
+        return view('backend.beranda');
     }
 }

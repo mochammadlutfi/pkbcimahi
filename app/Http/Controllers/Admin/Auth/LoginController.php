@@ -37,7 +37,7 @@ class LoginController extends Controller
     /**
      * Only guests for "admin" guard are allowed except
      * for logout.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -47,12 +47,12 @@ class LoginController extends Controller
 
     /**
      * Show the login form.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function showLoginForm()
     {
-        return view('auth.login',[
+        return view('backend.login',[
             'title' => 'Admin Login',
             'loginRoute' => 'admin.login',
             'forgotPasswordRoute' => 'admin.password.request',
@@ -61,7 +61,7 @@ class LoginController extends Controller
 
     /**
      * Login the admin.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -96,7 +96,7 @@ class LoginController extends Controller
 
     /**
      * Logout the admin.
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout()
@@ -109,9 +109,9 @@ class LoginController extends Controller
 
     /**
      * Validate the form data.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
-     * @return 
+     * @return
      */
     private function validator(Request $request)
     {
@@ -132,7 +132,7 @@ class LoginController extends Controller
 
     /**
      * Redirect back after a failed login.
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     private function loginFailed(){
@@ -144,7 +144,7 @@ class LoginController extends Controller
 
     /**
      * Username used in ThrottlesLogins trait
-     * 
+     *
      * @return string
      */
     public function username(){

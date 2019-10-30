@@ -1,15 +1,26 @@
 const mix = require('laravel-mix');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix
+    /* CSS */
+    .sass('resources/sass/main.scss', 'public/assets/backend/css/codebase.css')
+    .sass('resources/sass/codebase/themes/corporate.scss', 'public/assets/backend/css/themes/')
+    .sass('resources/sass/codebase/themes/earth.scss', 'public/assets/backend/css/themes/')
+    .sass('resources/sass/codebase/themes/elegance.scss', 'public/assets/backend/css/themes/')
+    .sass('resources/sass/codebase/themes/flat.scss', 'public/assets/backend/css/themes/')
+    .sass('resources/sass/codebase/themes/pulse.scss', 'public/assets/backend/css/themes/')
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    /* JS */
+    .js('resources/js/app.js', 'public/assets/backend/js/laravel.app.js')
+    .js('resources/js/codebase/app.js', 'public/assets/backend/js/codebase.app.js')
+
+    /* Page JS */
+    .js('resources/js/pages/tables_datatables.js', 'public/assets/backend/js/pages/tables_datatables.js')
+
+    /* Tools */
+    .browserSync('localhost:8000')
+    .disableNotifications()
+
+    /* Options */
+    .options({
+        processCssUrls: false
+    });
