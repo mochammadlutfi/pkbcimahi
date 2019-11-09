@@ -3,13 +3,18 @@
 
 /* --------------------- Common/User Routes START -------------------------------- */
 
-Route::get('/', function () {
-    // return view('welcome');
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+// });
 
-Auth::routes([ 'verify' => true ]);
+// Auth::routes([ 'verify' => true ]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/', 'HomeController@beranda')->name('Beranda');
+Route::get('/galeri', 'HomeController@galeri')->name('galeri');
+Route::get('/detail_galeri', 'HomeController@detail_galeri')->name('detail_galeri');
+Route::get('/sejarah', 'HomeController@sejarah')->name('Sejarah Pendirian PKB');
+Route::get('/forum', 'HomeController@forum')->name('forum');
+Route::get('/detail_forum', 'HomeController@detail_forum')->name('detail_forum');
 
 /* --------------------- Common/User Routes END -------------------------------- */
 
