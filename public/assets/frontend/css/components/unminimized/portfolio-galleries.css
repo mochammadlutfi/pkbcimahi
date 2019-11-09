@@ -1,0 +1,34 @@
+.brk-portfolio-galleries {
+  background-color: #e9e9e9;
+  border-left: 10px solid #e9e9e9;
+  border-right: 10px solid #e9e9e9;
+  border-top: 5px solid #e9e9e9;
+  border-bottom: 5px solid #e9e9e9; }
+  .brk-portfolio-galleries__card {
+    position: relative;
+    z-index: 1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    min-height: 300px; }
+    .brk-portfolio-galleries__card::after {
+      content: "";
+      display: block;
+      padding-top: 65%; }
+  .brk-portfolio-galleries__label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-120%);
+    transition: .3s ease-in-out transform; }
+    @media screen and (max-width: 575.98px) {
+      .brk-portfolio-galleries__label {
+        width: 100%; } }
+  .brk-portfolio-galleries__card:hover .brk-portfolio-galleries__label {
+    transform: translateX(0); }
