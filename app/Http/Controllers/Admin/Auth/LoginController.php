@@ -83,7 +83,7 @@ class LoginController extends Controller
             //Authenticated, redirect to the intended route
             //if available else admin dashboard.
             return redirect()
-                ->intended(route('admin.home'))
+                ->intended(route('admin.beranda'))
                 ->with('status','You are Logged in as Admin!');
         }
 

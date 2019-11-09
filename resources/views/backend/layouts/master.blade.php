@@ -53,7 +53,7 @@
                         Crafted with <i class="fa fa-heart text-pulse"></i> by <a class="font-w600" href="#" target="_blank">Pintasku</a>
                     </div>
                     <div class="float-left">
-                        <a class="font-w600" href="" target="_blank">SISWAKILO</a> &copy; <span class="js-year-copy">2019</span>
+                        <a class="font-w600" href="" target="_blank">PKB CIMAHI</a> &copy; <span class="js-year-copy">2019</span>
                     </div>
                 </div>
             </footer>

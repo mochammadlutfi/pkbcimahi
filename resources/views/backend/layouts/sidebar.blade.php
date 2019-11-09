@@ -42,11 +42,7 @@
 
         <!-- Side Navigation -->
         <div class="content-side content-side-full">
-            @if(Auth::guard('admin')->check())
-                @include('backend.layouts.menu.admin')
-            @else
-                @include('backend.layouts.menu.client')
-            @endif
+            @include('backend.layouts.menu')
         </div>
         <!-- END Side Navigation -->
     </div>
