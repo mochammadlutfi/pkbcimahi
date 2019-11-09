@@ -8,27 +8,26 @@
 <div class="content">
     <nav class="breadcrumb bg-white push">
         <a class="breadcrumb-item" href="{{ route('admin.beranda') }}">Beranda</a>
-        <a class="breadcrumb-item" href="{{ route('admin.beranda') }}">Tanya Jawab</a>
-        <span class="breadcrumb-item active">Kategori</span>
+        <span class="breadcrumb-item active">Event</span>
     </nav>
     <div class="row">
         <div class="col-lg-12">
             <!-- Default Elements -->
             <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Kelola Kategori Tanya Jawab</h3>
+                    <h3 class="block-title">Kelola Event</h3>
                     <a href="{{ route('admin.event.tambah') }}" class="btn btn-secondary mr-5 mb-5 float-right btn-rounded">
                         <i class="si si-plus mr-5"></i>
-                        Tambah Kategori Baru
+                        Tambah Event Baru
                     </a>
                 </div>
                 <div class="block-content">
-                    <table class="table table-hover table-striped" id="list-kategori">
+                    <table class="table table-hover table-striped" id="list-event">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Jumlah Pertanyaan</th>
+                                <th>Tanggal</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>
@@ -46,21 +45,21 @@
 <script src="{{ asset('assets/backend/js/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
 <script>
 $(function () {
-    $('#list-kategori').DataTable({
+    $('#list-event').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin.QA.kategori') }}",
+        ajax: "{{ route('admin.event') }}",
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'nama',
-                name: 'nama'
+                data: 'judul',
+                name: 'judul'
             },
             {
-                data: 'jumlah',
-                name: 'jumlah'
+                data: 'tgl',
+                name: 'tgl'
             },
             {
                 data: 'status',
