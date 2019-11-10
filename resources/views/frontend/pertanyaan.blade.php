@@ -24,7 +24,11 @@
 									<a href="#">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
-								<li class="active">Tanya Jawab</li>
+								<li>
+									<a href="#">Tanya Jawab</a>
+									<i class="fal fa-chevron-right icon"></i>
+								</li>
+								<li class="active">{{ $title }}</li>
 							</ol>
 						</div>
 					</div>
@@ -36,27 +40,36 @@
 		<div class="row">
 			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 				<div class="brs-posts-container brs-posts-container_right-divider">
-					<div class="mb-60">
-						<a href="{{ url('/pertanyaan') }}" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
-							<i class="fa fa-comments" aria-hidden="true"></i>
-							<span class="before">Buat Pertanyaan</span><span class="text">Buat Pertanyaan</span><span class="after">Buat Pertanyaan</span>
-						</a>
-
-						<a href="#" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
-							<i class="fa fa-edit" aria-hidden="true"></i>
-							<span class="before">Cari Pertanyaan Berdasarkan Topik</span><span class="text">Cari Pertanyaan Berdasarkan Topik</span><span class="after">Cari Pertanyaan Berdasarkan Topik</span>
-						</a>
-
-						<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60 mb-10">Diskusi Dengan Fraksi Terbaru</h3>
-						<hr>
-						@for ($i = 0; $i < 6; $i++)
+					<div class="brk-reply mb-20" data-brk-library="component__forum_post">
+						<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60">Silahkan Masukan Pertanyaan Anda</h3>
+						<form action="#" class="brk-reply__form brk-form-strict" data-brk-library="component__form">
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<input name="name" type="text" placeholder="Judul topik">
+								</div>
+								<div class="col-12">
+									<textarea name="textarea" placeholder="Pertanyaan"></textarea>
+								</div>
+							</div>
+							<a href="{{ url('/forum') }}" class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-semibold btn-icon-right m-0 mt-25" data-brk-library="component__button">
+								<i class="fa fa-times"></i>
+								<span class="before">Batal</span><span class="text">Batal</span><span class="after">Batal</span>
+							</a>
+							<button class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-semibold btn-icon-right m-0 mt-25" data-brk-library="component__button">
+								<i class="fas fa-long-arrow-alt-right icon-inside"></i>
+								<span class="before">Kirim Pertanyaan</span><span class="text">Kirim Pertanyaan</span><span class="after">Kirim Pertanyaan</span>
+							</button>
+						</form>
+					</div>
+					<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60 mb-10">Diskusi Dengan Fraksi Terbaru</h3>
+					@for ($i = 0; $i < 6; $i++)
 						<div>
 							<div class="brk-reply-item" data-brk-library="component__blog_page_css">
 								<a href="#" class="brk-reply-item__user">
 									<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt" class="lazyload">
 								</a>
 								<div class="brk-reply-item__content">
-									<a href="{{ url('/detail_forum') }}" class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">Ini Judul Topik</a>
+									<a href="{{ url('/detail_forum') }}" class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">ini Judul tOPIK?</a>
 									<div class="d-sm-flex justify-content-sm-between">
 										<div class="brk-reply-item__header">
 											<a class="brk-reply-item__header-like">
@@ -80,19 +93,16 @@
 							</div>
 						</div>
 						@endfor
-					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 			<div class="mt-15 mb-80">
 				<div class="brk-pagination brk-pagination-large" data-brk-library="component__pagination">
-					<a href="#" class="text-center"><span class="brk-prev-link"><i class="fa fa-angle-left"></i>Lampau</span></a>
-					<a href="#" class="text-center"><span class="brk-next-link">Terbaru<i class="fa fa-angle-right"></i></span></a>
+					<a href="{{ url('/forum') }}" class="text-center"><span class="brk-next-link">Selengkapnya<i class="fa fa-angle-right"></i></span></a>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	
 @stop

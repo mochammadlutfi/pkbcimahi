@@ -12,9 +12,18 @@
 Route::get('/', 'HomeController@beranda')->name('Beranda');
 Route::get('/galeri', 'HomeController@galeri')->name('galeri');
 Route::get('/detail_galeri', 'HomeController@detail_galeri')->name('detail_galeri');
-Route::get('/sejarah', 'HomeController@sejarah')->name('Sejarah Pendirian PKB');
 Route::get('/forum', 'HomeController@forum')->name('forum');
 Route::get('/detail_forum', 'HomeController@detail_forum')->name('detail_forum');
+Route::get('/pertanyaan', 'HomeController@pertanyaan')->name('pertanyaan');
+Route::get('/event', 'HomeController@event')->name('event');
+Route::get('/event_detail', 'HomeController@event_detail')->name('event_detail');
+
+Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
+Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
+Route::get('/ADARTPKB2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
+Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
+Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
+Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
 /* --------------------- Common/User Routes END -------------------------------- */
 
