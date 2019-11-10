@@ -22,9 +22,9 @@
                         <!-- Header -->
                         <div class="py-30 px-5 text-center">
                             <a class="" href="{{ url('/') }}">
-                                <img src="{{ asset('assets/img/logo/logo.png') }}">
+                                <img src="{{ asset('assets/img/logo.png') }}">
                             </a>
-                            <h2 class="h5 font-w700 mb-0 mt-30">Silakan masuk ke dalam akun kamu</h2>
+                            <h2 class="h5 font-w700 mb-0 mt-30">Silakan masuk untuk melanjutkan</h2>
                         </div>
                         <!-- END Header -->
 

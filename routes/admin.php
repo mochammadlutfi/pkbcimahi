@@ -68,5 +68,13 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::post('/update','EventController@update')->name('event.update');
         Route::get('/hapus/{id}','EventController@hapus')->name('event.hapus');
     });
+
+    Route::group(['prefix' => 'slider'], function(){
+        Route::get('/', 'SliderController@index')->name('slider');
+        Route::post('/simpan','SliderController@simpan')->name('slider.simpan');
+        Route::get('/edit/{id}','SliderController@edit')->name('slider.edit');
+        Route::post('/update','SliderController@update')->name('slider.update');
+        Route::get('/hapus/{id}','SliderController@hapus')->name('slider.hapus');
+    });
 });
 

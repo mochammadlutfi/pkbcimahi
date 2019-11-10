@@ -29,7 +29,7 @@
 			<!-- footer -->
 				@include('frontend.layouts.footer')
 			<!-- endoffooter -->
-		
+
 	</div>
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
@@ -125,7 +125,7 @@
 					});
 				}; /* END OF revapi call */
 			}; /* END OF ON LOAD FUNCTION */
-		}()); /* END OF WRAPPING FUNCTION */
+		}());
 	</script>
 </body>
 </html>

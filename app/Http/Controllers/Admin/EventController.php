@@ -54,11 +54,11 @@ class EventController extends Controller
                     $btn = '<center><div class="btn-group" role="group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aksi</button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 34px, 0px);">
-                                <a class="dropdown-item" href="javascript:void(0)" onClick="edit('.$row->kategori_id.')">
-                                    <i class="si si-note mr-5"></i>Edit Kategori
+                                <a class="dropdown-item" href="'. route('admin.event.edit', $row->id) .'">
+                                    <i class="si si-note mr-5"></i>Edit Event
                                 </a>
                                 <a class="dropdown-item" href="javascript:void(0)" onClick="hapus('.$row->kategori_id.')">
-                                    <i class="si si-trash mr-5"></i>Hapus Kategori
+                                    <i class="si si-trash mr-5"></i>Hapus Event
                                 </a>
                             </div>
                         </div></center>';
@@ -122,5 +122,12 @@ class EventController extends Controller
                 ]);
             }
         }
+    }
+
+    public function edit($event_id)
+    {
+        $event = Event::find($event_id);
+
+        return view('backend.event.edit', compact('event'));
     }
 }
