@@ -7,24 +7,12 @@
 							<div class="col-12 col-lg-4">
 								<div class="brk-brand-filter mb-30" data-brk-library="component__widgets">
 									<div class="brk-brand-filter__container">
-										<a href="#" class="brk-brand-filter__item">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
-										<a href="#" class="brk-brand-filter__item active">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
-										<a href="#" class="brk-brand-filter__item">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
-										<a href="#" class="brk-brand-filter__item">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
-										<a href="#" class="brk-brand-filter__item">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
-										<a href="#" class="brk-brand-filter__item">
-											<span class="font__family-montserrat font__size-14 font__weight-medium text-uppercase brk-brand-filter__logo-text">logo</span>
-										</a>
+										<img src="{{ asset('assets/frontend/img/footer/1.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/2.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/3.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/4.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/5.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/6.png') }}" class="brk-brand-filter__item">
 									</div>
 								</div>
 							</div>

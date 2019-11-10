@@ -39,15 +39,9 @@ class HomeController extends Controller
         return view('frontend/detail_galeri', ['title' => $title]);
     }
 
-    public function sejarah()
-    {
-        $title = 'Sejarah Pendirian PKB';
-        return view('frontend/sejarah', ['title' => $title]);
-    }
-
     public function forum()
     {
-        $title = 'Tanya Jawab';
+        $title = 'Tanya Fraksi';
         return view('frontend/forum', ['title' => $title]);
     }
 
@@ -55,5 +49,23 @@ class HomeController extends Controller
     {
         $title = 'Ari Dokter teh sehat?';
         return view('frontend/detail_forum', ['title' => $title]);
+    }
+
+    public function pertanyaan()
+    {
+        $title = 'Tanya Fraksi?';
+        return view('frontend/pertanyaan', ['title' => $title]);
+    }
+
+    public function event()
+    {
+        $title = 'Event';
+        return view('frontend/Event/event', ['title' => $title]);
+    }
+
+    public function event_detail()
+    {
+        $title = 'Event bla bla';
+        return view('frontend/Event/event_detail', ['title' => $title]);
     }
 }

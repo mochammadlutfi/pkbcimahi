@@ -87,28 +87,24 @@
 				<div class="swiper-wrapper">
 					@for ($i = 0; $i < 6; $i++)
 					<div class="swiper-slide">
-						<div class="info-box-icon-simple d-flex flex-column align-items-center pt-60 pb-50 pl-50 pr-50 position-relative" data-brk-library="component__info_box">
-							<span class="brk-abs-overlay brk-base-bg-gradient-50deg"></span>
-							<div class="info-box-icon-simple__icon-wrapper d-flex align-items-center justify-content-center mb-45">
-								<i class="far fa-file-alt" aria-hidden="true"></i>
-							</div>
-							<p class="font__family-montserrat info-box-icon-simple__title font__size-28 font__weight-bold line__height-30 mb-20 text-center">
-								Scalable on Devices
-								{{ $i }}
+						<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" data-brk-library="component__shop_cards">
+							<h6 class="brk-sc-bonus__subtitle font__family-montserrat brk-white-font-color font__size-14 font__weight-bold line__height-14 brk-bg-primary">
+								Senin, {{ $i }} Febuary 2019
+							</h6>
+							<h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15">
+								<span class="text-uppercase font__weight-medium">Ini Judul Event</span>
+							</h5>
+							<p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
+								ini deskripsi ini deskripsi  ini deskripsi  ini deskripsi  ini deskripsi 
 							</p>
-							<p class="brk-dark-font-color font__size-16 info-box-icon-simple__about line__height-26 font__weight-normal mb-35 text-center">
-								Aenean vulputate eleifend tellus. Renean leo ligula, porttitor euequat vitae, eleifend ac, enim.
-							</p>
-							<a href="#" class="btn btn-inside-out btn-lg border-radius-30 btn-shadow ml-0 mr-0 mt-0 mb-0 pl-60 pr-60" data-brk-library="component__button">
-								<span class="before">read more</span><span class="text">Click Me</span><span class="after">read more</span>
-							</a>
+							<a href="{{ url('/event_detail') }}" class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Lihat Event</a>
 						</div>
 					</div>
 					@endfor
 				</div>
 			</div>
 			<div class="text-center">
-				<a href="#" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" data-brk-library="component__button"> 
+				<a href="{{ url('/event') }}" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" data-brk-library="component__button"> 
 					<span class="before">Event Lainnya</span><span class="text">Event Lainnya</span><span class="after">Event Lainnya</span>
 				</a>
 			</div>

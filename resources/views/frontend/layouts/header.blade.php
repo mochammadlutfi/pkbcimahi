@@ -57,22 +57,22 @@
 								</a>
 								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
 									<li class="dd-effect">
-										<a href="blog.html">Sejarah Pendirian PKB</a>
+										<a href="{{ url('/sejarah') }}">Sejarah Pendirian PKB</a>
 									</li>
 									<li class="dd-effect">
-										<a href="blog-page.html">Naskah Deklarasi</a>
+										<a href="{{ url('/NaskahDeklarasi') }}">Naskah Deklarasi</a>
 									</li>
 									<li class="dd-effect">
-										<a href="blog-page.html">Mabda Siyasi</a>
+										<a href="{{ url('/MabdaSiyasi') }}">Mabda Siyasi</a>
 									</li>
 									<li class="dd-effect">
-										<a href="blog-page.html">AD ART PKB 2014</a>
+										<a href="{{ url('/ADARTPKB2014') }}">AD ART PKB 2014</a>
 									</li>
 									<li class="dd-effect">
-										<a href="blog-page.html">Makna Logo PKB</a>
+										<a href="{{ url('/MaknaLogoPKB') }}">Makna Logo PKB</a>
 									</li>
 									<li class="dd-effect">
-										<a href="blog-page.html">Visi dan Misi</a>
+										<a href="{{ url('/VisidanMisi') }}">Visi dan Misi</a>
 									</li>
 								</ul>
 							</li>
@@ -82,7 +82,7 @@
 								</a>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="#">
+								<a href="{{ url('/event') }}">
 									<span>Event</span>
 								</a>
 							</li>
