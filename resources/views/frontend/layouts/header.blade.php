@@ -41,11 +41,6 @@
 				<div class="col-lg align-self-lg-stretch">
 					<nav class="brk-nav brk-header__item">
 						<ul class="brk-nav__menu">
-							<li class="brk-nav__children brk-nav__full-width">
-								<a href="/" data-brk-library="component__tabs">
-									<span>Beranda</span>
-								</a>
-							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="#">
 									<span>Berita</span>
@@ -53,7 +48,7 @@
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="#">
-									<span>Tentang PKB</span>
+									<span>Tentang</span>
 								</a>
 								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
 									<li class="dd-effect">
@@ -77,7 +72,7 @@
 								</ul>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ route('galeri') }}">
+								<a href="{{ url('galeri') }}">
 									<span>Galeri</span>
 								</a>
 							</li>
@@ -87,7 +82,7 @@
 								</a>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ url('/forum') }}">
+								<a href="{{ url('/QnA') }}">
 									<span>Tanya Jawab</span>
 								</a>
 							</li>

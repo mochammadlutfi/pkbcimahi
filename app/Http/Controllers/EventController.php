@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class EventController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,21 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function beranda()
-    {
-        $title = 'Beranda';
-        return view('frontend/beranda', ['title' => $title]);
-    }
-
-    public function event()
+    public function index()
     {
         $title = 'Event';
-        return view('frontend/Event/event', ['title' => $title]);
+        return view('frontend/Event/index', ['title' => $title]);
     }
 
-    public function event_detail()
+    public function detail()
     {
-        $title = 'Event bla bla';
-        return view('frontend/Event/event_detail', ['title' => $title]);
+        $title = 'Event di gedung martabak';
+        return view('frontend/Event/detail', ['title' => $title]);
     }
 }

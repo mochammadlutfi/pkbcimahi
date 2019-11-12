@@ -1,37 +1,8 @@
 @extends('frontend.layouts.master')
 @section('title', $title)
 @section('content')
-
-	<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
-		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
-		<div class="breadcrumbs__wrapper">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-12 col-lg-6">
-						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
-							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-								Galeri
-							</h2>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6">
-						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
-							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
-								Anda berada di
-							</h3>
-							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
-								<li>
-									<a href="#">Beranda</a>
-									<i class="fal fa-chevron-right icon"></i>
-								</li>
-								<li class="active">Galeri</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+@extends('frontend.layouts.breadcrumb')
+	
 	<section id="portfolio">
 			<div class="brk-portfolio-galleries">
 				<div class="row brk-gutters-5">
@@ -62,7 +33,7 @@
 										<i class="fab fa-vk"></i>
 									</a>
 								</div>
-								<a href=" {{ route('detail_galeri') }} " class="text-uppercase font__family-montserrat font__size-12 font__weight-bold text-underline letter-spacing-100 mt-30"><u>Lihat Album</u></a>
+								<a href=" {{ url('/galeri/detail') }} " class="text-uppercase font__family-montserrat font__size-12 font__weight-bold text-underline letter-spacing-100 mt-30"><u>Lihat Album</u></a>
 							</div>
 						</div>
 					</div>
@@ -70,5 +41,26 @@
 				</div>
 			</div>
 		</section>
+		<div class="col-xl-12">
+			<section class="mb-50 mt-50">
+				<div class="brk-pagination brk-pagination-one font__family-open-sans" data-brk-library="component__pagination">
+					<nav class="navigation pagination" role="navigation">
+						<h2 class="screen-reader-text">Навигация по записям</h2>
+						<div class="nav-links">
+							<a class="prev page-numbers" href="#">Предыдущая страница</a>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>1</a>
+							<span class="page-numbers current"><span class="meta-nav screen-reader-text">Страница </span>2</span>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>3</a>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>4</a>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>5</a>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>2</a>
+							<span class="page-numbers dots">&hellip;</span>
+							<a class="page-numbers" href="javascript:void(0)"><span class="meta-nav screen-reader-text">Страница </span>24</a>
+							<a class="next page-numbers" href="#">Следующая страница</a>
+						</div>
+					</nav>
+				</div>
+			</section>
+		</div>
 
 @stop
