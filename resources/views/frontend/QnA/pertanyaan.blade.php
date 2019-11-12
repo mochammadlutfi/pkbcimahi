@@ -1,41 +1,8 @@
 @extends('frontend.layouts.master')
 @section('title', $title)
 @section('content')
+@extends('frontend.layouts.breadcrumb')
 
-	<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
-		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
-		<div class="breadcrumbs__wrapper">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-12 col-lg-6">
-						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
-							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-								{{ $title }}
-							</h2>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6">
-						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
-							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
-								Anda berada di
-							</h3>
-							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
-								<li>
-									<a href="#">Beranda</a>
-									<i class="fal fa-chevron-right icon"></i>
-								</li>
-								<li>
-									<a href="#">Tanya Jawab</a>
-									<i class="fal fa-chevron-right icon"></i>
-								</li>
-								<li class="active">{{ $title }}</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="container mt-80">
 		<div class="row">
 			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
@@ -51,7 +18,7 @@
 									<textarea name="textarea" placeholder="Pertanyaan"></textarea>
 								</div>
 							</div>
-							<a href="{{ url('/forum') }}" class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-semibold btn-icon-right m-0 mt-25" data-brk-library="component__button">
+							<a href="{{ url('/QnA') }}" class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-semibold btn-icon-right m-0 mt-25" data-brk-library="component__button">
 								<i class="fa fa-times"></i>
 								<span class="before">Batal</span><span class="text">Batal</span><span class="after">Batal</span>
 							</a>
@@ -69,7 +36,7 @@
 									<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt" class="lazyload">
 								</a>
 								<div class="brk-reply-item__content">
-									<a href="{{ url('/detail_forum') }}" class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">ini Judul tOPIK?</a>
+									<a href="{{ url('/QnA_detail') }}" class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">ini Judul tOPIK?</a>
 									<div class="d-sm-flex justify-content-sm-between">
 										<div class="brk-reply-item__header">
 											<a class="brk-reply-item__header-like">
@@ -99,7 +66,7 @@
 		<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 			<div class="mt-15 mb-80">
 				<div class="brk-pagination brk-pagination-large" data-brk-library="component__pagination">
-					<a href="{{ url('/forum') }}" class="text-center"><span class="brk-next-link">Selengkapnya<i class="fa fa-angle-right"></i></span></a>
+					<a href="{{ url('/QnA') }}" class="text-center"><span class="brk-next-link">Selengkapnya<i class="fa fa-angle-right"></i></span></a>
 				</div>
 			</div>
 		</div>

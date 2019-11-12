@@ -29,7 +29,7 @@
 <div class="main-wrapper">
 	<main class="main-container">
 		<div class="container mt-80">
-			<h4 class="title__divider title__divider--line font__size-21 font__weight-bold font__family-montserrat line__height-24 text-center mb-40" data-brk-library="component__dividers"> 
+			<h4 class="title__divider title__divider--line font__size-21 font__weight-bold font__family-montserrat line__height-24 text-center mb-40">  <!-- data-brk-library="component__dividers" -->
 				<span class="title__divider__wrapper">
 					Berita Terbaru <span class="line brk-base-bg-gradient-right"></span>
 				</span>
@@ -37,9 +37,9 @@
 			<div class="row">
 				@for ($i = 0; $i < 6; $i++)
 					<div class="col-xl-4">
-						<div class="post-rounded brk-base-box-shadow" data-brk-library="component__content_slider">  
+						<div class="post-rounded brk-base-box-shadow" >  <!-- data-brk-library="component__content_slider" -->
 							<div class="post-rounded__thumb lazyload" data-bg="{{ asset('assets/frontend/img/rounded-1.jpg') }}">
-								<a href="#" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-30 font__family-open-sans font__weight-bold letter-spacing--100 z-index-1 post-rounded__btn pl-70 pr-70" data-brk-library="component__button">  
+								<a href="#" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-30 font__family-open-sans font__weight-bold letter-spacing--100 z-index-1 post-rounded__btn pl-70 pr-70">  <!-- data-brk-library="component__button" -->
 									<span class="before">Read More</span><span class="text">Click Me</span><span class="after">Read More</span>
 								</a>
 							</div>
@@ -55,7 +55,7 @@
 			</div>
 
 			<div class="text-center mb-40 mt-25">
-				<a href="#" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" data-brk-library="component__button"> 
+				<a href="#" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" > <!-- data-brk-library="component__button" -->
 					<span class="before">Berita Lainnya</span><span class="text">Berita Lainnya</span><span class="after">Berita Lainnya</span>
 				</a>
 			</div>
@@ -82,12 +82,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="brk-services-simple pb-md-110 pb-60" data-brk-library="slider__swiper">
+		<div class="brk-services-simple pb-md-110 pb-60" > 
+			<!-- data-brk-library="slider__swiper" -->
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					@for ($i = 0; $i < 6; $i++)
 					<div class="swiper-slide">
-						<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" data-brk-library="component__shop_cards">
+						<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" >
+							<!-- data-brk-library="component__shop_cards" -->
 							<h6 class="brk-sc-bonus__subtitle font__family-montserrat brk-white-font-color font__size-14 font__weight-bold line__height-14 brk-bg-primary">
 								Senin, {{ $i }} Febuary 2019
 							</h6>
@@ -104,7 +106,8 @@
 				</div>
 			</div>
 			<div class="text-center">
-				<a href="{{ url('/event') }}" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" data-brk-library="component__button"> 
+				<a href="{{ url('/event') }}" class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color" > 
+					<!-- data-brk-library="component__button" -->
 					<span class="before">Event Lainnya</span><span class="text">Event Lainnya</span><span class="after">Event Lainnya</span>
 				</a>
 			</div>
@@ -130,7 +133,8 @@
 	<div class="container ml-250">
 		<div class="row">
 			<div class="col-lg-3 col-sm-6">
-				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " data-brk-library="component__team"> 
+				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " > 
+					<!-- data-brk-library="component__team" -->
 					<h4>
 						<a href="#" class="font__family-montserrat font__weight-light font__size-24 line__height-26">
 							Mark Heffner
@@ -156,7 +160,8 @@
 				</article>
 			</div>
 			<div class="col-lg-3 col-sm-6">
-				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " data-brk-library="component__team"> 
+				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " > 
+					<!-- data-brk-library="component__team" -->
 					<h4>
 						<a href="#" class="font__family-montserrat font__weight-light font__size-24 line__height-26">
 							Mark Heffner
@@ -182,7 +187,8 @@
 				</article>
 			</div>
 			<div class="col-lg-3 col-sm-6">
-				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " data-brk-library="component__team"> 
+				<article class="brk-team-mc lazyload brk-mc-light-blue" data-bg="{{ asset('assets/frontend/img/270x414_1.jpg') }} " > 
+					<!-- data-brk-library="component__team" -->
 					<h4>
 						<a href="#" class="font__family-montserrat font__weight-light font__size-24 line__height-26">
 							Mark Heffner
@@ -213,34 +219,75 @@
 <!-------------------------------------------------------------------End of Team -->
 
 <!------------------------------------------------------------------------ Maps -->
-<div class="brk-map" data-height="534" data-brk-library="component__map">
-	<h4 class="title__divider title__divider--line font__size-21 font__weight-bold font__family-montserrat line__height-24 text-center mt-90 mb-40" data-brk-library="component__dividers">  
-		<span class="title__divider__wrapper">
-			Alamat Kami<span class="line brk-base-bg-gradient-right"></span>
-		</span>
-	</h4>
-	<div class="brk-map__section">
-		<div class="brk-map__canvas" data-address="Jl. Helikopter No.16-8, Melong, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40534" data-zoom="13" data-type="roadmap" data-marker="" data-offset-lat="" data-offset-lng="" data-lat="-6.923852" data-lng="107.554257" data-style="dark">
-		</div>
-	</div>
-	<div class="brk-map__infoicon brk-map__infoicon_layout-four">
-		<div class="brk-map__infoicon--text text-left">
-			<h4 class="font__family-montserrat font__weight-light font__size-32 line__height-34 text-uppercase">Kami
-				<br>
-				<span class="font__weight-bold">Disini</span>
-			</h4>
-			<ul class="font__size-16 line__height-21 text-uppercase mt-10">
-				<li>
-					<i class="fa fa-phone"></i>
-					<a href="tel:8800123456789">1 800 232 3485</a>
-				</li>
-				<li>
-					<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-					<span>Jl. Helikopter No.16-8, Melong, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40534</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
+
 <!--------------------------------------------------------------------- End of Maps -->
+	<section class="pb-50 brk-bg-color-dark-5" style="padding-top: 50px">
+		<div class="container">
+				<div class="text-center">
+					<h2 class="brk-white-font-color font__family-montserrat font__size-36 line__height-40 font__weight-bold mb-50 mt-10">Partner Kami</h2>
+					<div class="brk-logos mb-10">
+						<!-- data-brk-library="component__portfolio_page-styles" -->
+						<div class="row">
+							<a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/1.png') }}" class="brk-logos__img" alt="alt">
+							</a>
+							<a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/2.png') }}" class="brk-logos__img" alt="alt">
+							</a><a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/3.png') }}" class="brk-logos__img" alt="alt">
+							</a>
+							<a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/4.png') }}" class="brk-logos__img" alt="alt">
+							</a>
+							<a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/5.png') }}" class="brk-logos__img" alt="alt">
+							</a><a href="#" class="brk-logos__item col-6 col-md-2 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="{{ asset('assets/frontend/img/footer/6.png') }}" class="brk-logos__img" alt="alt">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="container">
+				<div class="text-center">
+					<div class="brk-logos mb-80" data-brk-library="component__portfolio_page-styles">
+						<div class="row">
+							
+							<a href="#" class="brk-logos__item col-6 col-md-3 justify-content-center align-items-center d-flex p-4">
+								<span class="brk-logos__item-l-t-angle"></span>
+								<span class="brk-logos__item-r-t-angle"></span>
+								<span class="brk-logos__item-r-b-angle"></span>
+								<span class="brk-logos__item-l-b-angle"></span>
+								<img src="img/portfolio-page/porgress-1.png" class="brk-logos__img" alt="alt">
+							</a>
+							
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</section>
 @stop

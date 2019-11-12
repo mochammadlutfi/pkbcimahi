@@ -35,6 +35,8 @@ Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLog
 Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
 Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
+Route::get('/login', 'LoginController@index')->name('Login');
+
 /* --------------------- Common/User Routes END -------------------------------- */
 
 /* ----------------------- Admin Routes START -------------------------------- */

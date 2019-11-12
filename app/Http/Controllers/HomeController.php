@@ -27,36 +27,6 @@ class HomeController extends Controller
         return view('frontend/beranda', ['title' => $title]);
     }
 
-    public function galeri()
-    {
-        $title = 'Galeri';
-        return view('frontend/galeri', ['title' => $title]);
-    }
-
-    // public function detail_galeri()
-    // {
-    //     $title = 'Galeri Acara xx1';
-    //     return view('frontend/detail_galeri', ['title' => $title]);
-    // }
-
-    public function forum()
-    {
-        $title = 'Tanya Fraksi';
-        return view('frontend/forum', ['title' => $title]);
-    }
-
-    public function detail_forum()
-    {
-        $title = 'Ari Dokter teh sehat?';
-        return view('frontend/detail_forum', ['title' => $title]);
-    }
-
-    public function pertanyaan()
-    {
-        $title = 'Tanya Fraksi?';
-        return view('frontend/pertanyaan', ['title' => $title]);
-    }
-
     public function event()
     {
         $title = 'Event';

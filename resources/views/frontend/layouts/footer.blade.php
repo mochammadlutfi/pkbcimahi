@@ -7,12 +7,7 @@
 							<div class="col-12 col-lg-4">
 								<div class="brk-brand-filter mb-30">
 									<div class="brk-brand-filter__container">
-										<img src="{{ asset('assets/frontend/img/footer/1.png') }}" class="brk-brand-filter__item">
-										<img src="{{ asset('assets/frontend/img/footer/2.png') }}" class="brk-brand-filter__item">
-										<img src="{{ asset('assets/frontend/img/footer/3.png') }}" class="brk-brand-filter__item">
-										<img src="{{ asset('assets/frontend/img/footer/4.png') }}" class="brk-brand-filter__item">
-										<img src="{{ asset('assets/frontend/img/footer/5.png') }}" class="brk-brand-filter__item">
-										<img src="{{ asset('assets/frontend/img/footer/6.png') }}" class="brk-brand-filter__item">
+										<img src="{{ asset('assets/frontend/img/footer/1.png') }}">
 									</div>
 								</div>
 							</div>
@@ -92,7 +87,7 @@
 						<hr class="dotted-line mb-20 mb-10">
 						<div class="d-flex justify-content-sm-between justify-content-center flex-wrap pb-20 align-items-center">
 							<p class="font__family-16 font__weight-normal line__height-18 pl-1 letter-spacing-40">
-								Copyright © 2017 DPC PKB Kota Cimahi
+								Copyright © 2019 DPC PKB Kota Cimahi
 							</p>
 							<div class="brk-social-links brk-social-links_opacity font__size-13">
 								<a href="#" class="brk-social-links__item">
