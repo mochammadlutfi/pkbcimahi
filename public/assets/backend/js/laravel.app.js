@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -19128,86 +19128,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/codebase/themes/corporate.scss":
-/*!*******************************************************!*\
-  !*** ./resources/sass/codebase/themes/corporate.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/codebase/themes/earth.scss":
-/*!***************************************************!*\
-  !*** ./resources/sass/codebase/themes/earth.scss ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/codebase/themes/elegance.scss":
-/*!******************************************************!*\
-  !*** ./resources/sass/codebase/themes/elegance.scss ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/codebase/themes/flat.scss":
-/*!**************************************************!*\
-  !*** ./resources/sass/codebase/themes/flat.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/codebase/themes/pulse.scss":
-/*!***************************************************!*\
-  !*** ./resources/sass/codebase/themes/pulse.scss ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/main.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/main.scss ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/main.scss ./resources/sass/codebase/themes/corporate.scss ./resources/sass/codebase/themes/earth.scss ./resources/sass/codebase/themes/elegance.scss ./resources/sass/codebase/themes/flat.scss ./resources/sass/codebase/themes/pulse.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ 1:
+/*!***********************************!*\
+  !*** multi ./resources/js/app.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\main.scss */"./resources/sass/main.scss");
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\codebase\themes\corporate.scss */"./resources/sass/codebase/themes/corporate.scss");
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\codebase\themes\earth.scss */"./resources/sass/codebase/themes/earth.scss");
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\codebase\themes\elegance.scss */"./resources/sass/codebase/themes/elegance.scss");
-__webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\codebase\themes\flat.scss */"./resources/sass/codebase/themes/flat.scss");
-module.exports = __webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\sass\codebase\themes\pulse.scss */"./resources/sass/codebase/themes/pulse.scss");
+module.exports = __webpack_require__(/*! D:\laragon\www\pkbcimahi\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

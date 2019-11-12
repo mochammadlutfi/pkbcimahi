@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-brk-skin="brk-blue.css">
 <head>
-	<title>@yield('title')</title>
+	{{-- <title>@yield('title')</title> --}}
 
 	<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">
 	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
@@ -12,11 +12,12 @@
 	<link id="brk-css-min" rel="stylesheet" href="{{ asset('assets/frontend/css/assets/styles.min.css') }}">
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    {{-- <script src="{{ mix('/assets/semua.css') }}"></script> --}}
 </head>
 <body>
-	<div class="brk-loader">
+	{{-- <div class="brk-loader">
 		<div class="brk-loader__loader"></div>
-	</div>
+	</div> --}}
 	<div class="main-page">
 			<!-- header -->
 				@include('frontend.layouts.header')
@@ -30,19 +31,21 @@
 				@include('frontend.layouts.footer')
 			<!-- endoffooter -->
 
-	</div>
-	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/jquery.themepunch.tools.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/jquery.themepunch.revolution.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.actions.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.layeranimation.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.navigation.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.parallax.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.slideanims.min.js') }} "></script>
+    </div>
+    <script src="{{ asset('assets/frontend/vendor/jquery/js/jquery.min.js') }} "></script>
+    <script src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
+    <script src="{{ mix('/assets/semua.js') }}"></script>
+	<script src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/jquery.themepunch.tools.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/jquery.themepunch.revolution.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.actions.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.layeranimation.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.navigation.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.parallax.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/revslider/js/extensions/revolution.extension.slideanims.min.js') }} "></script>
 
-	<script defer="defer" src="{{ asset('assets/frontend/vendor/swiper/js/swiper.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>
+	<script src="{{ asset('assets/frontend/vendor/swiper/js/swiper.min.js') }} "></script>
+	<script src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>
 	<script>
 		var revapi7,
 			tpj;

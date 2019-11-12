@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Models\Foto;
 use App\Models\Event;
 use Illuminate\Http\Request;

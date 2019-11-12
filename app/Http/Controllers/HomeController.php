@@ -33,11 +33,11 @@ class HomeController extends Controller
         return view('frontend/galeri', ['title' => $title]);
     }
 
-    public function detail_galeri()
-    {
-        $title = 'Galeri Acara xx1';
-        return view('frontend/detail_galeri', ['title' => $title]);
-    }
+    // public function detail_galeri()
+    // {
+    //     $title = 'Galeri Acara xx1';
+    //     return view('frontend/detail_galeri', ['title' => $title]);
+    // }
 
     public function forum()
     {

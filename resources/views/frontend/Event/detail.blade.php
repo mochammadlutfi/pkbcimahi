@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', $title)
+@section('title', $event->judul)
 @section('content')
 
 	<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
@@ -10,7 +10,7 @@
 					<div class="col-12 col-lg-6">
 						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
 							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-								{{ $title }}
+								{{$event->judul}}
 							</h2>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 									<a href="{{ url('event') }}">Event</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
-								<li class="active">{{ $title }}</li>
+								<li class="active">{{ $event->judul }}</li>
 							</ol>
 						</div>
 					</div>
@@ -56,7 +56,7 @@
 										</a>
 									</div>
 									<h2 class="brs-post__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left">
-										{{ $title }}</h2>
+										{{ $event->judul }}</h2>
 								</div>
 							</div>
 							<div class="brs-post__description">

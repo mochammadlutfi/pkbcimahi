@@ -5,7 +5,7 @@
 					<div class="brk-footer__light-bg pt-35 mt-20">
 						<div class="row">
 							<div class="col-12 col-lg-4">
-								<div class="brk-brand-filter mb-30" data-brk-library="component__widgets">
+								<div class="brk-brand-filter mb-30">
 									<div class="brk-brand-filter__container">
 										<img src="{{ asset('assets/frontend/img/footer/1.png') }}" class="brk-brand-filter__item">
 										<img src="{{ asset('assets/frontend/img/footer/2.png') }}" class="brk-brand-filter__item">
@@ -54,7 +54,7 @@
 							<div class="col-12 col-lg-4">
 								<h6 class="font__family-montserrat font__weight-semibold font__size-18 line__height-20 text-uppercase letter-spacing-100 mb-35 text-center text-sm-left mt-xs-20">Kontak Kami</h6>
 								<hr class="brk-dark-horiz-line mt-0">
-									<div class="brk-social-links brk-social-links_rounded brk-dark-font-color mb-25 d-flex justify-content-center justify-content-sm-start" data-brk-library="component__social_links">
+									<div class="brk-social-links brk-social-links_rounded brk-dark-font-color mb-25 d-flex justify-content-center justify-content-sm-start">
 										<a href="#" class="brk-social-links__item">
 											<i class="fab fa-vimeo-v"></i>
 										</a>
@@ -94,7 +94,7 @@
 							<p class="font__family-16 font__weight-normal line__height-18 pl-1 letter-spacing-40">
 								Copyright © 2017 DPC PKB Kota Cimahi
 							</p>
-							<div class="brk-social-links brk-social-links_opacity font__size-13" data-brk-library="component__social_links">
+							<div class="brk-social-links brk-social-links_opacity font__size-13">
 								<a href="#" class="brk-social-links__item">
 									<i class="fab fa-twitter"></i>
 								</a>
@@ -119,4 +119,3 @@
 				</div>
 			</div>
 		</footer>
-	

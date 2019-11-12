@@ -18,9 +18,9 @@ class Album extends Model
         'nama', 'slug', 'foto', 'seo_keyword', 'seo_description', 'seo_tags', 'status'
     ];
 
-    public function foto()
+    public function fotonya()
     {
-        return $this->hasMany('App\Models\Foto', 'id', 'album_id');
+        return $this->hasMany('App\Models\Foto', 'album_id', 'id');
     }
 
     public function penganggaran()

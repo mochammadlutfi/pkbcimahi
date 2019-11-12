@@ -1,5 +1,17 @@
 const mix = require('laravel-mix');
 
+// mix.styles([
+//     'public/assets/frontend/css/components/unminimized/breadcrumbs.css',
+//     'public/assets/frontend/css/components/unminimized/widgets.css',
+// ], 'public/assets/semua.css');
+
+
+// mix.js([
+//     'public/assets/frontend/js/components/unminimized/breadcrumbs.js',
+//     'public/assets/frontend/js/components/unminimized/widgets.js',
+//     'public/assets/frontend/js/components/unminimized/widgets.js',
+// ], 'public/assets/semua.js');
+
 mix
     /* CSS */
     .sass('resources/sass/main.scss', 'public/assets/backend/css/codebase.css')
@@ -23,4 +35,4 @@ mix
     /* Options */
     .options({
         processCssUrls: false
-    });
+});

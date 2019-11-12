@@ -10,13 +10,23 @@
 // Auth::routes([ 'verify' => true ]);
 
 Route::get('/', 'HomeController@beranda')->name('Beranda');
-Route::get('/galeri', 'HomeController@galeri')->name('galeri');
+// Route::get('/galeri', 'HomeController@galeri')->name('galeri');
 Route::get('/detail_galeri', 'HomeController@detail_galeri')->name('detail_galeri');
 Route::get('/forum', 'HomeController@forum')->name('forum');
 Route::get('/detail_forum', 'HomeController@detail_forum')->name('detail_forum');
 Route::get('/pertanyaan', 'HomeController@pertanyaan')->name('pertanyaan');
-Route::get('/event', 'HomeController@event')->name('event');
-Route::get('/event_detail', 'HomeController@event_detail')->name('event_detail');
+// Route::get('/event', 'HomeController@event')->name('event');
+// Route::get('/event_detail', 'HomeController@event_detail')->name('event_detail');
+
+Route::group(['prefix' => 'event'], function(){
+    Route::get('/', 'EventController@index')->name('event');
+    Route::get('/{slug}', 'EventController@detail')->name('event.detail');
+});
+
+Route::group(['prefix' => 'galeri'], function(){
+    Route::get('/', 'GaleriController@index')->name('galeri');
+    Route::get('/{slug}', 'GaleriController@detail')->name('galeri.detail');
+});
 
 Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
 Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');

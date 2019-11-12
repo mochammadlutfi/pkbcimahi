@@ -1,4 +1,4 @@
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0">
 	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2 brk-bg-grad brk-header__top-bar_hide" data-top="3" style="height: 46px;">
 		<div class="brk-header__title font__family-montserrat font__weight-bold">Contact Us</div>
 		<div class="container-fluid">
@@ -42,7 +42,7 @@
 					<nav class="brk-nav brk-header__item">
 						<ul class="brk-nav__menu">
 							<li class="brk-nav__children brk-nav__full-width">
-								<a href="/" data-brk-library="component__tabs">
+								<a href="/">
 									<span>Beranda</span>
 								</a>
 							</li>
@@ -94,7 +94,7 @@
 						</ul>
 					</nav>
 				</div>
-				
+
 				<div class="col-lg-5 align-self-lg-stretch text-lg-right">
 					<div class="brk-call-us brk-header__item">
 						<a href="tel:18002323485" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i> 1 800 232 3485</a>

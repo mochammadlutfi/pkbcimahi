@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', $title)
+{{-- @section('title', $title) --}}
 @section('content')
 
 	<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
@@ -10,7 +10,7 @@
 					<div class="col-12 col-lg-6">
 						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
 							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-								{{ $title }}
+                                PKB Event's
 							</h2>
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 									<a href="#">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
-								<li class="active">{{ $title }}</li>
+								<li class="active">PKB Event's</li>
 							</ol>
 						</div>
 					</div>
@@ -32,28 +32,28 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container mt-80 mb-40">
 		<div class="row">
-			@for ($i = 1; $i < 10; $i++)
+			@foreach($event as $e)
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" data-brk-library="component__shop_cards">
 						<h6 class="brk-sc-bonus__subtitle font__family-montserrat brk-white-font-color font__size-14 font__weight-bold line__height-14 brk-bg-primary">
-							Senin, {{ $i }} Febuary 2019
+							{{ $e->tgl }}
 						</h6>
 						<h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15">
-							<span class="text-uppercase font__weight-medium">Ini Judul Event</span>
+							<span class="text-uppercase font__weight-medium">{{ $e->judul }}</span>
 						</h5>
 						<p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
-							ini deskripsi ini deskripsi  ini deskripsi  ini deskripsi  ini deskripsi 
+							ini deskripsi ini deskripsi  ini deskripsi  ini deskripsi  ini deskripsi
 						</p>
-						<a href="{{ url('/event_detail') }}" class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Lihat Event</a>
+						<a href="{{ route('event.detail', $e->slug) }}" class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Lihat Event</a>
 					</div>
 				</div>
-			@endfor
+			@endforeach
 		</div>
 	</div>
-	
+
 
 
 @stop
