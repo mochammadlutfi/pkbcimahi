@@ -30,10 +30,14 @@ Route::namespace('User')->group(function(){
 	Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
 	Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
-	Route::get('/login', 'AuthController@login')->name('Login');
-	Route::get('/daftar', 'AuthController@daftar')->name('Daftar');
-	Route::get('/lupa', 'AuthController@lupa')->name('Forgot');
-	Route::get('/verifikasi', 'AuthController@verifikasi')->name('Verifikasi');
+	Route::namespace('Auth')->group(function(){
+		Route::get('/login', 'LoginController@index')->name('Login');
+		Route::get('/daftar', 'SignupController@index')->name('Daftar');
+		Route::get('/lupa', 'ForgotPassController@index')->name('Forgot');
+		// Route::get('/verifikasi', 'VerifikasiController@verifikasi')->name('Verifikasi');
+		Route::get('/profile', 'ProfileController@index')->name('Profile');
+		Route::get('/reset', 'ResetPasswordController@index')->name('reset');
+	});
 });
 
 /* --------------------- Common/User Routes END -------------------------------- */

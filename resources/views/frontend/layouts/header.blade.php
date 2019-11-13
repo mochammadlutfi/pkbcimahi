@@ -20,10 +20,24 @@
 				</div>
 				<div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
 					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-						<a href="{{ url('/login') }}" class="brk-header__element--wrap">
-							<i class="fas fa-sign-in-alt"></i>
-							<span class="brk-header__element--label">Masuk</span>
-						</a>
+						<nav class="brk-nav brk-header__item ">
+							<ul class="brk-nav__menu">
+								<li class="brk-nav__children brk-nav__drop-down-effect" style="color:black">
+									<a href="{{ url('/login') }}" class="brk-header__element--wrap">
+										<i class="fas fa-sign-in-alt"></i>
+										<span class="brk-header__element--label">Masuk</span>
+									</a>
+									<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
+										<li class="dd-effect">
+											<a href="{{ url('/profile') }}">Profile</a>
+										</li>
+										<li class="dd-effect">
+											<a href="{{ url('/login') }}">Logout</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
 					</div>
 					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
 						<a href=" {{ url('/daftar') }} " class="brk-header__element--wrap">
@@ -32,6 +46,27 @@
 						</a>
 					</div>
 				</div>
+				<!-- <div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
+					<div class="brk-mini-cart brk-header__item">
+						<a href="cart.html" class="brk-mini-cart__open d-flex">
+							<i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+							<span class="brk-mini-cart__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">Masuk</span>
+						</a>
+						<div class="brk-mini-cart__menu">
+							<div class="brk-mini-cart__products">
+								<div class="brk-mini-cart__product">
+									<div class="brk-mini-cart__product--title-price">
+										<a href="{{ url('/login') }}" class="brk-header__element--wrap">
+											<i class="fas fa-sign-in-alt"></i>
+											<span class="brk-header__element--label">Profile</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
