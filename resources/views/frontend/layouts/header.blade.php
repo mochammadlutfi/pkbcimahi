@@ -1,5 +1,5 @@
 <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
-	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2 brk-bg-grad brk-header__top-bar_hide" data-top="3" style="height: 46px;">
+	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2 brk-bg-grad " data-top="3" style="height: 46px;" >
 		<div class="brk-header__title font__family-montserrat font__weight-bold">Contact Us</div>
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -15,6 +15,21 @@
 							<i class="far fa-clock"></i>
 							<span class="brk-header__element--label">Sen-Sab (8.00 - 18.00)</span>
 						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ url('/login') }}" class="brk-header__element--wrap">
+							<i class="fas fa-sign-in-alt"></i>
+							<span class="brk-header__element--label">Masuk</span>
+						</a>
+					</div>
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href=" {{ url('/daftar') }} " class="brk-header__element--wrap">
+							<i class="fas fa-user"></i>
+							<span class="brk-header__element--label">Daftar</span>
+						</a>
 					</div>
 				</div>
 			</div>

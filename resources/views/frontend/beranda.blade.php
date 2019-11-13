@@ -224,7 +224,6 @@
 	<section class="pb-50 brk-bg-color-dark-5" style="padding-top: 50px">
 		<div class="container">
 				<div class="text-center">
-					<h2 class="brk-white-font-color font__family-montserrat font__size-36 line__height-40 font__weight-bold mb-50 mt-10">Partner Kami</h2>
 					<div class="brk-logos mb-10">
 						<!-- data-brk-library="component__portfolio_page-styles" -->
 						<div class="row">

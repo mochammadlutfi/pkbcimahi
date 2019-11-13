@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class GaleriController extends Controller
+class EventController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,13 +24,13 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        $title = 'Galeri';
-        return view('frontend/Galeri/index', ['title' => $title]);
+        $title = 'Event';
+        return view('frontend/Event/index', ['title' => $title]);
     }
 
     public function detail()
     {
-        $title = 'Album konoha';
-        return view('frontend/Galeri/detail', ['title' => $title]);
+        $title = 'Event di gedung martabak';
+        return view('frontend/Event/detail', ['title' => $title]);
     }
 }

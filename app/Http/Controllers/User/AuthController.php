@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,33 +22,33 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function login()
     {
         $title = 'Login';
-        return view('frontend/auth/index', ['title' => $title]);
+        return view('frontend/auth/login', ['title' => $title]);
     }
 
     public function daftar()
     {
         $title = 'Daftar';
-        return view('frontend/Event/detail', ['title' => $title]);
+        return view('frontend/auth/daftar', ['title' => $title]);
     }
 
     public function lupa()
     {
         $title = 'Lupa Password';
-        return view('frontend/Event/detail', ['title' => $title]);
+        return view('frontend/auth/forgot', ['title' => $title]);
     }
 
     public function verifikasi()
     {
         $title = 'Verifikasi Email';
-        return view('frontend/Event/detail', ['title' => $title]);
+        return view('frontend/auth/verifikasi', ['title' => $title]);
     }
 
     public function profile()
     {
         $title = 'Profile';
-        return view('frontend/Event/detail', ['title' => $title]);
+        return view('frontend/auth/profile', ['title' => $title]);
     }
 }

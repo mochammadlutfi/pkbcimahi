@@ -8,28 +8,33 @@
 // });
 
 // Auth::routes([ 'verify' => true ]);
+Route::namespace('User')->group(function(){
+	Route::get('/', 'HomeController@beranda')->name('Beranda');
 
-Route::get('/', 'HomeController@beranda')->name('Beranda');
+	Route::get('/QnA', 'QnAController@index')->name('QnA');
+	Route::get('/QnA_detail', 'QnAController@detail')->name('QnA.Detail');
+	Route::get('/QnA_pertanyaan', 'QnAController@pertanyaan')->name('QnA.Pertanyaan');
+	Route::get('/QnA_cari', 'QnAController@cari')->name('QnA.Cari');
 
-Route::get('/QnA', 'QnAController@index')->name('QnA');
-Route::get('/QnA_detail', 'QnAController@detail')->name('QnA.Detail');
-Route::get('/QnA_pertanyaan', 'QnAController@pertanyaan')->name('QnA.Pertanyaan');
-Route::get('/QnA_cari', 'QnAController@cari')->name('QnA.Cari');
 
-Route::get('/event', 'EventController@index')->name('Event');
-Route::get('/event_detail', 'EventController@detail')->name('Event.Detail');
+	Route::get('/event', 'EventController@index')->name('Event');
+	Route::get('/event_detail', 'EventController@detail')->name('Event.Detail');
 
-Route::get('/galeri', 'GaleriController@index')->name('Galeri');
-Route::get('/galeri/detail', 'GaleriController@detail')->name('Galeri.Detail');
+	Route::get('/galeri', 'GaleriController@index')->name('Galeri');
+	Route::get('/galeri/detail', 'GaleriController@detail')->name('Galeri.Detail');
 
-Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
-Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
-Route::get('/ADARTPKB2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
-Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
-Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
-Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
+	Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
+	Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
+	Route::get('/ADARTPKB2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
+	Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
+	Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
+	Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
-Route::get('/login', 'LoginController@index')->name('Login');
+	Route::get('/login', 'AuthController@login')->name('Login');
+	Route::get('/daftar', 'AuthController@daftar')->name('Daftar');
+	Route::get('/lupa', 'AuthController@lupa')->name('Forgot');
+	Route::get('/verifikasi', 'AuthController@verifikasi')->name('Verifikasi');
+});
 
 /* --------------------- Common/User Routes END -------------------------------- */
 
