@@ -48,6 +48,7 @@
 
 	
 </head>
+<body>
 	<div class="main-wrapper">
 		<main class="main-container">
 			<!-- header -->
@@ -58,34 +59,21 @@
 					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100">
 						<div class="card card-signin my-5">
 							<div class="card-body">
-							<h5 class="card-title text-center">Masuk</h5>
+							<h5 class="card-title text-center">Daftar</h5>
 								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="text" placeholder="Username atau Alamat Email">
+									<input type="text" placeholder="Username">
+									<input type="text" placeholder="Email">
 									<input type="password" placeholder="Kata Sandi">
-									
-									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
-										<div>
-											<input id="checkbox-strict-1" name="checkbox" type="checkbox" value="1" checked="checked">
-											<label class="brk-form-checkbox-label" for="checkbox-strict-1">Ingat saya</label>
-										</div>
-										<div>
-											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/lupa') }}">Lupa kata sandi?</a>
-										</div>
-									</div>
 									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
-										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
-											<span class="text">Masuk</span>
+										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-20" data-brk-library="component__button">
+											<span class="text">Daftar</span>
 											<span class="before"><i class="far fa-hand-point-right"></i></span>
 										</button>
-											<a href="{{ url('/daftar') }}" class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
-											<span class="text">Daftar</span>
-											<span class="before"><i class="fas fa-user"></i></span>
-										</a>
 									</div>
 									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center ml-150">
 										<div>
-											Tidak punya akun?
-											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/daftar')}}">Daftar</a>
+											Sudah Punya Akun?
+											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/login')}}">Masuk</a>
 										</div>
 									</div>
 								</form>
@@ -97,12 +85,11 @@
 		</main>
 	</div>
 
-<body>
+
 	<div class="brk-loader">
 		<div class="brk-loader__loader"></div>
 	</div>
-	<div class="main-page">
-	</div>
+	
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>

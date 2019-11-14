@@ -8,6 +8,8 @@
 // });
 
 // Auth::routes([ 'verify' => true ]);
+Route::namespace('User')->group(function(){
+	Route::get('/', 'HomeController@beranda')->name('Beranda');
 
 Route::get('/', 'HomeController@beranda')->name('Beranda');
 // Route::get('/galeri', 'HomeController@galeri')->name('galeri');
@@ -35,7 +37,15 @@ Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLog
 Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
 Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
-Route::get('/login', 'LoginController@index')->name('Login');
+	Route::namespace('Auth')->group(function(){
+		Route::get('/login', 'LoginController@index')->name('Login');
+		Route::get('/daftar', 'SignupController@index')->name('Daftar');
+		Route::get('/lupa', 'ForgotPassController@index')->name('Forgot');
+		// Route::get('/verifikasi', 'VerifikasiController@verifikasi')->name('Verifikasi');
+		Route::get('/profile', 'ProfileController@index')->name('Profile');
+		Route::get('/reset', 'ResetPasswordController@index')->name('reset');
+	});
+});
 
 /* --------------------- Common/User Routes END -------------------------------- */
 

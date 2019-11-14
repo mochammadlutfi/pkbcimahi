@@ -48,61 +48,96 @@
 
 	
 </head>
+<body>
 	<div class="main-wrapper">
 		<main class="main-container">
 			<!-- header -->
 				@include('frontend.layouts.header')
 			<!-- endofheader -->
+			<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
+		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
+		<div class="breadcrumbs__wrapper">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100">
-						<div class="card card-signin my-5">
-							<div class="card-body">
-							<h5 class="card-title text-center">Masuk</h5>
-								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="text" placeholder="Username atau Alamat Email">
-									<input type="password" placeholder="Kata Sandi">
-									
-									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
-										<div>
-											<input id="checkbox-strict-1" name="checkbox" type="checkbox" value="1" checked="checked">
-											<label class="brk-form-checkbox-label" for="checkbox-strict-1">Ingat saya</label>
-										</div>
-										<div>
-											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/lupa') }}">Lupa kata sandi?</a>
-										</div>
-									</div>
-									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
-										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
-											<span class="text">Masuk</span>
-											<span class="before"><i class="far fa-hand-point-right"></i></span>
-										</button>
-											<a href="{{ url('/daftar') }}" class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
-											<span class="text">Daftar</span>
-											<span class="before"><i class="fas fa-user"></i></span>
-										</a>
-									</div>
-									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center ml-150">
-										<div>
-											Tidak punya akun?
-											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/daftar')}}">Daftar</a>
-										</div>
-									</div>
-								</form>
-							</div>
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-6">
+						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
+							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
+								{{ $title }}
+							</h2>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
+							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
+								You are here
+							</h3>
+							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
+								<li>
+									<a href="{{ url('/') }}">Beranda</a>
+									<i class="fal fa-chevron-right icon"></i>
+								</li>
+								<li>
+									<a href="#">{{ $title }}</a>
+								</li>
+							</ol>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+			
+				<section>
+				<div class="row no-gutters">
+					<div class="col-12 col-lg-5 d-lg-block d-none">
+						<div class="full-screen position-relative d-flex flex-column justify-content-center align-items-center z-index-2">
+							<div class="brk-backgrounds brk-base-bg-gradient-15 brk-abs-overlay" data-brk-library="component__backgrounds_css,component__backgrounds_js,assets_particleground">
+								<div class="brk-backgrounds__canvas brk-particles-standart"></div>
+							</div>
+							<div class="z-index-2 mt-25 pl-15 pr-15">
+								<img src="{{ asset('assets/frontend/img/390x390_3.jpg') }}" alt="logo" class="">
+								<!-- <a href="index.html" class="btn-backgrounds btn-backgrounds_transparent btn-backgrounds_left-icon font__family-montserrat font__weight-normal text-uppercase font__size-13 text-center" mb-30 style="padding-left:85px; padding-right: 60px;" data-brk-library="component__button">
+									<span class="text">Ubah Foto</span>
+									<span class="before"><i class="fas fa-arrow-left"></i></span>
+								</a> -->
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-12 col-lg-7">
+						<div class="full-screen d-flex align-items-center pt-30 pb-30 pt-lg-0 pb-lg-0">
+							<div class="container-fluid">
+								<div class="row justify-content-lg-start justify-content-center">
+									<div class="col-lg-2 d-none d-lg-block"></div>
+									<div class="col-12 col-lg-10">
+										<h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">Ubah Profile</h1>
+										<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
+											<input type="text" placeholder="Username">
+											<input type="text" placeholder="Alamat Email">
+											<input type="password" placeholder="Kata sandi">
+											 <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+
+											<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
+												<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-30" data-brk-library="component__button">
+													<span class="text">Ubah</span>
+													<span class="before"><i class="far fa-hand-point-right"></i></span>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 	</div>
-
-<body>
-	<div class="brk-loader">
+</body>
+<div class="brk-loader">
 		<div class="brk-loader__loader"></div>
 	</div>
-	<div class="main-page">
-	</div>
+	
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
