@@ -24,11 +24,11 @@ Route::namespace('User')->group(function(){
 	Route::get('/galeri/detail', 'GaleriController@detail')->name('Galeri.Detail');
 
 	Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
-	Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
-	Route::get('/ADARTPKB2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
-	Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
-	Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
-	Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
+	Route::get('/naskahdeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
+	Route::get('/adartpkb2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
+	Route::get('/maknalogopkb', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
+	Route::get('/visidanmisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
+	Route::get('/mabdasiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
 
 	Route::namespace('Auth')->group(function(){
 		Route::get('/login', 'LoginController@index')->name('Login');

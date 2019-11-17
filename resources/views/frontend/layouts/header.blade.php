@@ -79,22 +79,22 @@
 								</a>
 								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat brk-location-screen-left">
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/sejarah') }}">Sejarah Pendirian PKB</a>
+										<a href="{{ url('/sejarah') }}">Sejarah Pendirian</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/NaskahDeklarasi') }}">Naskah Deklarasi</a>
+										<a href="{{ url('/naskahdeklarasi') }}">Naskah Deklarasi</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/MabdaSiyasi') }}">Mabda Siyasi</a>
+										<a href="{{ url('/mabdasiyasi') }}">Mabda Siyasi</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/ADARTPKB2014') }}">AD ART PKB 2014</a>
+										<a href="{{ url('/adartpkb2014') }}">AD ART PKB 2014</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/MaknaLogoPKB') }}">Makna Logo PKB</a>
+										<a href="{{ url('/maknalogopkb') }}">Makna Logo</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/VisidanMisi') }}">Visi dan Misi</a>
+										<a href="{{ url('/visidanmisi') }}">Visi dan Misi</a>
 									</li>
 								</ul>
 							</li>

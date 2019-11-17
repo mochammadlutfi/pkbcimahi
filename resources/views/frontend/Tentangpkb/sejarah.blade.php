@@ -24,7 +24,7 @@
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li>
-									<a href="{{ url('/QnA') }}">Tentang</a>
+									<a href="#">Tentang</a>
 								</li>
 							</ol>
 						</div>
@@ -115,11 +115,13 @@
 			<div class="col-12 col-lg-4 col-xl-3 order-xs-1 order-lg-2">
 				<div class="brs-sidebar brs-sidebar_right" data-brk-library="component__widgets">
 					<ul class="list-inline-3" data-brk-library="component__list">
-						<li class="font__family-montserrat font__size-16"><span class="before"></span><a href="#">Some list item
-								name</a> <span class="after"></span></li>
-						<li class="font__family-montserrat font__size-16"><span class="before"></span>Some list item name <span class="after"></span></li>
-						<li class="font__family-montserrat font__size-16"><span class="before"></span>Some list item name <span class="after"></span></li>
-						<li class="font__family-montserrat font__size-16"><span class="before"></span>Some list item name <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/sejarah') }}">Sejarah Pendirian</a> <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/naskahdeklarasi') }}">Naskah Deklarasi</a> <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/mabdasiyasi') }}">Mabda Siyasi</a> <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/adartpkb2014') }}">AD ART PKB 2014</a> <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/maknalogopkb') }}">Makna Logo</a> <span class="after"></span></li>
+						<li class="font__family-montserrat font__size-16 active"><span class="before"></span><a href="{{ url('/visidanmisi') }}">Visi dan Misi</a> <span class="after"></span></li>
+
 					</ul>
 				</div>
 			</div>
