@@ -49,7 +49,7 @@
 	
 </head>
 	<div class="main-wrapper">
-		<main class="main-container">
+		<main class="main-container" style="background-color: #09713c">
 			<!-- header -->
 				@include('frontend.layouts.header')
 			<!-- endofheader -->

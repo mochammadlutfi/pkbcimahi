@@ -1,5 +1,5 @@
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
-	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2 brk-bg-grad " data-top="3" style="height: 46px;" >
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark rendered brk-library-rendered d-flex top-bar-active" style="top: -42px;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2  brk-header__top-bar_color-white" data-top="3" style="height: 46px; background-color: #09713c">
 		<div class="brk-header__title font__family-montserrat font__weight-bold">Contact Us</div>
 		<div class="container-fluid">
 			<div class="row align-items-center">
@@ -16,107 +16,80 @@
 							<span class="brk-header__element--label">Sen-Sab (8.00 - 18.00)</span>
 						</div>
 					</div>
-
 				</div>
 				<div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
+<!-- jika tidak login login --------------------------------------------------------------------->					
 					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-						<nav class="brk-nav brk-header__item ">
-							<ul class="brk-nav__menu">
-								<li class="brk-nav__children brk-nav__drop-down-effect" style="color:black">
-									<a href="{{ url('/login') }}" class="brk-header__element--wrap">
-										<i class="fas fa-sign-in-alt"></i>
-										<span class="brk-header__element--label">Masuk</span>
-									</a>
-									<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
-										<li class="dd-effect">
-											<a href="{{ url('/profile') }}">Profile</a>
-										</li>
-										<li class="dd-effect">
-											<a href="{{ url('/login') }}">Logout</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-						<a href=" {{ url('/daftar') }} " class="brk-header__element--wrap">
+						<a href="{{ url('/login') }}" class="brk-header__element--wrap">
 							<i class="fas fa-user"></i>
+							<span class="brk-header__element--label">Masuk</span>
+						</a>
+					</div>
+					
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ url('/daftar') }}" class="brk-header__element--wrap">
+							<i class="fas fa-sign-in-alt"></i>
 							<span class="brk-header__element--label">Daftar</span>
 						</a>
 					</div>
-				</div>
-				<!-- <div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
-					<div class="brk-mini-cart brk-header__item">
-						<a href="cart.html" class="brk-mini-cart__open d-flex">
-							<i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-							<span class="brk-mini-cart__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">Masuk</span>
+<!-- Jika sudah login --------------------------------------------------------------------->
+					<!-- <div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ url('/profile') }}" class="brk-header__element--wrap">
+							<i class="fas fa-user"></i>
+							<span class="brk-header__element--label">Profile</span>
 						</a>
-						<div class="brk-mini-cart__menu">
-							<div class="brk-mini-cart__products">
-								<div class="brk-mini-cart__product">
-									<div class="brk-mini-cart__product--title-price">
-										<a href="{{ url('/login') }}" class="brk-header__element--wrap">
-											<i class="fas fa-sign-in-alt"></i>
-											<span class="brk-header__element--label">Profile</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							
-						</div>
 					</div>
-				</div> -->
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ url('/login') }}" class="brk-header__element--wrap">
+							<i class="fas fa-sign-in-alt"></i>
+							<span class="brk-header__element--label">Logout</span>
+						</a>
+					</div> -->
+<!-- --------------- --------------------------------------------------------------------->
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1" style="height: 72px;">
+	<div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1 bg-white" style="height: 72px;">
 		<div class="container-fluid">
 			<div class="row no-gutters align-items-center">
-				<div class="col-lg-auto align-self-lg-stretch d-none d-lg-block">
-					<div class="brk-open-top-bar brk-header__item">
+				<!-- <div class="col-lg-auto align-self-lg-stretch d-none d-lg-block">
+					<div class="brk-open-top-bar brk-header__item active">
 						<div class="brk-open-top-bar__circle"></div>
 						<div class="brk-open-top-bar__circle"></div>
 						<div class="brk-open-top-bar__circle"></div>
 					</div>
-				</div>
-				<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
-					<div class="text-center">
-						<a href="/" class="brk-header__logo brk-header__item @@modifier">
-							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo.svg') }}" alt="alt">
-							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.svg') }} " alt="alt">
-						</a>
-					</div>
-				</div>
+				</div> -->
 				<div class="col-lg align-self-lg-stretch">
-					<nav class="brk-nav brk-header__item">
+					<nav class="brk-nav brk-header__item rendered">
 						<ul class="brk-nav__menu">
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="#">
 									<span>Berita</span>
 								</a>
 							</li>
+							
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="#">
 									<span>Tentang</span>
 								</a>
-								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
-									<li class="dd-effect">
+								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat brk-location-screen-left">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/sejarah') }}">Sejarah Pendirian PKB</a>
 									</li>
-									<li class="dd-effect">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/NaskahDeklarasi') }}">Naskah Deklarasi</a>
 									</li>
-									<li class="dd-effect">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/MabdaSiyasi') }}">Mabda Siyasi</a>
 									</li>
-									<li class="dd-effect">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/ADARTPKB2014') }}">AD ART PKB 2014</a>
 									</li>
-									<li class="dd-effect">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/MaknaLogoPKB') }}">Makna Logo PKB</a>
 									</li>
-									<li class="dd-effect">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ url('/VisidanMisi') }}">Visi dan Misi</a>
 									</li>
 								</ul>
@@ -139,13 +112,19 @@
 						</ul>
 					</nav>
 				</div>
-				
+				<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
+					<div class="text-center">
+						<a href="/" class="brk-header__logo brk-header__item @@modifier">
+							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.svg') }} " alt="alt">
+						</a>
+					</div>
+				</div>
 				<div class="col-lg-5 align-self-lg-stretch text-lg-right">
 					<div class="brk-call-us brk-header__item">
 						<a href="tel:18002323485" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i> 1 800 232 3485</a>
 						<a href="tel:18002323485" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
 					</div>
-					<div class="brk-social-links brk-header__item">
+					<div class="brk-social-links brk-header__item brk-location-screen-right">
 						<div class="brk-social-links__open">
 							<i class="fa fa-share-alt"></i>
 							<div class="brk-social-links__title">Bagikan situs web kami</div>
@@ -157,13 +136,13 @@
 							<div class="brk-social-links__content">
 								<a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-								<a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+								
 								<a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-								<a href="#"><i class="fab fa-vimeo-square" aria-hidden="true"></i></a>
+								
 							</div>
 						</div>
 					</div>
-					<div class="brk-search brk-header__item">
+					<div class="brk-search brk-header__item brk-location-screen-right">
 						<div class="brk-search__open">
 							<i class="fa fa-search" aria-hidden="true"></i>
 							<div class="brk-search__title">Cari Situs</div>
