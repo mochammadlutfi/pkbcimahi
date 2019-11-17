@@ -50,8 +50,8 @@
 <body>
 	{{-- <div class="brk-loader">
 		<div class="brk-loader__loader"></div>
-	</div> --}}
-	<div class="main-page">
+	</div>
+	<div class="main-page mt-110">
 			<!-- header -->
 				@include('frontend.layouts.header')
 			<!-- endofheader -->
