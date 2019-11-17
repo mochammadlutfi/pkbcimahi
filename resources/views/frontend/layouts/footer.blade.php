@@ -21,7 +21,10 @@
 													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Berita</a>
 												</li>
 												<li class="mb-20">
-													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Visi dan Misi</a>
+													<a href="{{ url('/sejarah') }}" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Tentang</a>
+												</li>
+												<li class="mb-20">
+													<a href="{{ url('galeri') }}" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Galeri</a>
 												</li>
 											</ul>
 										</nav>
@@ -29,14 +32,12 @@
 									<div class="col-12 col-lg-6">
 										<nav>
 											<ul class="font__size-14 font__weight-normal line__height-18 brk-angle-list pt-1 text-sm-left text-center">
+												
 												<li class="mb-20">
-													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Galeri</a>
+													<a href="{{ url('/event') }}" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Event</a>
 												</li>
 												<li class="mb-20">
-													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Event</a>
-												</li>
-												<li class="mb-20">
-													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Tanya Jawab</a>
+													<a href="{{ url('/QnA') }}" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Tanya Jawab</a>
 												</li>
 											</ul>
 										</nav>

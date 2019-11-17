@@ -1,4 +1,8 @@
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark rendered brk-library-rendered d-flex top-bar-active" style="top: -42px;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark rendered brk-library-rendered d-flex top-bar-active pb-1000" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-brk-library="component__header" >
+
+	<!-- <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header"> -->
+
+
 	<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2  brk-header__top-bar_color-white" data-top="3" style="height: 46px; background-color: #09713c">
 		<div class="brk-header__title font__family-montserrat font__weight-bold">Contact Us</div>
 		<div class="container-fluid">
@@ -136,7 +140,7 @@
 							<div class="brk-social-links__content">
 								<a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-								
+								<a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
 								
 							</div>
