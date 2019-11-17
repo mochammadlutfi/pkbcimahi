@@ -18,9 +18,6 @@
 										<nav>
 											<ul class="font__size-14 font__weight-normal line__height-18 brk-angle-list pt-1 text-sm-left text-center">
 												<li class="mb-20">
-													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Beranda</a>
-												</li>
-												<li class="mb-20">
 													<a href="#" class="brk-angle-list__item"><i class="fa fa-angle-right brk-base-font-color"></i>Berita</a>
 												</li>
 												<li class="mb-20">
@@ -49,10 +46,8 @@
 							<div class="col-12 col-lg-4">
 								<h6 class="font__family-montserrat font__weight-semibold font__size-18 line__height-20 text-uppercase letter-spacing-100 mb-35 text-center text-sm-left mt-xs-20">Kontak Kami</h6>
 								<hr class="brk-dark-horiz-line mt-0">
-									<div class="brk-social-links brk-social-links_rounded brk-dark-font-color mb-25 d-flex justify-content-center justify-content-sm-start">
-										<a href="#" class="brk-social-links__item">
-											<i class="fab fa-vimeo-v"></i>
-										</a>
+									<div class="brk-social-links brk-social-links_rounded brk-dark-font-color mb-25 d-flex justify-content-center justify-content-sm-start" data-brk-library="component__social_links">
+										
 										<a href="#" class="brk-social-links__item">
 											<i class="fab fa-youtube"></i>
 										</a>
@@ -63,10 +58,7 @@
 											<i class="fab fa-twitter"></i>
 										</a>
 										<a href="#" class="brk-social-links__item">
-											<i class="fab fa-google"></i>
-										</a>
-										<a href="#" class="brk-social-links__item">
-											<i class="fab fa-vk"></i>
+											<i class="fab fa-instagram"></i>
 										</a>
 									</div>
 									<hr class="brk-dark-horiz-line mt-0 mb-35">
@@ -97,16 +89,10 @@
 									<i class="fab fa-instagram"></i>
 								</a>
 								<a href="#" class="brk-social-links__item">
-									<i class="fab fa-google-plus-g"></i>
-								</a>
-								<a href="#" class="brk-social-links__item">
 									<i class="fab fa-youtube"></i>
 								</a>
 								<a href="#" class="brk-social-links__item">
-									<i class="fab fa-vimeo-v"></i>
-								</a>
-								<a href="#" class="brk-social-links__item">
-									<i class="fab fa-vk"></i>
+									<i class="fab fa-facebook-f"></i>
 								</a>
 							</div>
 						</div>
