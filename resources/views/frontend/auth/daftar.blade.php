@@ -46,7 +46,7 @@
 	<link rel="stylesheet" id="brk-direction-bootstrap" href="{{ asset('assets/frontend/vendor/slickCarousel/css/slick.css') }}">
 	<!-- vendor -->
 
-	
+
 </head>
 <body>
 	<div class="main-wrapper">
@@ -60,10 +60,18 @@
 						<div class="card card-signin my-5">
 							<div class="card-body">
 							<h5 class="card-title text-center">Daftar</h5>
-								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="text" placeholder="Username">
-									<input type="text" placeholder="Email">
-									<input type="password" placeholder="Kata Sandi">
+								<form action="{{ route('register') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
+                                    @csrf
+                                    <input id="nama" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Nama Lengkap">
+                                    {{-- <input id="username" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Username"> --}}
+									<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Alamat Email">
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Password" required>
 									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
 										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-20" data-brk-library="component__button">
 											<span class="text">Daftar</span>
@@ -89,11 +97,11 @@
 	<div class="brk-loader">
 		<div class="brk-loader__loader"></div>
 	</div>
-	
+
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>	
+	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/sliders-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/widgets.js') }} "></script>
@@ -107,8 +115,8 @@
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/recaptcha.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/jquery.particleground.min.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/backgrounds.js') }} "></script>
-	
-	
+
+
 	<!-- js	 -->
 
 	<!-- vendor -->
