@@ -58,10 +58,17 @@
 			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 				<div class="brs-posts-container brs-posts-container_right-divider">
 					<div class="mb-60">
-						<a href="{{ url('/QnA_pertanyaan') }}" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
-							<i class="fa fa-comments" aria-hidden="true"></i>
-							<span class="before">Buat Pertanyaan</span><span class="text">Buat Pertanyaan</span><span class="after">Buat Pertanyaan</span>
-						</a>
+                        @if(Auth::guard('web')->check())
+						    <a href="{{ route('QA.tambah') }}" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                                <span class="before">Buat Pertanyaan</span><span class="text">Buat Pertanyaan</span><span class="after">Buat Pertanyaan</span>
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                                <span class="before">Buat Pertanyaan</span><span class="text">Buat Pertanyaan</span><span class="after">Buat Pertanyaan</span>
+                            </a>
+                        @endif
 
 						<!-- <a href="#" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-0 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
 							<i class="fa fa-edit" aria-hidden="true"></i>
@@ -69,7 +76,7 @@
 						</a> -->
 
 						<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60 mb-10">Diskusi Dengan Fraksi Terbaru</h3>
-						
+
 						@for ($i = 0; $i < 6; $i++)
 						<div>
 							<div class="brk-reply-item" data-brk-library="component__blog_page_css">
@@ -136,5 +143,5 @@
 				</div>
 			</section>
 		</div>
-	
+
 @stop

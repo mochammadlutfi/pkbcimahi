@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Http\Controllers\Controller;
 
 use App\Models\Foto;
 use App\Models\Album;
@@ -30,10 +29,10 @@ class GaleriController extends Controller
     public function detail($slug)
     {
         $album = Album::where('slug', $slug)->first();
-        // dd($album->nama);
         $title = $album->nama;
+        $foto = Foto::where('album_id', $album->id)->get();
 
-        return view('frontend.galeri.detail', compact('album', 'title'));
+        return view('frontend.galeri.detail', compact('album', 'title', 'foto'));
     }
 
 }

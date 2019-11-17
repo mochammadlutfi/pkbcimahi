@@ -63,7 +63,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div> -->
@@ -83,8 +83,8 @@
 				<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
 					<div class="text-center">
 						<a href="/" class="brk-header__logo brk-header__item @@modifier">
-							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo.svg') }}" alt="alt">
-							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.svg') }} " alt="alt">
+							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo.png') }}" alt="alt">
+							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
 						</a>
 					</div>
 				</div>
@@ -132,7 +132,7 @@
 								</a>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ url('/QnA') }}">
+								<a href="{{ route('QA') }}">
 									<span>Tanya Jawab</span>
 								</a>
 							</li>

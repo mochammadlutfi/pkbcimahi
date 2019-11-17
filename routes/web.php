@@ -25,6 +25,12 @@ Route::group(['prefix' => 'event'], function(){
     Route::get('/{slug}', 'EventController@detail')->name('event.detail');
 });
 
+Route::group(['prefix' => 'tanya-jawab'], function(){
+    Route::get('/', 'QnAController@index')->name('QA');
+    Route::get('/buat-pertanyaan', 'QnAController@tambah')->name('QA.tambah');
+    Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
+});
+
 Route::group(['prefix' => 'galeri'], function(){
     Route::get('/', 'GaleriController@index')->name('galeri');
     Route::get('/{slug}', 'GaleriController@detail')->name('galeri.detail');

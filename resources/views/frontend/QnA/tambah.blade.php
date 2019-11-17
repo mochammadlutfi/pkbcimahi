@@ -42,7 +42,7 @@
 						<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60">Silahkan Masukan Pertanyaan Anda</h3>
 						<form action="#" class="brk-reply__form brk-form-strict" data-brk-library="component__form">
 							<div class="row">
-								<div class="col-lg-6 col-12">
+								<div class="col-lg-12 col-12">
 									<input name="name" type="text" placeholder="Judul topik">
 								</div>
 								<div class="col-12">
@@ -102,5 +102,5 @@
 			</div>
 		</div>
 	</div>
-	
+
 @stop

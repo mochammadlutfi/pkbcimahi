@@ -41,26 +41,18 @@
 			<div class="container-fluid mt-50">
 				<div class="brk-gallery">
 					<div class="row">
-						@for ($i = 0; $i < 8; $i++)
+						@foreach($foto as $f)
 						<div class="col-sm-3 col-12">
 							<div class="brk-gallery-card">
 								<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/gallary/gallery-1.png') }}" alt="alt" class="brk-gallery-card__img lazyload">
-								<a href="{{ asset('assets/frontend/img/gallary/gallery-1.png') }}" data-fancybox="gallery" class="icon__btn icon__btn-white icon__btn-lg icon__btn-circled brk-gallery-card__central-btn">
+								<a href="{{ asset('uploads/'.$f->foto) }}" data-fancybox="gallery" class="icon__btn icon__btn-white icon__btn-lg icon__btn-circled brk-gallery-card__central-btn">
 									<i class="fas fa-search icon-inside" aria-hidden="true"></i>
 									<span class="before"></span>
 									<span class="after"></span>
 								</a>
 							</div>
 						</div>
-						@endfor
-						<!-- <div class="col-12 text-center mt-80 mb-80">
-							<a href="#" class="icon__btn icon__btn-anim icon__btn-md icon__btn-invert" data-brk-library="component__button">
-								<span class="before"></span>
-								<i class="fal fa-sync" aria-hidden="true"></i>
-								<span class="after"></span>
-								<span class="bg"></span>
-							</a>
-						</div> -->
+						@endforeach
 					</div>
 				</div>
 			</div>

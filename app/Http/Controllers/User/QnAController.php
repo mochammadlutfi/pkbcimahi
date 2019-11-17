@@ -34,10 +34,10 @@ class QnAController extends Controller
         return view('frontend/QnA/detail', ['title' => $title]);
     }
 
-    public function pertanyaan()
+    public function tambah()
     {
         $title = 'Tanya Fraksi?';
-        return view('frontend/QnA/pertanyaan', ['title' => $title]);
+        return view('frontend.QnA.tambah', compact('title'));
     }
 
     public function cari()

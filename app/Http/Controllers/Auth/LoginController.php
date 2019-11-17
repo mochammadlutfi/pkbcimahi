@@ -40,12 +40,12 @@ class LoginController extends Controller
 
     /**
      * Show the login form.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function showLoginForm()
     {
-        return view('auth.login',[
+        return view('frontend.auth.login',[
             'title' => 'User Login',
             'loginRoute' => 'login',
             'forgotPasswordRoute' => 'password.request',
