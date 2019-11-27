@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Storage;
-
+use Image;
 class SliderController extends Controller
 {
     /**
@@ -53,10 +53,17 @@ class SliderController extends Controller
             ]);
         }else{
             $foto_file = $request->file('foto');
-            $foto = Storage::disk('public')->put('slider', $foto_file);
-
+            $path = Storage::disk('public')->put('slider/original', $foto_file);
+            $thumbnail = Storage::disk('public')->put('slider/thumbnail', $foto_file);
+            //Resize image here
+            $thumbnailpath = public_path('uploads/'.$thumbnail);
+            $img = Image::make($thumbnailpath)->resize(120, 80, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($thumbnailpath);
             $data = new Slider();
-            $data->path = $foto;
+            $data->path = $path;
+            $data->thumbnail = $thumbnail;
             if($data->save())
             {
                 return response()->json([

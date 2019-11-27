@@ -20,18 +20,25 @@
                     </a>
                 </div>
                 <div class="block-content">
-                    <table class="table table-hover table-striped" id="list-album">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Status</th>
-                                <th>Jumlah Foto</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    <div class="row items-push">
+                        @foreach($foto as $f)
+                        <div class="col-md-4 animated fadeIn">
+                            <div class="options-container fx-item-zoom-in" style="height:200px">
+                                <img class="img-fluid options-item" src="{{ asset('uploads/'.$f->path) }}" alt="">
+                                <div class="options-overlay bg-black-op">
+                                    <div class="options-overlay-content">
+                                        <a class="btn btn-sm btn-rounded btn-alt-primary min-width-75" href="javascript:void(0)">
+                                            <i class="fa fa-eye"></i> Detail
+                                        </a>
+                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)">
+                                            <i class="fa fa-times"></i> Hapus
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <!-- END Default Elements -->

@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
                 return redirect()->route('admin.beranda');
             } else {
                 //default guard.
-                return redirect()->route('beranda');
+                return redirect()->route('home');
             }
 
         }

@@ -21,7 +21,7 @@ class GaleriController extends Controller
     {
 
         $galeri = Album::where('status', 1)->latest()->get();
-        $title = 'Galeri';
+        $title = 'Galeri Foto DPC PKB Kota Cimahi';
 
         return view('frontend.galeri.index', compact('galeri', 'title'));
     }
@@ -34,5 +34,6 @@ class GaleriController extends Controller
 
         return view('frontend.galeri.detail', compact('album', 'title', 'foto'));
     }
+
 
 }

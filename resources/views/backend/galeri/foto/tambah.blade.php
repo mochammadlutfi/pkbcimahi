@@ -22,10 +22,11 @@
                 <div class="block-content">
                     <form enctype="multipart/form-data" id="form-foto">
                         @csrf
+                        <input type="hidden" name="album_id" value="{{ $album->id }}">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input id="fotonya" class="file" type="file" name="foto" multiple data-theme="fas" accept="image/*">
+                                    <input id="fotonya" class="file" type="file" name="foto[]" multiple data-theme="fas" accept="image/*">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
         theme: 'fas',
         language: 'id',
         showCancel: false,
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'],
         showUpload: false,
     });
 

@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Http\Controllers\Controller;
 
+use App\Models\Slider;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class HomeController extends Controller
 {
@@ -22,21 +25,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function beranda()
+    public function index()
     {
         $title = 'Beranda';
-        return view('frontend/beranda', ['title' => $title]);
+        $slider = Slider::latest()->get();
+        $client = new Client();
+        $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts?_embed&per_page=6');
+
+        $blog = json_decode($req->getBody()->getContents(), true);
+        // dd($res);
+        // print("<pre>".print_r($blog, true)."</pre");
+        return view('frontend/beranda', compact('title', 'slider', 'blog'));
     }
 
-    public function event()
+    public function wp_api()
     {
-        $title = 'Event';
-        return view('frontend/Event/event', ['title' => $title]);
-    }
+        $client = new Client();
+        $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts');
 
-    public function event_detail()
-    {
-        $title = 'Event bla bla';
-        return view('frontend/Event/event_detail', ['title' => $title]);
+        $res = $req->getBody()->getContents();
+
+        // dd($res);
     }
 }

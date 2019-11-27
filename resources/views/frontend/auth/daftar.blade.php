@@ -63,8 +63,18 @@
 								<form action="{{ route('register') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
                                     @csrf
                                     <input id="nama" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Nama Lengkap">
+                                    @if ($errors->has('nama'))
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $errors->first('nama') }}</strong>
+                                        </span>
+                                    @endif
                                     {{-- <input id="username" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Username"> --}}
 									<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Alamat Email">
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
                                     @if ($errors->has('password'))
                                         <span class="text-danger" role="alert">

@@ -3,7 +3,7 @@
         <a class="{{ Request::is('admin/beranda') ? 'active' : null }}" href="{{ route('admin.beranda') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
     </li>
     <li>
-        <a class="{{ Request::is('admin/galeri', 'admin/galeri/*') ? 'active' : null }}" href="{{ route('admin.slider') }}"><i class="si si-picture"></i><span class="sidebar-mini-hide">Slider</span></a>
+        <a class="{{ Request::is('admin/slider', 'admin/slider/*') ? 'active' : null }}" href="{{ route('admin.slider') }}"><i class="si si-picture"></i><span class="sidebar-mini-hide">Slider</span></a>
     </li>
     <li class="{{ Request::is('admin/tanya-jawab/*') ? 'open' : null }}">
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">

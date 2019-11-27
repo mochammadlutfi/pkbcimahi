@@ -22,20 +22,34 @@
 					</div>
 				</div>
 				<div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
-<!-- jika tidak login login --------------------------------------------------------------------->					
-					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-						<a href="{{ url('/login') }}" class="brk-header__element--wrap">
-							<i class="fas fa-user"></i>
-							<span class="brk-header__element--label">Masuk</span>
-						</a>
-					</div>
-					
-					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-						<a href="{{ url('/daftar') }}" class="brk-header__element--wrap">
-							<i class="fas fa-sign-in-alt"></i>
-							<span class="brk-header__element--label">Daftar</span>
-						</a>
-					</div>
+<!-- jika tidak login login --------------------------------------------------------------------->
+                    @if(Auth::guard('web')->check())
+                    {{-- <div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+                        <a href="{{ route('login') }}" class="brk-header__element--wrap">
+                            <i class="fas fa-user"></i>
+                            <span class="brk-header__element--label">{{ auth()->user()->name }}</span>
+                        </a>
+                    </div> --}}
+                    <div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+					    <div class="brk-header__element--wrap  dropdown">
+                        <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Profil</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="event.preventDefault();
+                                                document.querySelector('#logout-form').submit();">
+                                Keluar
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    @else
 <!-- Jika sudah login --------------------------------------------------------------------->
 					<!-- <div class="brk-header__element brk-header__element_skin-1 brk-header__item">
 						<a href="{{ url('/profile') }}" class="brk-header__element--wrap">
@@ -50,6 +64,20 @@
 						</a>
 					</div> -->
 <!-- --------------- --------------------------------------------------------------------->
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ route('login') }}" class="brk-header__element--wrap">
+							<i class="fas fa-user"></i>
+							<span class="brk-header__element--label">Masuk</span>
+						</a>
+					</div>
+
+					<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+						<a href="{{ route('register') }}" class="brk-header__element--wrap">
+							<i class="fas fa-sign-in-alt"></i>
+							<span class="brk-header__element--label">Daftar</span>
+						</a>
+                    </div>
+                    @endif
 				</div>
 			</div>
 		</div>
@@ -72,39 +100,39 @@
 									<span>Berita</span>
 								</a>
 							</li>
-							
+
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="#">
 									<span>Tentang</span>
 								</a>
 								<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat brk-location-screen-left">
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/sejarah') }}">Sejarah Pendirian PKB</a>
+										<a href="{{ route('tentang.sejarah') }}">Sejarah Pendirian PKB</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/NaskahDeklarasi') }}">Naskah Deklarasi</a>
+										<a href="{{ route('tentang.naskah_deklarasi') }}">Naskah Deklarasi</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/MabdaSiyasi') }}">Mabda Siyasi</a>
+										<a href="{{ route('tentang.mabda_siyasi') }}">Mabda Siyasi</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/ADARTPKB2014') }}">AD ART PKB 2014</a>
+										<a href="{{ route('tentang.ad_art') }}">AD ART PKB 2014</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/MaknaLogoPKB') }}">Makna Logo PKB</a>
+										<a href="{{ route('tentang.makna_logo') }}">Makna Logo PKB</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
-										<a href="{{ url('/VisidanMisi') }}">Visi dan Misi</a>
+										<a href="{{ route('tentang.visi_misi') }}">Visi dan Misi</a>
 									</li>
 								</ul>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ url('galeri') }}">
+								<a href="{{ route('galeri') }}">
 									<span>Galeri</span>
 								</a>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ url('/event') }}">
+								<a href="{{ route('event') }}">
 									<span>Event</span>
 								</a>
 							</li>
@@ -119,7 +147,7 @@
 				<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
 					<div class="text-center">
 						<a href="/" class="brk-header__logo brk-header__item @@modifier">
-							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.svg') }} " alt="alt">
+							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
 						</a>
 					</div>
 				</div>
@@ -142,7 +170,7 @@
 								<a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-								
+
 							</div>
 						</div>
 					</div>

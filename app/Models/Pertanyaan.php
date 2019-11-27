@@ -18,9 +18,9 @@ class Pertanyaan extends Model
         'judul', 'slug', 'deskripsi', 'seo_keyword', 'seo_description', 'seo_tags', 'status', 'user_id'
     ];
 
-    public function foto()
+    public function user()
     {
-        return $this->hasMany('App\Models\Foto', 'id', 'album_id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function penganggaran()

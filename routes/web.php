@@ -1,24 +1,24 @@
 <?php
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 /* --------------------- Common/User Routes START -------------------------------- */
 
-// Route::get('/', function () {
-//     // return view('welcome');
-// });
+Route::get('/coba', function () {
+    // return view('welcome');
+    $client = new Client();
+    $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts?per_page=6');
+
+    $res = $req->getBody()->getContents();
+
+    dd($res);
+});
 
 // Auth::routes([ 'verify' => true ]);
 Route::namespace('User')->group(function(){
-	Route::get('/', 'HomeController@beranda')->name('Beranda');
 
-Route::get('/', 'HomeController@beranda')->name('Beranda');
-// Route::get('/galeri', 'HomeController@galeri')->name('galeri');
-Route::get('/detail_galeri', 'HomeController@detail_galeri')->name('detail_galeri');
-Route::get('/forum', 'HomeController@forum')->name('forum');
-Route::get('/detail_forum', 'HomeController@detail_forum')->name('detail_forum');
-Route::get('/pertanyaan', 'HomeController@pertanyaan')->name('pertanyaan');
-// Route::get('/event', 'HomeController@event')->name('event');
-// Route::get('/event_detail', 'HomeController@event_detail')->name('event_detail');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'event'], function(){
     Route::get('/', 'EventController@index')->name('event');
@@ -28,6 +28,7 @@ Route::group(['prefix' => 'event'], function(){
 Route::group(['prefix' => 'tanya-jawab'], function(){
     Route::get('/', 'QnAController@index')->name('QA');
     Route::get('/buat-pertanyaan', 'QnAController@tambah')->name('QA.tambah');
+    Route::post('/simpan', 'QnAController@simpan')->name('QA.simpan');
     Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
 });
 
@@ -36,12 +37,15 @@ Route::group(['prefix' => 'galeri'], function(){
     Route::get('/{slug}', 'GaleriController@detail')->name('galeri.detail');
 });
 
-Route::get('/sejarah', 'TentangpkbController@sejarah')->name('Sejarah Pendirian PKB');
-Route::get('/NaskahDeklarasi', 'TentangpkbController@NaskahDeklarasi')->name('NaskahDeklarasi');
-Route::get('/ADARTPKB2014', 'TentangpkbController@ADARTPKB2014')->name('ADARTPKB2014');
-Route::get('/MaknaLogoPKB', 'TentangpkbController@MaknaLogoPKB')->name('MaknaLogoPKB');
-Route::get('/VisidanMisi', 'TentangpkbController@VisidanMisi')->name('VisidanMisi');
-Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyasi');
+Route::group(['prefix' => 'tentang'], function(){
+    Route::get('/sejarah-pendirian-pkb', 'TentangController@sejarah')->name('tentang.sejarah');
+    Route::get('/naskah-deklarasi', 'TentangController@NaskahDeklarasi')->name('tentang.naskah_deklarasi');
+    Route::get('/ad-art-pkb-2014', 'TentangController@ADARTPKB2014')->name('tentang.ad_art');
+    Route::get('/makna-logo-pkb', 'TentangController@MaknaLogoPKB')->name('tentang.makna_logo');
+    Route::get('/visi-dan-misi', 'TentangController@VisidanMisi')->name('tentang.visi_misi');
+    Route::get('/mabda-siyasi', 'TentangController@MabdaSiyasi')->name('tentang.mabda_siyasi');
+});
+
 
 	Route::namespace('Auth')->group(function(){
 		Route::get('/login', 'LoginController@index')->name('Login');
@@ -70,8 +74,8 @@ Route::get('/MabdaSiyasi', 'TentangpkbController@MabdaSiyasi')->name('MabdaSiyas
         Route::post('/logout','LoginController@logout')->name('logout');
 
         //Register Routes
-        Route::get('/register','RegisterController@showRegistrationForm')->name('register');
-        Route::post('/register','RegisterController@register');
+        Route::get('/daftar','RegisterController@showRegistrationForm')->name('register');
+        Route::post('/daftar','RegisterController@register');
 
         //Forgot Password Routes
         Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('password.request');

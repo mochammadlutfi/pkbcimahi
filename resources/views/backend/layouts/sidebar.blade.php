@@ -24,15 +24,9 @@
 
                 <!-- Logo -->
                 <div class="content-header-item">
-                    @if(Auth::guard('admin')->check())
-                        <a href="{{ route('admin.beranda') }}">
-                            <img src="{{ asset('assets/img/logo/logo.png') }}" width="140px"/>
-                        </a>
-                    @else
-                        <a href="{{ route('beranda') }}">
-                            <img src="{{ asset('assets/img/logo/logo.png') }}" width="140px"/>
-                        </a>
-                    @endif
+                    <a href="{{ route('admin.beranda') }}">
+                        <img src="{{ asset('assets/img/logo-dark.png') }}" width="180px"/>
+                    </a>
                 </div>
                 <!-- END Logo -->
             </div>

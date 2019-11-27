@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
-use Storage;
+use Image;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriFotoController extends Controller
 {
@@ -71,20 +72,15 @@ class GaleriFotoController extends Controller
 
             if($request->hasfile('foto'))
             {
-                // dd(public_path());
+                // dd($request->album_id);
                 foreach($request->file('foto') as $f)
                 {
-
                     $name= $f->getClientOriginalName();
-                    // Storage::disk('public')->put('galeri/foto/'.$album->id.'/', $f);
-                    $f->move(public_path().'/uploads/galeri/foto/'.$album->id.'/', $name);
-                    // $foto =
-                    // $f->move(public_path().'/uploads/galeri/foto/'.$album->id.'', $name);
+                    $path = Storage::disk('public')->put('galeri/foto/'.$album->id, $f);
                     $file = array(
                         'album_id' => $album->id,
                         'nama' => $name,
-                        'path' => '/uploads/galeri/foto/'.$album->id.'/'.$name,
-                        // 'path' => $foto
+                        'path' => $path,
                     );
                     Foto::insert($file);
                 }

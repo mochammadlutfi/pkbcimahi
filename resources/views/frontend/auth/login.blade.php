@@ -46,7 +46,7 @@
 	<link rel="stylesheet" id="brk-direction-bootstrap" href="{{ asset('assets/frontend/vendor/slickCarousel/css/slick.css') }}">
 	<!-- vendor -->
 
-	
+
 </head>
 	<div class="main-wrapper">
 		<main class="main-container" style="background-color: #09713c">
@@ -59,13 +59,26 @@
 						<div class="card card-signin my-5">
 							<div class="card-body">
 							<h5 class="card-title text-center">Masuk</h5>
-								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="text" placeholder="Username atau Alamat Email">
-									<input type="password" placeholder="Kata Sandi">
-									
+								<form action="{{ route('login') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
+                                    @csrf
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Alamat Email">
+
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+									<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
+
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+
 									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
 										<div>
-											<input id="checkbox-strict-1" name="checkbox" type="checkbox" value="1" checked="checked">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 											<label class="brk-form-checkbox-label" for="checkbox-strict-1">Ingat saya</label>
 										</div>
 										<div>
@@ -106,7 +119,7 @@
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>	
+	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/sliders-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/widgets.js') }} "></script>
@@ -120,8 +133,8 @@
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/recaptcha.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/jquery.particleground.min.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/backgrounds.js') }} "></script>
-	
-	
+
+
 	<!-- js	 -->
 
 	<!-- vendor -->
