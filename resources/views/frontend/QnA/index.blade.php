@@ -1,4 +1,7 @@
 @extends('frontend.layouts.master')
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/components/tags.css ') }}">
+@endsection
 @section('title', $title)
 @section('content')
 <div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
@@ -85,6 +88,12 @@
                             <div
                                 class="brk-dark-font-color font__family-open-sans font__size-md-14 font__size-13 line-height-1-625 mt-10">
                                 {{ $p->deskripsi }}
+                            </div>
+                            <div class="d-flex align-items-start mb-10 float-right">
+                                <span class="font-dark-color-2 font__Family-montserrat font__size-10 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Kategori:</span>
+                                <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
+                                    <li class="font__size-2 mb-40"><a href="#"  rel="tag">{{ $p->qkategori->nama }}</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
