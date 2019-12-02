@@ -23,6 +23,11 @@ class Pertanyaan extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
+    public function qkategori()
+    {
+        return $this->belongsTo('App\Models\QKategori', 'kategori_id', 'id');
+    }
+
     public function penganggaran()
     {
         return $this->belongsTo('App\Models\Penganggaran', 'penganggaran_id', 'id');
