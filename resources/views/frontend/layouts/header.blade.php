@@ -1,4 +1,21 @@
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark rendered brk-library-rendered d-flex top-bar-active pb-1000" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-brk-library="component__header" >
+
+	
+<div class="brk-header-mobile" style="height: 120px">
+	<div class="brk-header-mobile__open brk-header-mobile__open_white">
+		<span></span>
+	</div>
+	<div class="brk-header-mobile__logo">
+		<a href="/">
+			<img class="brk-header-mobile__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt" style="height: 100px">
+
+
+			<img class="brk-header-mobile__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt" style="height: 100px">
+		</a>
+	</div>
+</div>
+
+		
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark brk-library-rendered d-flex top-bar-active pb-1000" data-brk-library="component__header" >
 
 	<!-- <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header"> -->
 
@@ -148,6 +165,8 @@
 					<div class="text-center">
 						<a href="/" class="brk-header__logo brk-header__item @@modifier">
 							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
+
+							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
 						</a>
 					</div>
 				</div>
