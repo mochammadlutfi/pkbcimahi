@@ -62,13 +62,33 @@
 								<p align="center">
 									Masukkan kata sandi baru.
 								</p>
-								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="password" placeholder="Kata sandi">
-									<input type="password" placeholder="Konfirmasi kata sandi">
+								<form action="{{ route($passwordUpdateRoute) }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
+									@csrf
+									<input type="hidden" name="token" value="{{ $token }}">
+
+									<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+
+		                            @error('email')
+						                 <span class="text-danger" role="alert">
+	                                		<strong>{{ $message }}</strong>
+	                            		</span>
+						            @enderror
+		                            
+									<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Kata sandi baru">
+									@error('password')
+						                 <span class="text-danger" role="alert">
+	                                		<strong>{{ $message }}</strong>
+	                            		</span>
+						            @enderror
+
+	                                <div class="col-md-6">
+		                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Konfirmasi Kata sandi baru">
+		                            </div>
+
 									<div class="no-margin pl-10 pr-10 mb-30 mt-10 d-flex flex-wrap justify-content-between align-items-center">
 									</div>
 									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
-										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
+										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button" type="submit">
 											<span class="text">Ubah</span>
 											<span class="before"><i class="far fa-hand-point-right"></i></span>
 										</button>

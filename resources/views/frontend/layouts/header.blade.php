@@ -53,7 +53,7 @@
                             {{ auth()->user()->name }}
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Profil</a>
+                            <a class="dropdown-item" href="{{ url('profile') }}">Profil</a>
                             <a class="dropdown-item" href="#"
                                 onclick="event.preventDefault();
                                                 document.querySelector('#logout-form').submit();">

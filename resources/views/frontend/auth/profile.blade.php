@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-brk-skin="brk-blue.css">
 <head>
-	<title>@yield('title')</title>
+	<title></title>
 
 	<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">
 	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
@@ -62,7 +62,7 @@
 							<div class="col-12 col-lg-6">
 								<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
 									<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-										{{ $title }}
+										
 									</h2>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 											<i class="fal fa-chevron-right icon"></i>
 										</li>
 										<li>
-											<a href="#">{{ $title }}</a>
+											<a href="#"></a>
 										</li>
 									</ol>
 								</div>
@@ -95,7 +95,7 @@
 								<div class="brk-backgrounds__canvas brk-particles-standart"></div>
 							</div>
 							<div class="z-index-2 mt-25 pl-15 pr-15">
-								<img src="{{ asset('assets/frontend/img/390x390_3.jpg') }}" alt="logo" class="">
+								<img src="{{ asset('uploads/'.auth()->user()->avatar) }}" alt="logo" class="">
 								<!-- <a href="index.html" class="btn-backgrounds btn-backgrounds_transparent btn-backgrounds_left-icon font__family-montserrat font__weight-normal text-uppercase font__size-13 text-center" mb-30 style="padding-left:85px; padding-right: 60px;" data-brk-library="component__button">
 									<span class="text">Ubah Foto</span>
 									<span class="before"><i class="fas fa-arrow-left"></i></span>
@@ -111,14 +111,52 @@
 									<div class="col-lg-2 d-none d-lg-block"></div>
 									<div class="col-12 col-lg-10">
 										<h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">Ubah Profile</h1>
-										<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-											<input type="text" placeholder="Username">
-											<input type="text" placeholder="Alamat Email">
-											<input type="password" placeholder="Kata sandi">
-											 <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-
+										<form action="{{ url('/profile/update')  }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" enctype="multipart/form-data" method="POST">
+											
+              								@csrf
+              								<input type="hidden" name="id" value="{{ auth()->user()->id }}">
+              								<div class="form-group">
+												<input type="text" name="name" placeholder="Username" value="{{ auth()->user()->name }}" class="form-control @error('name') is-invalid @enderror">
+												@error('name')
+								                 <span class="text-danger" role="alert">
+                                            		<strong>{{ $message }}</strong>
+                                        		</span>
+								                @enderror
+											</div>
+											<div class="form-group">
+												<input type="text" name="email" placeholder="Alamat Email" value="{{ auth()->user()->email }}" class="form-control @error('email') is-invalid @enderror">
+												@error('email')
+								                 <span class="text-danger" role="alert">
+                                            		<strong>{{ $message }}</strong>
+                                        		</span>
+								                @enderror
+											</div>
+											<div class="form-group">
+												<input type="password" name="password" placeholder="Kata sandi" class="form-control @error('password') is-invalid @enderror">
+												@error('password')
+								                 <span class="text-danger" role="alert">
+                                            		<strong>{{ $message }}</strong>
+                                        		</span>
+								                @enderror
+											</div>
+											<div class="form-group">
+												<input type="password" name="password_confirmation" placeholder="Konfirmasi Kata sandi" class="form-control @error('password_confirmation') is-invalid @enderror">
+												@error('password_confirmation')
+								                 <span class="text-danger" role="alert">
+                                            		<strong>{{ $message }}</strong>
+                                        		</span>
+								                @enderror
+											</div>
+											<div class="form-group">
+												<input type="file" class="custom-file-input" id="validatedCustomFile" required name="avatar">
+												@error('avatar')
+								                 <span class="text-danger" role="alert">
+                                            		<strong>{{ $message }}</strong>
+                                        		</span>
+								                @enderror
+											</div>
 											<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
-												<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-30" data-brk-library="component__button">
+												<button type="submit" class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-30" data-brk-library="component__button" >
 													<span class="text">Ubah</span>
 													<span class="before"><i class="far fa-hand-point-right"></i></span>
 												</button>

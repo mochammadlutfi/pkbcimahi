@@ -62,12 +62,25 @@
 								<p align="center">
 									Masukkan alamat email anda. Kami akan mengirimkan instruksi untuk mengganti kata sandi lewat email.
 								</p>
-								<form action="#" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
-									<input type="text" placeholder="Alamat Email">
+								<form action="{{ route($passwordEmailRoute) }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
+									@csrf
+									@if (session('status'))
+					                    <div class="alert alert-success mt-10" role="alert">
+					                        {{ session('status') }}
+					                    </div>
+					                @endif
+									<div class="form-group">
+										<input type="text" placeholder="Alamat Email" name="email" value="{{ old('email') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+										@error('email')
+						                 <span class="text-danger" role="alert">
+	                                		<strong>{{ $message }}</strong>
+	                            		</span>
+						                @enderror
+						            </div>
 									<div class="no-margin pl-10 pr-10 mb-30 mt-10 d-flex flex-wrap justify-content-between align-items-center">
 									</div>
 									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
-										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
+										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button" type="submit" >
 											<span class="text">Kirim</span>
 											<span class="before"><i class="far fa-hand-point-right"></i></span>
 										</button>
