@@ -10,6 +10,6 @@ class Profile extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name', 'email', 'password', 'avatar'
+        'name', 'email', 'password', 'avatar', 'email_verified_at'
     ];
 }
