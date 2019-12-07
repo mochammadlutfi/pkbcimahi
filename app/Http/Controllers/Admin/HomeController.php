@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Event;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Pertanyaan;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('backend.beranda');
+
+        $user = User::latest()->count();
+        $acara = Event::latest()->count();
+        $pertanyaan_baru = Pertanyaan::latest()->count();
+
+        return view('backend.beranda', compact('user', 'acara', 'pertanyaan_baru'));
     }
 }

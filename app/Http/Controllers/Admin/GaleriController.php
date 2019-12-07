@@ -35,7 +35,7 @@ class GaleriController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('jml_foto', function($row){
-                        return '0';
+                        return $row->fotonya->count(). ' Foto';
                 })
                 ->addColumn('status', function($row){
 

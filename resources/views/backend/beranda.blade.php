@@ -9,10 +9,10 @@
             <a class="block block-link-shadow text-right" href="javascript:void(0)">
                 <div class="block-content block-content-full clearfix">
                     <div class="float-left mt-10 d-none d-sm-block">
-                        <i class="si si-home fa-3x text-body-bg-dark"></i>
+                        <i class="si si-people fa-3x text-body-bg-dark"></i>
                     </div>
-                    <div class="font-size-h3 font-w600" data-toggle="countTo" data-speed="1000" data-to="">0</div>
-                    <div class="font-size-sm font-w600 text-uppercase text-muted">Data Pasar</div>
+                    <div class="font-size-h3 font-w600" data-toggle="countTo" data-speed="1000" data-to="{{ $user }}">0</div>
+                    <div class="font-size-sm font-w600 text-uppercase text-muted">Data Pengguna</div>
                 </div>
             </a>
         </div>
@@ -23,7 +23,7 @@
                         <i class="si si-wallet fa-3x text-body-bg-dark"></i>
                     </div>
                     <div class="font-size-h3 font-w600"><span data-toggle="countTo" data-speed="1000" data-to="">0</span></div>
-                    <div class="font-size-sm font-w600 text-uppercase text-muted">Los/Block</div>
+                    <div class="font-size-sm font-w600 text-uppercase text-muted">Pertanyaan Baru</div>
                 </div>
             </a>
         </div>
@@ -34,7 +34,7 @@
                         <i class="si si-envelope-open fa-3x text-body-bg-dark"></i>
                     </div>
                     <div class="font-size-h3 font-w600" data-toggle="countTo" data-speed="1000" data-to="">0</div>
-                    <div class="font-size-sm font-w600 text-uppercase text-muted">Kios/Ruang</div>
+                    <div class="font-size-sm font-w600 text-uppercase text-muted">Total Pertanyaan</div>
                 </div>
             </a>
         </div>
@@ -42,10 +42,10 @@
             <a class="block block-link-shadow text-right" href="javascript:void(0)">
                 <div class="block-content block-content-full clearfix">
                     <div class="float-left mt-10 d-none d-sm-block">
-                        <i class="si si-users fa-3x text-body-bg-dark"></i>
+                        <i class="si si-calendar fa-3x text-body-bg-dark"></i>
                     </div>
-                    <div class="font-size-h3 font-w600" data-toggle="countTo" data-speed="1000" data-to="">0</div>
-                    <div class="font-size-sm font-w600 text-uppercase text-muted">Penyewa</div>
+                    <div class="font-size-h3 font-w600" data-toggle="countTo" data-speed="1000" data-to="{{ $acara }}">0</div>
+                    <div class="font-size-sm font-w600 text-uppercase text-muted">Total Acara</div>
                 </div>
             </a>
         </div>
@@ -57,7 +57,7 @@
             <div class="block">
                 <div class="block-header">
                     <h3 class="block-title">
-                        Permohonan <small>Bulan Ini</small></small>
+                        Statistik <small>Tanya Jawab</small></small>
                     </h3>
                 </div>
                 <div class="block-content block-content-full">

@@ -32,7 +32,11 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::group(['prefix' => 'tanya-jawab'], function(){
         Route::get('/pertanyaan', 'QAController@pertanyaan')->name('QA.pertanyaan');
         Route::get('/dijawab', 'QAController@dijawab')->name('QA.dijawab');
-        Route::match(['get', 'post'], '/jawab', 'QAController@jawab')->name('QA.jawab');
+        Route::get('/jawab/{id}', 'QAController@jawab')->name('QA.jawab');
+        Route::get('/jawab/{id}', 'QAController@edit')->name('QA.edit');
+        Route::post('/simpan','QAController@simpan')->name('QA.simpan');
+        Route::post('/update','QAController@update')->name('QA.update');
+        // Route::match(['get', 'post'], '/jawab', 'QAController@jawab')->name('QA.jawab');
 
         Route::group(['prefix' => 'kategori'], function(){
             Route::get('/', 'QACategoryController@index')->name('QA.kategori');
@@ -75,6 +79,15 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/edit/{id}','SliderController@edit')->name('slider.edit');
         Route::post('/update','SliderController@update')->name('slider.update');
         Route::get('/hapus/{id}','SliderController@hapus')->name('slider.hapus');
+    });
+
+
+    Route::group(['prefix' => 'pengguna'], function () {
+        Route::get('/','PenggunaController@index')->name('pengguna');
+        Route::post('/simpan','PenggunaController@simpan')->name('pengguna.simpan');
+        Route::get('/edit/{id}','PenggunaController@edit')->name('pengguna.edit');
+        Route::post('/update','PenggunaController@update')->name('pengguna.update');
+        Route::get('/hapus/{id}','PenggunaController@hapus')->name('pengguna.hapus');
     });
 });
 

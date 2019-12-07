@@ -1,18 +1,28 @@
 <?php
-
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use App\Admin;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 /* --------------------- Common/User Routes START -------------------------------- */
 
 Route::get('/coba', function () {
     // return view('welcome');
-    $client = new Client();
-    $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts?per_page=6');
+    // $client = new Client();
+    // $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts?per_page=6');
 
-    $res = $req->getBody()->getContents();
+    // $res = $req->getBody()->getContents();
 
-    dd($res);
+    // dd($res);
+    // $a1 = Role::create(['guard_name' => 'admin', 'name' => 'Admin']);
+    // $b2 = Role::create(['guard_name' => 'admin', 'name' => 'Fraksi']);
+    // $role = Role::create(['name' => 'Fraksi']);
+    // echo ;
+    // $u = Auth::guard('admin')->user();
+
+    // $u->assignRole(3);
+    $u = Admin::role(3)->get();
+
+    dd($u);
 });
 
 // Auth::routes([ 'verify' => true ]);

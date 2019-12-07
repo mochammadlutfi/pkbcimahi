@@ -6,6 +6,7 @@ use App\Models\QKategori;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
@@ -38,7 +39,9 @@ class QnAController extends Controller
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
         $tanya = Pertanyaan::where('slug', $slug)->first();
-        return view('frontend.QnA.detail', compact('title', 'tanya'));
+
+        $jawab = Jawaban::where('pertanyaan_id', $tanya->id)->first();
+        return view('frontend.QnA.detail', compact('title', 'tanya', 'jawab'));
     }
 
     public function tambah()

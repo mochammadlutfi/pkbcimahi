@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
         {{-- <link rel="stylesheet" id="css-main" href="{{ asset('assets/backend/css/codebase.css') }}"> --}}
         <link rel="stylesheet" id="css-main" href="{{ mix('/assets/backend/css/codebase.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.css') }}">
         <!-- Scripts -->
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
@@ -86,10 +87,11 @@
         });
         </script> --}}
         <!-- Codebase Core JS -->
-        <script src="{{ asset('assets/backend/js/laroute.js') }}"></script>
+        {{-- <script src="{{ asset('assets/backend/js/laroute.js') }}"></script> --}}
         <script src="{{ mix('/assets/backend/js/codebase.app.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
         <!-- Laravel Scaffolding JS -->

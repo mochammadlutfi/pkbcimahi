@@ -129,4 +129,55 @@ class EventController extends Controller
 
         return view('backend.event.edit', compact('event'));
     }
+
+    public function update(Request $request)
+    {
+
+        $rules = [
+            'judul' => 'required',
+            'slug' => 'required',
+            'status' => 'required'
+        ];
+
+        $pesan = [
+            'judul.required' => 'Nama Event Wajib Diisi!',
+            'slug.required' => 'Slug Event Wajib Diisi!',
+            'status.required' => 'Status Event Wajib Diisi!'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $pesan);
+        if ($validator->fails()){
+            return response()->json([
+                'fail' => true,
+                'errors' => $validator->errors()
+            ]);
+        }else{
+
+            if($request->hasfile('foto'))
+            {
+                $foto_file = $request->file('foto');
+                $foto = Storage::disk('public')->put('events', $foto_file);
+            }
+
+            $data = Event::find($request->event_id);
+            $data->judul = $request->judul;
+            $data->slug = $request->slug;
+            $data->deskripsi = $request->deskripsi;
+            if($request->hasfile('foto'))
+            {
+            $data->featured_img = $foto;
+            }
+            $data->tgl = date('Y-m-d', strtotime($request->tgl));
+            $data->seo_keyword = $request->seo_keyword;
+            $data->seo_description = $request->seo_description;
+            $data->seo_tags = $request->seo_tags;
+            $data->status = $request->status;
+            if($data->save())
+            {
+                return response()->json([
+                    'fail' => false,
+                ]);
+            }
+        }
+    }
 }

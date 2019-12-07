@@ -26,6 +26,7 @@
                 <div class="block-content">
                     <form id="form-event" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="event_id" value="{{ $event->id }}">
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="form-group row mb-3">
@@ -133,7 +134,11 @@
                                     <label class="col-12">Thumbnail</label>
                                     <div class="col-lg-12">
                                         <div class="text-center mb-15">
+                                            @if($event->featured_img == null)
                                             <img id="img_preview" src="{{ asset('assets/img/poster.png') }}" width="100%">
+                                            @else
+                                            <img id="img_preview" src="{{ asset('uploads/'.$event->featured_img) }}" width="100%">
+                                            @endif
                                         </div>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="field-foto" name="foto" data-toggle="custom-file-input" accept="image/*">
@@ -232,7 +237,7 @@
         var formData = new FormData($('#form-event')[0]);
 
         $.ajax({
-            url: "{{ route('admin.event.simpan') }}",
+            url: "{{ route('admin.event.update') }}",
             type: 'POST',
             data: formData,
             cache: false,
@@ -244,7 +249,7 @@
                     $('#modal_embed').modal('hide');
                     swal({
                         title: "Berhasil",
-                        text: "Foto Berhasil Di Upload",
+                        text: "Event Berhasil Diperbaharui",
                         timer: 3000,
                         buttons: false,
                         icon: 'success'

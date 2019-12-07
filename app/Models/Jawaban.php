@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jawaban extends Model
 {
-    protected $table = 'album';
+    protected $table = 'jawaban';
     protected $primaryKey = 'id';
 
      /**
@@ -15,16 +15,16 @@ class Jawaban extends Model
      * @var array
      */
     protected $fillable = [
-        'nama', 'slug', 'foto', 'seo_keyword', 'seo_description', 'seo_tags', 'status'
+        'pertanyaan_id', 'deskripsi', 'admin_id',
     ];
 
-    public function foto()
+    public function pertanyaan()
     {
-        return $this->hasMany('App\Models\Foto', 'id', 'album_id');
+        return $this->belongsTo('App\Models\Pertanyaan', 'pertanyaan_id', 'id');
     }
 
-    public function penganggaran()
+    public function admin()
     {
-        return $this->belongsTo('App\Models\Penganggaran', 'penganggaran_id', 'id');
+        return $this->belongsTo('App\Admin', 'admin_id', 'id');
     }
 }
