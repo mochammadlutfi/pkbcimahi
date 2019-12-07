@@ -48,15 +48,20 @@
 
 	
 </head>
-	<div class="main-wrapper" style="height: mx-auto">
-		<main class="main-container" style="background-color: #09713c;">
+<body>
+	<div class="main-page">
+	<div class="brk-loader">
+		<div class="brk-loader__loader"></div>
+	</div>
+	<div class="main-wrapper">
+		<main class="main-container">
 			<!-- header -->
 				@include('frontend.layouts.header')
 			<!-- endofheader -->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100">
-						<div class="card card-signin my-5">
+			<div class="container" >
+				<div class="row" >
+					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100" >
+						<div class="card card-signin my-5 mt-150">
 							<div class="card-body">
 							<h5 class="card-title text-center">Verifikasi Email Anda</h5>
 								@if (session('resent'))
@@ -84,13 +89,10 @@
 			</div>
 		</main>
 	</div>
+</div>
 
-<body>
-	<div class="brk-loader">
-		<div class="brk-loader__loader"></div>
-	</div>
-	<div class="main-page">
-	</div>
+	
+	
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>

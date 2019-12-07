@@ -39,11 +39,16 @@ class ProfileController extends Controller
         $pass =  $request->input('password');
         $c_pas =  $request->input('password_confirmation');
         $data->update();
+
         if ($pass == "" or $c_pas == "") {
             if ($lama <> $baru) {
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|unique:users',
+                ]);
+
+                $data->update([
+                    'email_verified_at' =>  null,
                 ]);
             }else{
                 $request->validate([
@@ -61,6 +66,7 @@ class ProfileController extends Controller
 
                 $data->update([
                     'email_verified_at' =>  null,
+                    'password' =>Hash::make($request->password),
                 ]);
             }else{
                 $request->validate([
@@ -68,13 +74,15 @@ class ProfileController extends Controller
                     'password' => 'required',
                     'password_confirmation' => 'required|same:password',
                 ]);
+                $data->update([
+                    'password' =>Hash::make($request->password),
+                ]);
             }
         }
 
         $foto_file = $request->file('avatar');
         if ($foto_file == "") {
             $data->update([
-                'password' =>Hash::make($request->password),
                 'name' =>$request->name,
                 'email' =>  $request->email,
             ]);
@@ -82,11 +90,11 @@ class ProfileController extends Controller
             $foto = Storage::disk('public')->put('avatars', $foto_file);
             $data->update([
                 'avatar' => $foto,
-                'password' =>Hash::make($request->password),
                 'name' =>$request->name,
                 'email' =>  $request->email,
             ]);
         }
+        dd($data);
         return redirect('/profile');
     }
 
