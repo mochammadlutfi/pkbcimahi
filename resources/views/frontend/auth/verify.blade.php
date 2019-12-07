@@ -48,58 +48,40 @@
 
 	
 </head>
+<body>
+	<div class="main-page">
+	<div class="brk-loader">
+		<div class="brk-loader__loader"></div>
+	</div>
 	<div class="main-wrapper">
-		<main class="main-container" style="background-color: #09713c">
+		<main class="main-container">
 			<!-- header -->
 				@include('frontend.layouts.header')
 			<!-- endofheader -->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100">
-						<div class="card card-signin my-5">
+			<div class="container" >
+				<div class="row" >
+					<div class="col-sm-9 col-md-7 col-lg-6 mx-auto mt-100" >
+						<div class="card card-signin my-5 mt-150">
 							<div class="card-body">
-							<h5 class="card-title text-center">Verifikasi</h5>
+							<h5 class="card-title text-center">Verifikasi Email Anda</h5>
+								@if (session('resent'))
+								
+								<div class="alert alert-clean fade alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show mt-10" role="alert" data-brk-library="component__alert">
+									<button type="button" class="close font__size-18" data-dismiss="alert">
+										<span aria-hidden="true">
+											<i class="fal fa-times"></i>
+										</span>
+										<span class="sr-only">Close</span>
+									</button>
+									<i class="start-icon far fa-check-circle"></i>
+									Tautan verifikasi baru telah dikirim ke alamat email Anda.
+								</div>
+
+								@endif
 								<p align="center">
-									Masukkan kata sandi baru.
+									{{ __('Sebelum melanjutkan, silakan periksa email Anda untuk tautan verifikasi.') }}
+                    				{{ __('Jika Anda tidak menerima email') }}, <a href="{{ route($resendRoute) }}" style="color: grey"><strong class="font__weight-semibold">{{ __('klik di sini untuk mengirim permintaan verifikasi lain') }} </strong></a>.
 								</p>
-								<form action="{{ route($passwordUpdateRoute) }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" method="POST">
-									@csrf
-									<input type="hidden" name="token" value="{{ $token }}">
-
-									<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
-
-		                            @error('email')
-						                 <span class="text-danger" role="alert">
-	                                		<strong>{{ $message }}</strong>
-	                            		</span>
-						            @enderror
-		                            
-									<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Kata sandi baru">
-									@error('password')
-						                 <span class="text-danger" role="alert">
-	                                		<strong>{{ $message }}</strong>
-	                            		</span>
-						            @enderror
-
-	                                <div class="col-md-6">
-		                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Konfirmasi Kata sandi baru">
-		                            </div>
-
-									<div class="no-margin pl-10 pr-10 mb-30 mt-10 d-flex flex-wrap justify-content-between align-items-center">
-									</div>
-									<div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row ml-120">
-										<button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button" type="submit">
-											<span class="text">Ubah</span>
-											<span class="before"><i class="far fa-hand-point-right"></i></span>
-										</button>
-									</div>
-									<div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center ml-150">
-										<div>
-											Sudah punya akun?
-											<a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ url('/login')}}">Masuk</a>
-										</div>
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -107,13 +89,10 @@
 			</div>
 		</main>
 	</div>
+</div>
 
-<body>
-	<div class="brk-loader">
-		<div class="brk-loader__loader"></div>
-	</div>
-	<div class="main-page">
-	</div>
+	
+	
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>

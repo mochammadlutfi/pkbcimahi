@@ -25,7 +25,7 @@ Route::get('/coba', function () {
     dd($u);
 });
 
-// Auth::routes([ 'verify' => true ]);
+Auth::routes([ 'verify' => true ]);
 Route::namespace('User')->group(function(){
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -58,12 +58,10 @@ Route::group(['prefix' => 'tentang'], function(){
 
 
 	Route::namespace('Auth')->group(function(){
-		Route::get('/login', 'LoginController@index')->name('Login');
-		Route::get('/daftar', 'SignupController@index')->name('Daftar');
-		Route::get('/lupa', 'ForgotPassController@index')->name('Forgot');
 		// Route::get('/verifikasi', 'VerifikasiController@verifikasi')->name('Verifikasi');
 		Route::get('/profile', 'ProfileController@index')->name('Profile');
-		Route::get('/reset', 'ResetPasswordController@index')->name('reset');
+        Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
+		// Route::get('/reset', 'ResetPasswordController@index')->name('reset');
 	});
 });
 
@@ -88,12 +86,12 @@ Route::group(['prefix' => 'tentang'], function(){
         Route::post('/daftar','RegisterController@register');
 
         //Forgot Password Routes
-        Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('password.request');
-        Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+        Route::get('/lupa','ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::post('/lupa/email','ForgotPasswordController@sendResetLinkEmail')->name('lupa.email');
 
         //Reset Password Routes
-        Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('password.reset');
-        Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
+        Route::get('/lupa/{token}','ResetPasswordController@showResetForm')->name('password.reset');
+        Route::post('/lupa','ResetPasswordController@reset')->name('password.update');
 
         // Email Verification Route(s)
         Route::get('email/verify','VerificationController@show')->name('verification.notice');

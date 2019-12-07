@@ -62,6 +62,7 @@ return array(
     'App\\Models\\Foto' => $baseDir . '/app/Models/Foto.php',
     'App\\Models\\Jawaban' => $baseDir . '/app/Models/Jawaban.php',
     'App\\Models\\Pertanyaan' => $baseDir . '/app/Models/Pertanyaan.php',
+    'App\\Models\\Profile' => $baseDir . '/app/Models/Profile.php',
     'App\\Models\\QKategori' => $baseDir . '/app/Models/QKategori.php',
     'App\\Models\\Slider' => $baseDir . '/app/Models/Slider.php',
     'App\\Notifications\\AdminEmailVerificationNotification' => $baseDir . '/app/Notifications/AdminEmailVerificationNotification.php',

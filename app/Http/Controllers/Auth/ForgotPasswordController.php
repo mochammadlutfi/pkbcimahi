@@ -36,9 +36,8 @@ class ForgotPasswordController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showLinkRequestForm(){
-        return view('auth.passwords.email',[
-            'title' => 'Password Reset',
-            'passwordEmailRoute' => 'password.email'
+        return view('frontend.auth.forgot',[
+            'passwordEmailRoute' => 'lupa.email'
         ]);
     }
 }

@@ -589,6 +589,7 @@ class ComposerStaticInit165988651edca2006b6200e2e5996801
         'App\\Models\\Foto' => __DIR__ . '/../..' . '/app/Models/Foto.php',
         'App\\Models\\Jawaban' => __DIR__ . '/../..' . '/app/Models/Jawaban.php',
         'App\\Models\\Pertanyaan' => __DIR__ . '/../..' . '/app/Models/Pertanyaan.php',
+        'App\\Models\\Profile' => __DIR__ . '/../..' . '/app/Models/Profile.php',
         'App\\Models\\QKategori' => __DIR__ . '/../..' . '/app/Models/QKategori.php',
         'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',
         'App\\Notifications\\AdminEmailVerificationNotification' => __DIR__ . '/../..' . '/app/Notifications/AdminEmailVerificationNotification.php',

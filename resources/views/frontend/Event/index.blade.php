@@ -1,5 +1,8 @@
 @extends('frontend.layouts.master')
 {{-- @section('title', $title) --}}
+@section('styles')
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/components/shop-components-cards.css') }}">
+@endsection
 @section('content')
 
 	<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{ asset('assets/frontend/img/1920x258_1.jpg') }}" data-brk-library="component__breadcrumbs_css">
@@ -42,7 +45,7 @@
 							{{ $e->tgl }}
 						</h6>
 						<h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15">
-							<span class="text-uppercase font__weight-medium">{{ $e->judul }}</span>
+							<span class="text-uppercase font__weight-medium">Ayo! Ikuti</span><br><span class="font__family-playfair font__style-italic">{{ $e->judul }}</span>
 						</h5>
 						<p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
 							ini deskripsi ini deskripsi  ini deskripsi  ini deskripsi  ini deskripsi
