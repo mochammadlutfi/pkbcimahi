@@ -46,6 +46,10 @@ Route::group(['prefix' => 'tentang'], function(){
     Route::get('/mabda-siyasi', 'TentangController@MabdaSiyasi')->name('tentang.mabda_siyasi');
 });
 
+Route::group(['prefix' => 'fraksi'], function(){
+    Route::get('/', 'FraksiController@index')->name('fraksi');
+    Route::get('/detail', 'FraksiController@detail')->name('fraksi.detail');
+});
 
 	Route::namespace('Auth')->group(function(){
 		// Route::get('/verifikasi', 'VerifikasiController@verifikasi')->name('Verifikasi');
