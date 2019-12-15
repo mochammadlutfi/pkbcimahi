@@ -19,7 +19,7 @@ class FraksiController extends Controller
 
     public function detail()
     {
-    	$title = 'Ini Nama Fraksi';
+    	$title = 'Profile';
         return view('frontend.fraksi.detail', compact('title'));
     }
 

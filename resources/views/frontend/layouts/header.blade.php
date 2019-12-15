@@ -144,6 +144,11 @@
 								</ul>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
+								<a href="{{ route('fraksi') }}">
+									<span>Fraksi</span>
+								</a>
+							</li>
+							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="{{ route('galeri') }}">
 									<span>Galeri</span>
 								</a>
