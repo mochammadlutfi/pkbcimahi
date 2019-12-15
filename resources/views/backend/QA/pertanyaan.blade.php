@@ -26,6 +26,7 @@
                                 <th>Judul</th>
                                 <th>Kategori</th>
                                 <th>Penanya</th>
+                                <th>Tanggal</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>
@@ -147,6 +148,10 @@ $(function () {
             {
                 data: 'penanya',
                 name: 'penanya'
+            },
+            {
+                data: 'tgl',
+                name: 'tgl'
             },
             {
                 data: 'status',

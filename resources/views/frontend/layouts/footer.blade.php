@@ -1,10 +1,10 @@
-<footer class="brk-footer brk-footer-1 position-relative">
+<footer class="brk-footer brk-footer-1 position-relative" data-brk-library="twitter_init">
         <div class="brk-footer__wrapper brk-footer__wrapper_shadow">
             <div class="row no-gutters">
                 <div class="col-xl-6 col-12">
-                    <div class="brk-map h-100" data-height="520">
+                    <div class="brk-map h-100" data-height="520" data-brk-library="component__map">
                         <div class="brk-map__section">
-                            <div class="brk-map__canvas h-100" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="img/gm-1.png" data-offset-lat="0.0047" data-style="silver" data-lat="40.6898297" data-lng="-73.94250620000003">
+                            <div class="brk-map__canvas h-100" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="img/gm-1.png" data-offset-lat="0.0047" data-style="silver" data-lat="-6.923850" data-lng="107.561870">
                             </div>
                         </div>
                         <div class="brk-map__infoicon brk-map__infoicon_layout-one text-center">

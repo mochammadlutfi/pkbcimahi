@@ -58,6 +58,10 @@ class QAController extends Controller
 
                         return $status;
                 })
+                ->addColumn('tgl', function($row){
+                    return $row->created_at;
+
+                })
                 ->addColumn('action', function($row){
                     if($row->status == 0)
                     {
@@ -134,6 +138,20 @@ class QAController extends Controller
 
         return view('backend.QA.edit_jawab', compact('q', 'a'));
 
+    }
+
+    public function update(Request $request)
+    {
+        $data = Jawaban::find($request->jawaban_id);
+        $data->deskripsi = $request->deskripsi;
+        $data->admin_id = auth()->guard('admin')->user()->id;
+        $data->pertanyaan_id = $request->pertanyaan_id;
+        if($data->save())
+        {
+            return response()->json([
+                'fail' => false,
+            ]);
+        }
     }
 
 }

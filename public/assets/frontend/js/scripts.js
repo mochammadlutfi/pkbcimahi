@@ -99,7 +99,7 @@ var Berserk = Berserk || {'settings': {timeout_delay: 200}, 'behaviors': {}};
 
 var brk_xmode = false;
 // Put your google maps api key here
-Berserk.settings.gmap_api_key = typeof brk !== 'undefined' && typeof brk.gmap_api_key !== 'undefined' ? brk.gmap_api_key : "";
+Berserk.settings.gmap_api_key = typeof brk !== 'undefined' && typeof brk.gmap_api_key !== 'undefined' ? brk.gmap_api_key : "AIzaSyCeQBvgWWU9QI4ca0E8vB3XEPr11rOGv7k";
 // Put your Re-Captcha key here
 Berserk.settings.recaptcha_api_key = typeof brk !== 'undefined' && typeof brk.recaptcha_api_key !== 'undefined' ? brk.recaptcha_api_key : "6Lfsu3QUAAAAAO6j2iAsncliNSQqISfipl0DjPAp";
 // Advanced: If your real project path is different then in the URL
@@ -726,7 +726,7 @@ function isSafari() {
       $('[data-brk-library]').each(function() {
         brs_add_libraries_lazy($(this).data('brk-library'));
       });
-    }  
+    }
   });
   */
 
@@ -1858,7 +1858,7 @@ function isSafari() {
 
   });
   /* end direction */
-  
+
 	/* options border */
 	var $optBorder 								= $('[data-brk-options-border]'),
 			$optionsBorderCheckGlobal = $optBorder.find('.brk-theme-options__check');
@@ -2277,7 +2277,7 @@ function isSafari() {
                 if($linkHref !== '/') {
                   if (($linkHref[0] === '#' && $linkHref.length === 1) || $linkHref === 'javascript:void(0)' || !$linkHref.length) {
                     $this.on('click', function (e) {
-                      
+
                       e.preventDefault();
                       var $this = $(this),
                         $parent = $this.parent(),
@@ -2823,7 +2823,7 @@ function isSafari() {
             if(sliders.length){
               sliders.each(function () {
                 var _this = $(this);
-                setTimeout(_this.slick("setPosition", 0), 200); 
+                setTimeout(_this.slick("setPosition", 0), 200);
               })
             }
           });
@@ -3166,7 +3166,7 @@ function isSafari() {
 
       function btn_inside_out() {
         $(context).parent().find('.btn-inside-out').addClass('rendered').each(function(){
-          var 
+          var
             textTag = $(this).find(".text"),
             text = textTag.text(),
             textBefore = $(this).find(".before").text(),
@@ -3363,7 +3363,7 @@ function isSafari() {
         var _ = $(this),
           wrap = 'brk-form-file-wrap',
           wrapTr = 'brk-form-file-wrap-transparent';
-        
+
         $(this).addClass("rendered");
 
         if (_.attr('type') === 'file') {
@@ -3500,7 +3500,7 @@ function isSafari() {
   'use strict';
 
   Berserk.behaviors.image_map_init = {
-    attach: function (context, settings) {      
+    attach: function (context, settings) {
 
       if($('.brk-image-map:not(.rendered)').length < 1) {
         return;
@@ -3512,10 +3512,10 @@ function isSafari() {
         return;
       }
 
-      $(context).parent().find('.brk-image-map:not(.rendered)').each(function() { 
+      $(context).parent().find('.brk-image-map:not(.rendered)').each(function() {
         var $this 	= $(this),
-            imData	= $this.data('brk-image-map');            
-    
+            imData	= $this.data('brk-image-map');
+
         setTimeout(function () {
           $this.imageMapPro(imData);
         }, 100);
@@ -3540,7 +3540,7 @@ function isSafari() {
       });
     }
   }
-})(jQuery); 
+})(jQuery);
 
 (function ($) {
   'use strict';
@@ -3633,8 +3633,8 @@ function isSafari() {
           $(this).addClass("rendered");
         })
       }
-      //footer shop slider end 
-      
+      //footer shop slider end
+
     }
   };
 
@@ -3754,7 +3754,7 @@ function isSafari() {
                   category_name: '.brk-simple-card__category',
                 }
               });
-            }  
+            }
           },400);
           // each filter count
 
@@ -4025,7 +4025,7 @@ function isSafari() {
           var it = $(this);
           var steps_wrap_main = it.parents(".steps__wrapper-main");
           var steps_wrap_light = it.parents(".steps__wrapper-light");
-    
+
           function steps_wrap_main_func() {
             var steps_wrap = steps_wrap_main.width();
             var steps_count = steps_wrap_main.find("li").length - 1;
@@ -4034,12 +4034,12 @@ function isSafari() {
             var steps_w = steps_compl_count * 100 / steps_count;
             steps_prog.css({width: steps_w + "%",});
           }
-    
+
           if (steps_wrap_main.length) {
             steps_wrap_main_func();
           }
           $(window).on("resize", steps_wrap_main_func);
-    
+
           function steps_wrap_light_func() {
             var sw_light_compl = steps_wrap_light.find(".complete");
             var steps_prog = steps_wrap_light.find(".steps__progress");
@@ -4058,30 +4058,30 @@ function isSafari() {
           },300);
 
           $(window).on("resize", steps_wrap_light_func);
-    
+
           var tabsgroup = it.parent().siblings(".tabgroup");
           var tab_links = it.find(">li>a");
           tabsgroup.find(">div").hide();
           tabsgroup.find($(it.find(">li>a.active").attr("href"))).show();
           tab_links.on("click", function (e) {
-            
+
             var $this = $(this);
             var tabgroup = "#" + $this.parents(".tabs").data("tabgroup");
             var others = $this.closest("li").siblings().children("a");
             var target = $this.attr("href") || null;
-            
+
             if(target === null || target.length === 0 || target[0] === "#"){
               e.preventDefault();
               tab_links.parent().removeClass("complete");
               $this.parent().prevAll().addClass("complete");
               $this.parent().nextAll().removeClass("complete");
               $this.parent().addClass("complete");
-      
+
               others.removeClass("active");
               $this.addClass("active");
               $(tabgroup).children("div").hide();
               $(target).show();
-      
+
               if (steps_wrap_main.length) {
                 steps_wrap_main_func();
               }
@@ -4092,7 +4092,7 @@ function isSafari() {
           });
         });
       }
-    
+
     }
   }
 
@@ -4123,7 +4123,7 @@ function isSafari() {
       }
 
       setVimeoVolume();
-      
+
       window.addEventListener('load', function () {
         $(function () {
           $('.player-yt:not(.rendered)', context).addClass("rendered").each(function () {
@@ -4177,8 +4177,8 @@ function isSafari() {
   Berserk.behaviors.counter_init = {
     attach: function (context, settings) {
 
-      var counter = $(".counter:not(.rendered)", context); 
-      
+      var counter = $(".counter:not(.rendered)", context);
+
       if (counter.length) {
         counter.each(function () {
           var it = $(this);

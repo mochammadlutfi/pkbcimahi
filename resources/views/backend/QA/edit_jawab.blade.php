@@ -36,7 +36,11 @@
                         <td class="d-none d-sm-table-cell text-center" style="width: 140px;">
                             <div class="mb-10">
                                 <a href="be_pages_generic_profile.html">
-                                    <img class="img-avatar" src="{{ asset('assets/img/avatars/avatar6.jpg') }}" alt="">
+                                    @if($q->user->avatar <> null)
+                                        <img class="img-avatar" src="{{ asset($q->user->avatar) }}" alt="">
+                                    @else
+                                        <img class="img-avatar" src="{{ Avatar::create($q->user->name)->toBase64() }}" alt="">
+                                    @endif
                                 </a>
                             </div>
                             <small>313 Pertanyaan</small>
@@ -51,6 +55,7 @@
             <hr>
             <form id="form-jawab" onsubmit="return false;">
                 @csrf
+                <input type="hidden" name="jawaban_id" value="{{ $a->id }}">
                 <input type="hidden" name="pertanyaan_id" value="{{ $q->id }}">
                 <div class="row">
                     <div class="col-lg-12">
@@ -100,7 +105,7 @@ $("#form-jawab").submit(function (e) {
                 $('#modal_embed').modal('hide');
                 swal({
                     title: "Berhasil",
-                    text: "Foto Berhasil Di Upload",
+                    text: "Jawaban Berhasil Di Perbaharui",
                     timer: 3000,
                     buttons: false,
                     icon: 'success'

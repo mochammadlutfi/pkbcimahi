@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\AdminEmailVerificationNotification;
 use App\Notifications\AdminResetPasswordNotification as Notification;
 use Spatie\Permission\Traits\HasRoles;
-class Admin extends Authenticatable implements MustVerifyEmail
+class Admin extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
@@ -19,7 +18,7 @@ class Admin extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'username', 'avatar', 'password',
     ];
 
     /**

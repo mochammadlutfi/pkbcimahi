@@ -57,11 +57,12 @@
             <div class="block">
                 <div class="block-header">
                     <h3 class="block-title">
-                        Statistik <small>Tanya Jawab</small></small>
+                        Statistik Tanya Jawab <small>Minggu Ini</small>
                     </h3>
                 </div>
                 <div class="block-content block-content-full">
                     <div class="pull-all">
+                        {!! $chart->container() !!}
                     </div>
                 </div>
             </div>
@@ -71,5 +72,7 @@
 </div>
 @stop
 @push('scripts')
+<script src="{{ asset('assets/backend/js/plugins/chartjs/Chart.bundle.min.js') }}"></script>
+{!! $chart->script() !!}
 @endpush
 

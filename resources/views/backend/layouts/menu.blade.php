@@ -3,7 +3,7 @@
         <a class="{{ Request::is('admin/beranda') ? 'active' : null }}" href="{{ route('admin.beranda') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
     </li>
     <li>
-        <a class="{{ Request::is('admin/pengguna') ? 'active' : null }}" href="{{ route('admin.pengguna') }}"><i class="si si-people"></i><span class="sidebar-mini-hide">Pengguna</span></a>
+        <a class="{{ Request::is('admin/member') ? 'active' : null }}" href="{{ route('admin.member') }}"><i class="si si-people"></i><span class="sidebar-mini-hide">Pengguna</span></a>
     </li>
     <li>
         <a class="{{ Request::is('admin/slider', 'admin/slider/*') ? 'active' : null }}" href="{{ route('admin.slider') }}"><i class="si si-picture"></i><span class="sidebar-mini-hide">Slider</span></a>
@@ -43,23 +43,23 @@
             </li>
         </ul>
     </li>
-    <li class="{{ Request::is('') ? 'open' : null }}">
+    <li class="{{ Request::is('admin/fraksi/*', 'admin/fraksi') ? 'open' : null }}">
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
             <i class="si si-user"></i>
             <span class="sidebar-mini-hide">Fraksi</span></a>
         <ul>
             <li>
-                <a class="{{ Request::is('admin/event/tambah') ? 'active' : null}}"
-                    href="{{ route('admin.event.tambah') }}">Tambah Fraksi</a>
+                <a class="{{ Request::is('admin/fraksi/tambah') ? 'active' : null}}"
+                    href="{{ route('admin.fraksi.tambah') }}">Tambah Fraksi</a>
             </li>
             <li>
-                <a class="{{ Request::is('admin/event') ? 'active' : null}}"
-                    href="{{ route('admin.event') }}">Kelola Fraksi</a>
+                <a class="{{ Request::is('admin/fraksi') ? 'active' : null}}"
+                    href="{{ route('admin.fraksi') }}">Kelola Fraksi</a>
             </li>
         </ul>
     </li>
     <li>
-        <a class="{{ Request::is('') ? 'active' : null }}" href="{{ route('admin.galeri') }}">
+        <a class="{{ Request::is('') ? 'active' : null }}" href="{{ route('admin.pengguna') }}">
             <i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Admin</span>
         </a>
     </li>

@@ -37,7 +37,7 @@ Route::group(['prefix' => 'event'], function(){
 
 Route::group(['prefix' => 'tanya-jawab'], function(){
     Route::get('/', 'QnAController@index')->name('QA');
-    Route::get('/buat-pertanyaan', 'QnAController@tambah')->name('QA.tambah');
+    Route::get('/buat-pertanyaan', 'QnAController@tambah')->middleware('auth','verified')->name('QA.tambah');
     Route::post('/simpan', 'QnAController@simpan')->name('QA.simpan');
     Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
 });

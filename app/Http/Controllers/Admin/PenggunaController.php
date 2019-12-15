@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
-use Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -185,21 +184,6 @@ class PenggunaController extends Controller
                 'fail' => false,
             ]);
         }
-    }
-
-    public function get_json(Request $request){
-
-        $user = Penyewa::find($request->value);
-
-        $data = array(
-            'nama' => $user->nama,
-            'nik' => $user->nik,
-            'tmp_lahir' => $user->tmp_lahir,
-            'tgl_lahir' => date('d-m-Y', strtotime($user->tgl_lahir)),
-            'alamat' => $user->alamat.' RT.'. $user->rt.' RW.'.$user->rw.' Desa/Kel. '.$user->kelurahan->nama.' Kec. '.$user->kecamatan->nama.'Kabupaten Bandung Barat',
-        );
-
-        return response()->json($data);
     }
 
     public function pengaturan(Request $request)

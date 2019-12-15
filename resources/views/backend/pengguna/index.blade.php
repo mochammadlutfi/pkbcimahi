@@ -44,7 +44,7 @@ $(function () {
     $('#list-pengguna').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin.pengguna') }}",
+        ajax: "{{ route('admin.member') }}",
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'

@@ -39,6 +39,7 @@
 
 	<link rel="stylesheet" href="{{ asset('assets/frontend/css/components/social-links.css ') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/components/google-maps.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/components/google-maps.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/components/blog-page.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/frontend/css/components/blog.css') }}">
@@ -49,7 +50,7 @@
 
 	{{-- <!-- galeri -->
 	<!-- galeri detail -->
-	
+
 	<!-- blog -->
 	<!-- QnA -->
 
@@ -81,7 +82,7 @@
 
 	</div>
     <!-- js	 -->
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeQBvgWWU9QI4ca0E8vB3XEPr11rOGv7k&callback=initMap"></script>
     <script src="{{ asset('assets/frontend/vendor/jquery/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/vendor/popper/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -92,6 +93,7 @@
     <script src="{{ asset('assets/frontend/vendor/lazysizes/js/lazysizes.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/vendor/formStyler/js/jquery.formstyler.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/assets/berserk.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/assets/twitter-init.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/assets/brk-customizer.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/assets/brk-header.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/components/accordions.js') }}"></script>
@@ -111,8 +113,18 @@
     <script src="{{ asset('assets/frontend/js/components/info-box.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/components/blog-page.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/components/google-maps.js') }} "></script>
+    <script src="{{ asset('assets/frontend/js/components/timelines.js') }} "></script>
     @stack('scripts')
 
-	<!-- beranda -->
+    {{-- One Signal --}}
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+        appId: "b5fa9d06-1f2d-4e5d-94b7-a22907aca75d",
+        });
+    });
+    </script>
 </body>
 </html>

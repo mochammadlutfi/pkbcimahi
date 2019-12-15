@@ -35,8 +35,12 @@
                     <tr>
                         <td class="d-none d-sm-table-cell text-center" style="width: 140px;">
                             <div class="mb-10">
-                                <a href="be_pages_generic_profile.html">
-                                    <img class="img-avatar" src="{{ asset('assets/img/avatars/avatar6.jpg') }}" alt="">
+                                <a href="#">
+                                    @if($q->user->avatar == null)
+                                        <img class="img-avatar" src="{{ asset('assets/img/avatars/avatar6.jpg') }}" alt="">
+                                    @else
+                                        <img class="img-avatar" src="{{ Avatar::create('Joko Widodo')->toBase64() }}" alt="">
+                                    @endif
                                 </a>
                             </div>
                             <small>313 Pertanyaan</small>

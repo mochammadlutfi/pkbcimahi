@@ -168,6 +168,9 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -228,8 +231,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Image' => Intervention\Image\Facades\Image::class,
-
+        'Image'  => Intervention\Image\Facades\Image::class,
+        'Avatar' => Laravolt\Avatar\Facade::class,
     ],
 
 ];

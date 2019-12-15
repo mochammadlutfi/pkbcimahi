@@ -33,7 +33,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/pertanyaan', 'QAController@pertanyaan')->name('QA.pertanyaan');
         Route::get('/dijawab', 'QAController@dijawab')->name('QA.dijawab');
         Route::get('/jawab/{id}', 'QAController@jawab')->name('QA.jawab');
-        Route::get('/jawab/{id}', 'QAController@edit')->name('QA.edit');
+        Route::get('/jawab/edit/{id}', 'QAController@edit')->name('QA.edit');
         Route::post('/simpan','QAController@simpan')->name('QA.simpan');
         Route::post('/update','QAController@update')->name('QA.update');
         // Route::match(['get', 'post'], '/jawab', 'QAController@jawab')->name('QA.jawab');
@@ -82,12 +82,31 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     });
 
 
-    Route::group(['prefix' => 'pengguna'], function () {
-        Route::get('/','PenggunaController@index')->name('pengguna');
-        Route::post('/simpan','PenggunaController@simpan')->name('pengguna.simpan');
-        Route::get('/edit/{id}','PenggunaController@edit')->name('pengguna.edit');
-        Route::post('/update','PenggunaController@update')->name('pengguna.update');
-        Route::get('/hapus/{id}','PenggunaController@hapus')->name('pengguna.hapus');
+    Route::group(['prefix' => 'member'], function () {
+        Route::get('/','PenggunaController@index')->name('member');
+        Route::post('/simpan','PenggunaController@simpan')->name('member.simpan');
+        Route::get('/edit/{id}','PenggunaController@edit')->name('member.edit');
+        Route::post('/update','PenggunaController@update')->name('member.update');
+        Route::get('/hapus/{id}','PenggunaController@hapus')->name('member.hapus');
     });
+
+    Route::group(['prefix' => 'pengguna'], function () {
+        Route::get('/','AdminController@index')->name('pengguna');
+        Route::get('/tambah','AdminController@tambah')->name('pengguna.tambah');
+        Route::post('/simpan','AdminController@simpan')->name('pengguna.simpan');
+        Route::get('/edit/{id}','AdminController@edit')->name('pengguna.edit');
+        Route::post('/update','AdminController@update')->name('pengguna.update');
+        Route::get('/hapus/{id}','AdminController@hapus')->name('pengguna.hapus');
+    });
+
+    Route::group(['prefix' => 'fraksi'], function () {
+        Route::get('/','FraksiController@index')->name('fraksi');
+        Route::get('/tambah','FraksiController@tambah')->name('fraksi.tambah');
+        Route::post('/simpan','FraksiController@simpan')->name('fraksi.simpan');
+        Route::get('/edit/{id}','FraksiController@edit')->name('fraksi.edit');
+        Route::post('/update','FraksiController@update')->name('fraksi.update');
+        Route::get('/hapus/{id}','FraksiController@hapus')->name('fraksi.hapus');
+    });
+
 });
 
