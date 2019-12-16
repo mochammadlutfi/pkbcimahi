@@ -1,5 +1,5 @@
 
-	
+
 <div class="brk-header-mobile" style="height: 120px">
 	<div class="brk-header-mobile__open brk-header-mobile__open_white">
 		<span></span>
@@ -14,7 +14,7 @@
 	</div>
 </div>
 
-		
+
 <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark brk-library-rendered d-flex top-bar-active pb-1000" data-brk-library="component__header" >
 
 	<!-- <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header"> -->
@@ -151,7 +151,15 @@
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="{{ route('galeri') }}">
 									<span>Galeri</span>
-								</a>
+                                </a>
+                                <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat brk-location-screen-left">
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
+										<a href="{{ route('galeri') }}">Album</a>
+									</li>
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
+										<a href="{{ route('galeri.instagram') }}">Instagram</a>
+                                    </li>
+                                </ul>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
 								<a href="{{ route('event') }}">

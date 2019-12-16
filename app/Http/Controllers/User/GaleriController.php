@@ -26,6 +26,12 @@ class GaleriController extends Controller
         return view('frontend.galeri.index', compact('galeri', 'title'));
     }
 
+    public function instagram()
+    {
+        $title = 'Galeri Foto Instagram';
+        return view('frontend.galeri.instagram', compact('title'));
+    }
+
     public function detail($slug)
     {
         $album = Album::where('slug', $slug)->first();
