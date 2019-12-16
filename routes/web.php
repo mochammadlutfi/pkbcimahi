@@ -45,6 +45,7 @@ Route::group(['prefix' => 'tanya-jawab'], function(){
 Route::group(['prefix' => 'galeri'], function(){
     Route::get('/', 'GaleriController@index')->name('galeri');
     Route::get('/{slug}', 'GaleriController@detail')->name('galeri.detail');
+    Route::get('/p/instagram', 'GaleriController@instagram')->name('galeri.instagram');
 });
 
 Route::group(['prefix' => 'tentang'], function(){
