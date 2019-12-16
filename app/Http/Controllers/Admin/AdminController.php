@@ -50,11 +50,11 @@ class AdminController extends Controller
                     $btn = '<center><div class="btn-group" role="group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aksi</button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 34px, 0px);">
-                                <a class="dropdown-item" href="javascript:void(0)" onClick="edit('.$row->id.')">
-                                    <i class="si si-note mr-5"></i>Edit Pengguna
+                                <a class="dropdown-item" href="'. route('admin.pengguna.edit', $row->id) .'">
+                                    <i class="si si-note mr-5"></i>Edit Admin
                                 </a>
                                 <a class="dropdown-item" href="javascript:void(0)" onClick="hapus('.$row->id.')">
-                                    <i class="si si-trash mr-5"></i>Hapus Pengguna
+                                    <i class="si si-trash mr-5"></i>Hapus Admin
                                 </a>
                             </div>
                         </div></center>';
@@ -74,54 +74,6 @@ class AdminController extends Controller
     }
 
     public function simpan(Request $request)
-    {
-        $rules = [
-            'nip' => 'required',
-            'nama' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'konf_password' => 'required',
-            'jabatan' => 'required',
-        ];
-
-        $pesan = [
-            'nip.required' => 'NIP Wajib Diisi!',
-            'nama.required' => 'Nama Lengkap Wajib Diisi!',
-            'username.required' => 'Username Wajib Diisi!',
-            'email.required' => 'Email Wajib Diisi!',
-            'password.required' => 'Password Wajib Diisi!',
-            'konf_password.required' => 'Konfirmasi Password Wajib Diisi!',
-            'jabatan.required' => 'Jabatan Wajib Diisi!',
-        ];
-
-        $validator = Validator::make($request->all(), $rules, $pesan);
-        if ($validator->fails()){
-            return response()->json([
-                'fail' => true,
-                'errors' => $validator->errors()
-            ]);
-        }else{
-
-            $data = new User();
-            $data->nip = $request->nip;
-            $data->nama = $request->nama;
-            $data->username = $request->username;
-            $data->email = $request->email;
-            $data->password = bcrypt($request->password);
-            $data->status = $request->status;
-            if($data->save())
-            {
-                $data->assignRole($request->jabatan);
-                return response()->json([
-                    'fail' => false,
-                    'url' => route('pengguna')
-                ]);
-            }
-        }
-    }
-
-    public function update(Request $request)
     {
         $rules = [
             'nama' => 'required',
@@ -176,23 +128,61 @@ class AdminController extends Controller
         }
     }
 
+    public function update(Request $request)
+    {
+        $rules = [
+            'nama' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'foto' => 'required|image',
+        ];
+
+        $pesan = [
+            'nama.required' => 'Nama Lengkap Wajib Diisi!',
+            'username.required' => 'Username Wajib Diisi!',
+            'email.required' => 'Email Wajib Diisi!',
+            'foto.required' => 'Foto Pengguna Wajib Diisi!',
+            'foto.image' => 'Foto Pengguna Bukan Format Gambar!',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $pesan);
+        if ($validator->fails()){
+            return response()->json([
+                'fail' => true,
+                'errors' => $validator->errors()
+            ]);
+        }else{
+
+            if($request->hasfile('foto'))
+            {
+                $foto_file = $request->file('foto');
+                $foto = Storage::disk('public')->put('admin', $foto_file);
+            }
+
+            $data = Admin::find($request->admin_id);
+            $data->name = $request->nama;
+            $data->username = $request->username;
+            $data->email = $request->email;
+            if($request->hasfile('foto'))
+            {
+                $data->avatar = $foto;
+            }
+            if($data->save())
+            {
+                $data->assignRole('Admin');
+                return response()->json([
+                    'fail' => false,
+                    'url' => route('admin.pengguna')
+                ]);
+            }
+        }
+    }
+
     public function edit($id){
 
-        $data = User::find($id);
-        if($data){
+        $data = Admin::find($id);
 
-            $user = collect([
-                'id' => $data->id,
-                'nip' => $data->nip,
-                'nama' => $data->nama,
-                'username' => $data->username,
-                'email' => $data->email,
-                'jabatan' => $data->getRoleNames()->first(),
-                'pasar' => $data->pasar,
-            ]);
-
-            return response()->json($user);
-        }
+        return view('backend.admin.edit', compact('data', ''));
     }
 
     public function hapus($id)

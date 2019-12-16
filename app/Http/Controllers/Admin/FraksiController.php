@@ -51,7 +51,7 @@ class FraksiController extends Controller
                     $btn = '<center><div class="btn-group" role="group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aksi</button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 34px, 0px);">
-                                <a class="dropdown-item" href="javascript:void(0)" onClick="edit('.$row->id.')">
+                                <a class="dropdown-item" href="'. route('admin.fraksi.edit', $row->id) .'">
                                     <i class="si si-note mr-5"></i>Edit Pengguna
                                 </a>
                                 <a class="dropdown-item" href="javascript:void(0)" onClick="hapus('.$row->id.')">
@@ -136,19 +136,18 @@ class FraksiController extends Controller
         // dd($request->all());
 
         $rules = [
-            'edit_nip' => 'required',
-            'edit_nama' => 'required',
-            'edit_username' => 'required',
-            'edit_email' => 'required',
-            'edit_jabatan' => 'required',
+            'nama' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'foto' => 'required|image',
         ];
 
         $pesan = [
-            'edit_nip.required' => 'NIP Wajib Diisi!',
-            'edit_nama.required' => 'Nama Lengkap Wajib Diisi!',
-            'edit_username.required' => 'Username Wajib Diisi!',
-            'edit_email.required' => 'Email Wajib Diisi!',
-            'edit_jabatan.required' => 'Jabatan Wajib Diisi!',
+            'nama.required' => 'Nama Lengkap Wajib Diisi!',
+            'username.required' => 'Username Wajib Diisi!',
+            'email.required' => 'Email Wajib Diisi!',
+            'foto.required' => 'Foto Pengguna Wajib Diisi!',
+            'foto.image' => 'Foto Pengguna Bukan Format Gambar!',
         ];
 
         $validator = Validator::make($request->all(), $rules, $pesan);
@@ -159,36 +158,37 @@ class FraksiController extends Controller
             ]);
         }else{
 
-            $data = User::find($request->edit_user_id);
-            $data->nip = $request->edit_nip;
-            $data->nama = $request->edit_nama;
-            $data->username = $request->edit_username;
-            $data->email = $request->edit_email;
-            $data->status = $request->edit_status;
-            return response()->json([
-                'fail' => false,
-                'url' => route('penyewa')
-            ]);
+            if($request->hasfile('foto'))
+            {
+                $foto_file = $request->file('foto');
+                $foto = Storage::disk('public')->put('fraksi', $foto_file);
+            }
+
+            $data = new Admin();
+            $data->name = $request->nama;
+            $data->username = $request->username;
+            $data->email = $request->email;
+            $data->password = bcrypt($request->password);
+            if($request->hasfile('foto'))
+            {
+                $data->avatar = $foto;
+            }
+            if($data->save())
+            {
+                $data->assignRole('Fraksi');
+                return response()->json([
+                    'fail' => false,
+                    'url' => route('admin.fraksi')
+                ]);
+            }
         }
     }
 
     public function edit($id){
 
-        $data = User::find($id);
-        if($data){
+        $data = Admin::find($id);
 
-            $user = collect([
-                'id' => $data->id,
-                'nip' => $data->nip,
-                'nama' => $data->nama,
-                'username' => $data->username,
-                'email' => $data->email,
-                'jabatan' => $data->getRoleNames()->first(),
-                'pasar' => $data->pasar,
-            ]);
-
-            return response()->json($user);
-        }
+        return view('backend.admin.edit', compact('data', ''));
     }
 
     public function hapus($id)

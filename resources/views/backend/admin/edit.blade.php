@@ -44,13 +44,18 @@
                 <div class="block-content">
                     <form id="form-pengguna" class="form-horizontal">
                         @csrf
+                        <input type="hidden" name="admin_id" value="{{ $data->id }}">
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="d-flex justify-content-center p-3">
                                     <div class="card text-center">
                                         <div class="card-body">
                                             <div class="profile-img p-3">
+                                                @if($data->avatar == null)
                                                 <img src="{{ asset('assets/img/avatars/avatar0.jpg') }}" id="profile-pic">
+                                                @else
+                                                <img src="{{ asset('uploads/'.$data->avatar) }}" id="profile-pic">
+                                                @endif
                                             </div>
                                             <div class="btn btn-dark">
                                                 <input type="file" class="file-upload" id="file-upload"
@@ -64,28 +69,18 @@
                             <div class="col-lg-8">
                                 <div class="form-group">
                                     <label class="col-form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama" id="field-nama" placeholder="Masukan Nama Lengkap">
+                                    <input type="text" class="form-control" name="nama" id="field-nama" placeholder="Masukan Nama Lengkap" value="{{ $data->name }}">
                                     <span id="error-nama" class="invalid-feedback"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Username</label>
-                                    <input type="text" class="form-control" name="username" id="field-username" placeholder="Masukan Username">
+                                    <input type="text" class="form-control" name="username" id="field-username" placeholder="Masukan Username" value="{{ $data->username }}">
                                     <span id="error-username" class="invalid-feedback"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Alamat Email</label>
-                                    <input type="email" class="form-control" name="email" id="field-email" placeholder="Masukan Alamat Email">
+                                    <input type="email" class="form-control" name="email" id="field-email" placeholder="Masukan Alamat Email" value="{{ $data->email }}">
                                     <span id="error-email" class="invalid-feedback"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" id="field-password" placeholder="Masukan Password">
-                                    <span id="error-password" class="invalid-feedback"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" name="konf_password" id="field-konf_password" placeholder="Masukan Konfirmasi Password">
-                                    <span id="error-konf_password" class="invalid-feedback"></span>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +210,7 @@ jQuery(document).ready(function () {
             formData.append(poData[i].name, poData[i].value);
         }
         $.ajax({
-            url: "{{ route('admin.pengguna.simpan') }}",
+            url: "{{ route('admin.pengguna.update') }}",
             type: 'POST',
             data: formData,
             cache: false,
@@ -227,7 +222,7 @@ jQuery(document).ready(function () {
                     $('#modal_embed').modal('hide');
                     swal({
                         title: "Berhasil",
-                        text: 'Admin Berhasil Disimpan!',
+                        text: 'Data Admin Berhasil Diperbaharui!',
                         timer: 3000,
                         buttons: false,
                         icon: 'success'

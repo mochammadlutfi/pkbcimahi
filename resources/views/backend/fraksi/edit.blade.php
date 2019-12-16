@@ -31,7 +31,7 @@
 <div class="content">
     <nav class="breadcrumb bg-white push">
         <a class="breadcrumb-item" href="{{ route('admin.beranda') }}">Beranda</a>
-        <a class="breadcrumb-item" href="{{ route('admin.fraksi') }}">Admin</a>
+        <a class="breadcrumb-item" href="{{ route('admin.fraksi') }}">Fraksi</a>
         <span class="breadcrumb-item active">Tambah</span>
     </nav>
     <div class="row">
@@ -39,7 +39,7 @@
             <!-- Default Elements -->
             <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Tambah Admin</h3>
+                    <h3 class="block-title">Tambah Anggota Fraksi</h3>
                 </div>
                 <div class="block-content">
                     <form id="form-pengguna" class="form-horizontal">
@@ -50,7 +50,11 @@
                                     <div class="card text-center">
                                         <div class="card-body">
                                             <div class="profile-img p-3">
+                                                @if($data->avatar == null)
                                                 <img src="{{ asset('assets/img/avatars/avatar0.jpg') }}" id="profile-pic">
+                                                @else
+                                                <img src="{{ asset('uploads/'.$data->avatar) }}" id="profile-pic">
+                                                @endif
                                             </div>
                                             <div class="btn btn-dark">
                                                 <input type="file" class="file-upload" id="file-upload"
@@ -64,28 +68,18 @@
                             <div class="col-lg-8">
                                 <div class="form-group">
                                     <label class="col-form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama" id="field-nama" placeholder="Masukan Nama Lengkap">
+                                    <input type="text" class="form-control" name="nama" id="field-nama" placeholder="Masukan Nama Lengkap" value="{{ $data->name }}">
                                     <span id="error-nama" class="invalid-feedback"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Username</label>
-                                    <input type="text" class="form-control" name="username" id="field-username" placeholder="Masukan Username">
+                                    <input type="text" class="form-control" name="username" id="field-username" placeholder="Masukan Username" value="{{ $data->username }}">
                                     <span id="error-username" class="invalid-feedback"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Alamat Email</label>
-                                    <input type="email" class="form-control" name="email" id="field-email" placeholder="Masukan Alamat Email">
+                                    <input type="email" class="form-control" name="email" id="field-email" placeholder="Masukan Alamat Email" value="{{ $data->email }}">
                                     <span id="error-email" class="invalid-feedback"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" id="field-password" placeholder="Masukan Password">
-                                    <span id="error-password" class="invalid-feedback"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" name="konf_password" id="field-konf_password" placeholder="Masukan Konfirmasi Password">
-                                    <span id="error-konf_password" class="invalid-feedback"></span>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +87,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success btn-block"><i class="si si-check mr-5"></i>Simpan</button>
+                                    <button type="submit" class="btn btn-alt-primary btn-block"><i class="si si-check mr-5"></i>Simpan</button>
                                 </div>
                             </div>
                             </div>
@@ -131,6 +125,10 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js"></script>
 <script>
+$(function() {
+
+
+});
 jQuery(document).ready(function () {
     var formData = new FormData();
     var croppie = null;
@@ -209,13 +207,15 @@ jQuery(document).ready(function () {
 
     $("#form-pengguna").submit(function (e) {
         e.preventDefault();
+        // var formData = new FormData($('#form-pengguna')[0]);
+        // formData.append('form', $('#form-pengguna')[0]);
         var poData = jQuery(document.forms['form-pengguna']).serializeArray();
         for (var i=0; i<poData.length; i++)
         {
             formData.append(poData[i].name, poData[i].value);
         }
         $.ajax({
-            url: "{{ route('admin.pengguna.simpan') }}",
+            url: "{{ route('admin.fraksi.update') }}",
             type: 'POST',
             data: formData,
             cache: false,
@@ -227,7 +227,7 @@ jQuery(document).ready(function () {
                     $('#modal_embed').modal('hide');
                     swal({
                         title: "Berhasil",
-                        text: 'Admin Berhasil Disimpan!',
+                        text: "Data Fraksi Berhasil Diperbaharui!",
                         timer: 3000,
                         buttons: false,
                         icon: 'success'
