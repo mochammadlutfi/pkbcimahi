@@ -32,16 +32,27 @@ class QnAController extends Controller
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
         $pertanyaan = Pertanyaan::latest()->get();
-        return view('frontend/QnA/index', compact('pertanyaan', 'title'));
+        $kategori = QKategori::latest()->get();
+        return view('frontend/QnA/index', compact('pertanyaan', 'title', 'kategori'));
     }
 
     public function detail($slug)
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
         $tanya = Pertanyaan::where('slug', $slug)->first();
-
+        $kategori = QKategori::latest()->get();
         $jawab = Jawaban::where('pertanyaan_id', $tanya->id)->first();
-        return view('frontend.QnA.detail', compact('title', 'tanya', 'jawab'));
+        return view('frontend.QnA.detail', compact('title', 'tanya', 'jawab', 'kategori'));
+    }
+
+    public function kategori($slug)
+    {
+        $title = 'Tanya Fraksi PKB Kota Cimahi';
+        $kategori = QKategori::where('slug', $slug)->first();
+        $pertanyaan = Pertanyaan::where('kategori_id', $kategori->id)->get();
+        $kategori = QKategori::latest()->get();
+        // dd($kategori);
+        return view('frontend.QnA.kategori', compact('title', 'pertanyaan', 'kategori'));
     }
 
     public function tambah()
