@@ -39,7 +39,7 @@
 
 <div class="container mt-30">
     <div class="row">
-        <div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
+        <div class="col-12 col-lg-8 col-xl-9 order-xs-2">
             <div class="brs-posts-container brs-posts-container_right-divider">
                 <div class="mb-5">
                     <h3
@@ -136,6 +136,18 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 col-xl-3">
+            <div class="mb-60 mt-20">
+                <div class="brs-sidebar brs-sidebar_right">
+                    <div class="list-group">
+                        <span class="list-group-item list-group-item-action list-group-item-success active">List Kategori</span>
+                        @foreach($kategori as $k)
+                            <a href="#" class="list-group-item list-group-item-action list-group-item-light"  style="color :black">{{ $k->nama }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>

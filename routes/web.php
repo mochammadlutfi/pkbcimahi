@@ -40,6 +40,7 @@ Route::group(['prefix' => 'tanya-jawab'], function(){
     Route::get('/buat-pertanyaan', 'QnAController@tambah')->middleware('auth','verified')->name('QA.tambah');
     Route::post('/simpan', 'QnAController@simpan')->name('QA.simpan');
     Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
+    Route::get('/kategori/{slug}', 'QnAController@kategori')->name('QA.kategori');
 });
 
 Route::group(['prefix' => 'galeri'], function(){
