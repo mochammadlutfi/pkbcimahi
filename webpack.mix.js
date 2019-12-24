@@ -1,26 +1,26 @@
 const mix = require('laravel-mix');
 
-mix.styles([
-    'public/assets/frontend/css/components/widgets.css',
-	'public/assets/frontend/css/components/sliders.css',
-	'public/assets/frontend/css/components/social-links.css',
-	'public/assets/frontend/css/components/dividers.css',
-	'public/assets/frontend/css/components/content-sliders.css',
-	'public/assets/frontend/css/components/shop-components-cards.css',
-	'public/assets/frontend/css/components/team.css',
-	'public/assets/frontend/css/components/google-maps.css',
-	'public/assets/frontend/css/components/portfolio-page.css',
-	'public/assets/frontend/css/components/pagination.css',
-	'public/assets/frontend/css/components/breadcrumbs.css',
-	'public/assets/frontend/css/components/portfolio-galleries.css',
-	'public/assets/frontend/css/components/gallery-cols.css',
-	'public/assets/frontend/css/components/blog.css',
-	'public/assets/frontend/css/components/blog-page.css',
-	'public/assets/frontend/css/components/forum-post.css',
-	'public/assets/frontend/css/components/lists.css',
-	'public/assets/frontend/vendor/swiper/css/swiper.min.css',
-	'public/assets/frontend/vendor/slickCarousel/css/slick.css',
-], 'public/assets/stylenya.css');
+// mix.styles([
+//     'public/assets/frontend/css/components/widgets.css',
+// 	'public/assets/frontend/css/components/sliders.css',
+// 	'public/assets/frontend/css/components/social-links.css',
+// 	'public/assets/frontend/css/components/dividers.css',
+// 	'public/assets/frontend/css/components/content-sliders.css',
+// 	'public/assets/frontend/css/components/shop-components-cards.css',
+// 	'public/assets/frontend/css/components/team.css',
+// 	'public/assets/frontend/css/components/google-maps.css',
+// 	'public/assets/frontend/css/components/portfolio-page.css',
+// 	'public/assets/frontend/css/components/pagination.css',
+// 	'public/assets/frontend/css/components/breadcrumbs.css',
+// 	'public/assets/frontend/css/components/portfolio-galleries.css',
+// 	'public/assets/frontend/css/components/gallery-cols.css',
+// 	'public/assets/frontend/css/components/blog.css',
+// 	'public/assets/frontend/css/components/blog-page.css',
+// 	'public/assets/frontend/css/components/forum-post.css',
+// 	'public/assets/frontend/css/components/lists.css',
+// 	'public/assets/frontend/vendor/swiper/css/swiper.min.css',
+// 	'public/assets/frontend/vendor/slickCarousel/css/slick.css',
+// ], 'public/assets/stylenya.css');
 
 
 // mix.js([
