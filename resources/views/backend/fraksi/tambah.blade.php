@@ -240,7 +240,7 @@ jQuery(document).ready(function () {
         // formData.append('form', $('#form-pengguna')[0]);
         var poData = jQuery(document.forms['form-pengguna']).serializeArray();
         var pesan;
-        pesan = "Kategori Baru Berhasil Ditambahkan";
+        pesan = "Fraksi Baru Berhasil Ditambahkan";
         for (var i=0; i<poData.length; i++)
         {
             formData.append(poData[i].name, poData[i].value);
