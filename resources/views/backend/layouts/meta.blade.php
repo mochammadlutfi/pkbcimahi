@@ -1,16 +1,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-<title>Pintasku - Grow With Us</title>
+<title>Admin | DPC PKB Kota Cimahi</title>
 
-<meta name="description" content="Pintasku - Growth With Us">
-<meta name="author" content="Pintasku - Growth With Us">
+<meta name="description" content="Admin | DPC PKB Kota Cimahi">
+<meta name="author" content="DPC PKB Kota Cimahi">
 <meta name="robots" content="noindex, nofollow">
 
 <!-- Open Graph Meta -->
-<meta property="og:title" content="Pintasku - Growth With Us">
-<meta property="og:site_name" content="Pintasku - Growth With Us">
-<meta property="og:description" content="Pintasku - Growth With Us">
+<meta property="og:title" content="Admin | DPC PKB Kota Cimahi">
+<meta property="og:site_name" content="Admin | DPC PKB Kota Cimahi">
+<meta property="og:description" content="Admin | DPC PKB Kota Cimahi">
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
 <meta property="og:image" content="">

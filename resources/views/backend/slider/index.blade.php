@@ -32,7 +32,7 @@
                                         <a class="btn btn-sm btn-rounded btn-alt-primary min-width-75" href="javascript:void(0)">
                                             <i class="fa fa-eye"></i> Detail
                                         </a>
-                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)">
+                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)" onclick="hapus({{$s->id}})">
                                             <i class="fa fa-times"></i> Hapus
                                         </a>
                                     </div>
@@ -148,13 +148,8 @@ jQuery(document).ready(function () {
 
         var link;
         var pesan;
-        if (save_method == 'tambah') {
-            link = "{{ route('admin.slider.simpan') }}";
-            pesan = "Album Baru Berhasil Ditambahkan";
-        } else {
-            link = "{{ route('admin.slider.update') }}";
-            pesan = "Album Berhasil Diperbaharui";
-        }
+        link = "{{ route('admin.slider.simpan') }}";
+        pesan = "Slider Baru Berhasil Ditambahkan";
 
         $.ajax({
             url: link,
@@ -195,33 +190,6 @@ jQuery(document).ready(function () {
 
 });
 
-function edit(id){
-    save_method = 'update';
-    $('#form-kategori')[0].reset();
-    $('.form-group').removeClass('has-error');
-    $('.help-block').empty();
-
-    $.ajax({
-        url : laroute.route('kategori.edit', {id : id}),
-        type: "GET",
-        dataType: "JSON",
-        success: function(response)
-        {
-            $('[name="kategori_id"]').val(response.kategori_id);
-            $('[name="nama"]').val(response.nama);
-            $('[name="status"]').val(response.status);
-            $('#modal_title').text('Perbaharui Data Kategori');
-            $('#modal_form').modal({
-                backdrop: 'static',
-                keyboard: false
-            })
-        },
-        error: function (jqXHR, textStatus, errorThrown){
-            alert('Error get data from ajax');
-        }
-    });
-}
-
 function hapus(id) {
     swal({
         title: "Anda Yakin?",
@@ -234,13 +202,13 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('kategori.hapus', { id: id }),
+            url: laroute.route('admin.slider.hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {
                 swal({
                     title: "Berhasil",
-                    text: "Data Kategori Berhasil Dihapus",
+                    text: "Slider Berhasil Dihapus",
                     timer: 3000,
                     buttons: false,
                     icon: 'success',

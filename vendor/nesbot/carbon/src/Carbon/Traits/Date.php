@@ -20,6 +20,7 @@ use DateInterval;
 use DatePeriod;
 use DateTime;
 use DateTimeInterface;
+use DateTimeZone;
 use InvalidArgumentException;
 use ReflectionException;
 use RuntimeException;
@@ -67,6 +68,8 @@ use RuntimeException;
  * @property-read int             $daysInMonth                                                                        number of days in the given month
  * @property-read string          $latinMeridiem                                                                      "am"/"pm" (Ante meridiem or Post meridiem latin lowercase mark)
  * @property-read string          $latinUpperMeridiem                                                                 "AM"/"PM" (Ante meridiem or Post meridiem latin uppercase mark)
+ * @property-read string          $timezoneAbbreviatedName                                                            the current timezone abbreviated name
+ * @property-read string          $tzAbbrName                                                                         alias of $timezoneAbbreviatedName
  * @property-read string          $dayName                                                                            long name of weekday translated according to Carbon locale, in english if no translation available for current language
  * @property-read string          $shortDayName                                                                       short name of weekday translated according to Carbon locale, in english if no translation available for current language
  * @property-read string          $minDayName                                                                         very short name of weekday translated according to Carbon locale, in english if no translation available for current language
@@ -91,8 +94,6 @@ use RuntimeException;
  * @property-read bool            $utc                                                                                checks if the timezone is UTC, true if UTC, false otherwise
  * @property-read string          $timezoneName                                                                       the current timezone name
  * @property-read string          $tzName                                                                             alias of $timezoneName
- * @property-read string          $timezoneAbbreviatedName                                                            the current timezone abbreviated name
- * @property-read string          $tzAbbrName                                                                         alias of $timezoneAbbreviatedName
  * @property-read string          $locale                                                                             locale of the current instance
  *
  * @method        bool            isUtc()                                                                             Check if the current instance has UTC timezone. (Both isUtc and isUTC cases are valid.)
@@ -602,8 +603,8 @@ trait Date
     /**
      * Creates a DateTimeZone from a string, DateTimeZone or integer offset.
      *
-     * @param \DateTimeZone|string|int|null $object     original value to get CarbonTimeZone from it.
-     * @param \DateTimeZone|string|int|null $objectDump dump of the object for error messages.
+     * @param DateTimeZone|string|int|null $object     original value to get CarbonTimeZone from it.
+     * @param DateTimeZone|string|int|null $objectDump dump of the object for error messages.
      *
      * @throws \InvalidArgumentException
      *
@@ -612,29 +613,6 @@ trait Date
     protected static function safeCreateDateTimeZone($object, $objectDump = null)
     {
         return CarbonTimeZone::instance($object, $objectDump);
-    }
-
-    /**
-     * Creates a DateTimeZone from a string, DateTimeZone or integer offset then convert it as region timezone
-     * if integer.
-     *
-     * @param \DateTimeZone|string|int|null $object
-     * @param \DateTimeZone|string|int|null $originalObject if different
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return CarbonTimeZone|false
-     */
-    protected function autoDetectTimeZone($object, $originalObject = null)
-    {
-        /** @var CarbonTimeZone $timezone */
-        $timezone = CarbonTimeZone::instance($object);
-
-        if ($timezone && is_int($originalObject ?: $object)) {
-            $timezone = $timezone->toRegionTimeZone($this);
-        }
-
-        return $timezone;
     }
 
     /**
@@ -782,7 +760,7 @@ trait Date
      *
      * @throws InvalidArgumentException|ReflectionException
      *
-     * @return string|int|bool|\DateTimeZone|null
+     * @return string|int|bool|DateTimeZone|null
      */
     public function __get($name)
     {
@@ -796,7 +774,7 @@ trait Date
      *
      * @throws InvalidArgumentException|ReflectionException
      *
-     * @return string|int|bool|\DateTimeZone|null
+     * @return string|int|bool|DateTimeZone|null
      */
     public function get($name)
     {
@@ -850,6 +828,10 @@ trait Date
             'localeMonth' => '%B',
             // @property string the abbreviated month in current locale LC_TIME
             'shortLocaleMonth' => '%b',
+            // @property-read string $timezoneAbbreviatedName the current timezone abbreviated name
+            'timezoneAbbreviatedName' => 'T',
+            // @property-read string $tzAbbrName alias of $timezoneAbbreviatedName
+            'tzAbbrName' => 'T',
         ];
 
         switch (true) {
@@ -1012,11 +994,6 @@ trait Date
             case $name === 'timezoneName' || $name === 'tzName':
                 return $this->getTimezone()->getName();
 
-            // @property-read string $timezoneAbbreviatedName the current timezone abbreviated name
-            // @property-read string $tzAbbrName alias of $timezoneAbbreviatedName
-            case $name === 'timezoneAbbreviatedName' || $name === 'tzAbbrName':
-                return CarbonTimeZone::instance($this->getTimezone())->getAbbr($this->dst);
-
             // @property-read string locale of the current instance
             case $name === 'locale':
                 return $this->getLocalTranslator()->getLocale();
@@ -1051,8 +1028,8 @@ trait Date
     /**
      * Set a part of the Carbon object
      *
-     * @param string                   $name
-     * @param string|int|\DateTimeZone $value
+     * @param string                  $name
+     * @param string|int|DateTimeZone $value
      *
      * @throws InvalidArgumentException|ReflectionException
      *
@@ -1066,8 +1043,8 @@ trait Date
     /**
      * Set a part of the Carbon object
      *
-     * @param string|array             $name
-     * @param string|int|\DateTimeZone $value
+     * @param string|array            $name
+     * @param string|int|DateTimeZone $value
      *
      * @throws InvalidArgumentException|ReflectionException
      *
@@ -1121,7 +1098,7 @@ trait Date
             case 'hour':
             case 'minute':
             case 'second':
-                [$year, $month, $day, $hour, $minute, $second] = explode('-', $this->rawFormat('Y-n-j-G-i-s'));
+                [$year, $month, $day, $hour, $minute, $second] = array_map('intval', explode('-', $this->rawFormat('Y-n-j-G-i-s')));
                 $$name = $value;
                 $this->setDateTime($year, $month, $day, $hour, $minute, $second);
 
@@ -1148,7 +1125,9 @@ trait Date
                 break;
 
             case 'dayOfYear':
-                return $this->addDays($value - $this->dayOfYear);
+                $this->addDays($value - $this->dayOfYear);
+
+                return $this;
 
             case 'timestamp':
                 parent::setTimestamp((int) $value);
@@ -1492,7 +1471,7 @@ trait Date
     /**
      * @alias setTimezone
      *
-     * @param \DateTimeZone|string $value
+     * @param DateTimeZone|string $value
      *
      * @return static
      */
@@ -1504,7 +1483,7 @@ trait Date
     /**
      * Set the timezone or returns the timezone name if no arguments passed.
      *
-     * @param \DateTimeZone|string $value
+     * @param DateTimeZone|string $value
      *
      * @return static|string
      */
@@ -1520,25 +1499,19 @@ trait Date
     /**
      * Set the instance's timezone from a string or object.
      *
-     * @param \DateTimeZone|string $value
+     * @param DateTimeZone|string $value
      *
      * @return static
      */
     public function setTimezone($value)
     {
-        /** @var static $date */
-        $date = parent::setTimezone(static::safeCreateDateTimeZone($value));
-        // https://bugs.php.net/bug.php?id=72338
-        // just workaround on this bug
-        $date->getTimestamp();
-
-        return $date;
+        return parent::setTimezone(static::safeCreateDateTimeZone($value));
     }
 
     /**
      * Set the instance's timezone from a string or object and add/subtract the offset difference.
      *
-     * @param \DateTimeZone|string $value
+     * @param DateTimeZone|string $value
      *
      * @return static
      */
@@ -1927,7 +1900,7 @@ trait Date
                 'YYYYYY' => function (CarbonInterface $date) {
                     return ($date->year < 0 ? '' : '+').$date->getPaddedUnit('year', 6);
                 },
-                'z' => 'tzAbbrName',
+                'z' => ['rawFormat', ['T']],
                 'zz' => 'tzName',
                 'Z' => ['getOffsetString', []],
                 'ZZ' => ['getOffsetString', ['']],
@@ -2368,7 +2341,7 @@ trait Date
      */
     public static function singularUnit(string $unit): string
     {
-        $unit = rtrim(strtolower($unit), 's');
+        $unit = rtrim(mb_strtolower($unit), 's');
 
         if ($unit === 'centurie') {
             return 'century';

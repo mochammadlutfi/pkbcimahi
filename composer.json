@@ -17,6 +17,7 @@
         "laravel/tinker": "^1.0",
         "laravolt/avatar": "^3.0",
         "spatie/laravel-permission": "^3.3",
+        "te7a-houdini/laroute": "^1.0",
         "yajra/laravel-datatables": "^1.5"
     },
     "require-dev": {

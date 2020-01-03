@@ -27,8 +27,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Tanggal</th>
+                                <th>Tgl Event</th>
                                 <th>Status</th>
+                                <th>Tgl Dibuat</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -64,6 +65,10 @@ $(function () {
             {
                 data: 'status',
                 name: 'status'
+            },
+            {
+                data: 'created_at',
+                name: 'created_at'
             },
             {
                 data: 'action',
@@ -163,33 +168,6 @@ jQuery(document).ready(function () {
 
 });
 
-function edit(id){
-    save_method = 'update';
-    $('#form-kategori')[0].reset();
-    $('.form-group').removeClass('has-error');
-    $('.help-block').empty();
-
-    $.ajax({
-        url : laroute.route('kategori.edit', {id : id}),
-        type: "GET",
-        dataType: "JSON",
-        success: function(response)
-        {
-            $('[name="kategori_id"]').val(response.kategori_id);
-            $('[name="nama"]').val(response.nama);
-            $('[name="status"]').val(response.status);
-            $('#modal_title').text('Perbaharui Data Kategori');
-            $('#modal_form').modal({
-                backdrop: 'static',
-                keyboard: false
-            })
-        },
-        error: function (jqXHR, textStatus, errorThrown){
-            alert('Error get data from ajax');
-        }
-    });
-}
-
 function hapus(id) {
     swal({
         title: "Anda Yakin?",
@@ -202,13 +180,13 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('kategori.hapus', { id: id }),
+            url: laroute.route('admin.event.hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {
                 swal({
                     title: "Berhasil",
-                    text: "Data Kategori Berhasil Dihapus",
+                    text: "Event Berhasil Dihapus",
                     timer: 3000,
                     buttons: false,
                     icon: 'success',

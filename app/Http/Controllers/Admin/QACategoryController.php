@@ -51,10 +51,10 @@ class QACategoryController extends Controller
                     $btn = '<center><div class="btn-group" role="group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aksi</button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 34px, 0px);">
-                                <a class="dropdown-item" href="javascript:void(0)" onClick="edit('.$row->kategori_id.')">
+                                <a class="dropdown-item" href="javascript:void(0)" onClick="edit('.$row->id.')">
                                     <i class="si si-note mr-5"></i>Edit Kategori
                                 </a>
-                                <a class="dropdown-item" href="javascript:void(0)" onClick="hapus('.$row->kategori_id.')">
+                                <a class="dropdown-item" href="javascript:void(0)" onClick="hapus('.$row->id.')">
                                     <i class="si si-trash mr-5"></i>Hapus Kategori
                                 </a>
                             </div>
@@ -126,8 +126,13 @@ class QACategoryController extends Controller
                 'errors' => $validator->errors()
             ]);
         }else{
-            $data = Kategori::find($request->kategori_id);
+            $data = QKategori::find($request->kategori_id);
             $data->nama = $request->nama;
+            $data->slug = $request->slug;
+            $data->deskripsi = $request->deskripsi;
+            $data->seo_keyword = $request->seo_keyword;
+            $data->seo_description = $request->seo_description;
+            $data->seo_tags = $request->seo_tags;
             $data->status = $request->status;
             if($data->save())
             {
@@ -135,17 +140,16 @@ class QACategoryController extends Controller
                     'fail' => false,
                 ]);
             }
-
         }
     }
 
     public function edit($id){
-        return response()->json(Kategori::find($id));
+        return response()->json(QKategori::find($id));
     }
 
     public function hapus($id)
     {
-        $data = Kategori::destroy($id);
+        $data = QKategori::destroy($id);
         if($data){
             return response()->json([
                 'fail' => false,

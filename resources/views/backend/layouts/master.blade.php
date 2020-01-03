@@ -2,7 +2,7 @@
 <html lang="en" class="no-focus">
     <head>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        {{-- @include('layouts.meta') --}}
+        @include('backend.layouts.meta')
 
         <!-- Stylesheets -->
 
@@ -89,6 +89,7 @@
         <!-- Codebase Core JS -->
         {{-- <script src="{{ asset('assets/backend/js/laroute.js') }}"></script> --}}
         <script src="{{ mix('/assets/backend/js/codebase.app.js') }}"></script>
+        <script src="{{ asset('assets/backend/js/laroute.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>

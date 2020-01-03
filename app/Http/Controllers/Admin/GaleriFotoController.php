@@ -87,4 +87,24 @@ class GaleriFotoController extends Controller
             }
         // }
     }
+
+    public function hapus($id)
+    {
+        $foto = Foto::find($id);
+        $path = public_path().'/uploads/'.$foto->path;
+        // dd($file);
+        if (is_file($path)){
+            $del_path = unlink($path);
+            if($del_path)
+            {
+                $hapus_db = Foto::destroy($foto->id);
+                if($hapus_db)
+                {
+                    return response()->json([
+                        'fail' => false,
+                    ]);
+                }
+            }
+        }
+    }
 }

@@ -255,14 +255,27 @@ function edit(id){
     $('.help-block').empty();
 
     $.ajax({
-        url : laroute.route('kategori.edit', {id : id}),
+        url : laroute.route('admin.QA.kategori_edit', {id : id}),
         type: "GET",
         dataType: "JSON",
         success: function(response)
         {
-            $('[name="kategori_id"]').val(response.kategori_id);
+            $('[name="kategori_id"]').val(response.id);
             $('[name="nama"]').val(response.nama);
+            $('[name="slug"]').val(response.slug);
+            $('[name="deskripsi"]').val(response.deskripsi);
+            $('[name="deskripsi_seo"]').val(response.seo_description);
             $('[name="status"]').val(response.status);
+            var keyword = response.seo_keyword;
+            if(keyword)
+            {
+                $('#seo_keyword').importTags(response.seo_keyword);
+            }
+            var seo_tags = response.seo_tags;
+            if(seo_tags)
+            {
+                $('#seo_tags').importTags(response.seo_tags);
+            }
             $('#modal_title').text('Perbaharui Data Kategori');
             $('#modal_form').modal({
                 backdrop: 'static',
@@ -287,7 +300,7 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('kategori.hapus', { id: id }),
+            url: laroute.route('admin.QA.kategori_hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {

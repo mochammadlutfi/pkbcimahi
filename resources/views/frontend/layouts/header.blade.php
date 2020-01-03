@@ -177,9 +177,9 @@
 				<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
 					<div class="text-center">
 						<a href="/" class="brk-header__logo brk-header__item @@modifier">
-							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
+							<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt" style="max-width:65%">
 
-							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt">
+							<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/logo-dark.png') }} " alt="alt" style="max-width:65%">
 						</a>
 					</div>
 				</div>
@@ -204,22 +204,6 @@
 								<a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
 
 							</div>
-						</div>
-					</div>
-					<div class="brk-search brk-header__item brk-location-screen-right">
-						<div class="brk-search__open">
-							<i class="fa fa-search" aria-hidden="true"></i>
-							<div class="brk-search__title">Cari Situs</div>
-						</div>
-						<div class="brk-search__block">
-							<div class="brk-search__header">
-								<span class="font__family-montserrat font__weight-bold font__size-18">Cari</span>
-							</div>
-							<form class="brk-search__form" role="search" method="get" action="#">
-								<input name="s" maxlength="50" type="search" value="" placeholder="Masukan kata kunci pencarian">
-								<button type="submit"><i class="fas fa-search"></i></button>
-							</form>
-							<span class="brk-search__close font__family-montserrat font__weight-medium">Tutup <i class="fas fa-times"></i></span>
 						</div>
 					</div>
 				</div>

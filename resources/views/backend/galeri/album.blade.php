@@ -293,20 +293,34 @@ jQuery(document).ready(function () {
 
 function edit(id){
     save_method = 'update';
-    $('#form-kategori')[0].reset();
+    $('#form-album')[0].reset();
     $('.form-group').removeClass('has-error');
     $('.help-block').empty();
 
     $.ajax({
-        url : laroute.route('kategori.edit', {id : id}),
+        url : laroute.route('admin.galeri.edit', {id : id}),
         type: "GET",
         dataType: "JSON",
         success: function(response)
         {
-            $('[name="kategori_id"]').val(response.kategori_id);
+            $('#modal_title').text('Perbaharui Data Album');
+            $('[name="album_id"]').val(response.id);
             $('[name="nama"]').val(response.nama);
+            $('[name="slug"]').val(response.slug);
+            $('[name="deskripsi"]').val(response.deskripsi);
+            $('[name="deskripsi_seo"]').val(response.seo_description);
             $('[name="status"]').val(response.status);
-            $('#modal_title').text('Perbaharui Data Kategori');
+            $('#img_preview').attr('src', response.foto);
+            var keyword = response.seo_keyword;
+            if(keyword)
+            {
+                $('#seo_keyword').importTags(response.seo_keyword);
+            }
+            var seo_tags = response.seo_tags;
+            if(seo_tags)
+            {
+                $('#seo_tags').importTags(response.seo_tags);
+            }
             $('#modal_form').modal({
                 backdrop: 'static',
                 keyboard: false

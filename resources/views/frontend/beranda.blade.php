@@ -283,6 +283,7 @@
                 </h2>
             </div>
             <div class="row justify-content-center">
+                @foreach($event as $e)
                 <div class="col-md-4">
                     <div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30">
                         <h6
@@ -291,17 +292,17 @@
                         </h6>
                         <h5
                             class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15">
-                            <span class="text-uppercase font__weight-medium">Ini Judul Event</span>
+                            <span class="text-uppercase font__weight-medium">{{ $e->judul }}</span>
                         </h5>
-                        <p
-                            class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
-                            ini deskripsi ini deskripsi ini deskripsi ini deskripsi ini deskripsi
+                        <p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
+                            <?= str_limit($e->deskripsi, 100) ?>
                         </p>
-                        <a href="{{ url('/event_detail') }}"
-                            class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Lihat
+                        <a href="{{ route('event.detail', $e->slug) }}"
+                            class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Detail
                             Event</a>
                     </div>
                 </div>
+                @endforeach
             </div>
             <div class="text-center">
                 <a href="{{ url('/event') }}"

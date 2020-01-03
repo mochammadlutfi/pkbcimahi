@@ -48,6 +48,9 @@ class EventController extends Controller
 
                         return $status;
                 })
+                ->addColumn('created_at', function($row){
+                        return date('d-m-Y', strtotime($row->created_at));
+                })
                 ->addColumn('action', function($row){
 
                     $btn = '<center><div class="btn-group" role="group">
@@ -177,6 +180,26 @@ class EventController extends Controller
                 return response()->json([
                     'fail' => false,
                 ]);
+            }
+        }
+    }
+
+    public function hapus($id)
+    {
+        $event = Event::find($id);
+        $path = public_path().'/uploads/'.$event->featured_img;
+        // dd($file);
+        if (is_file($path)){
+            $del_path = unlink($path);
+            if($del_path)
+            {
+                $hapus_db = Event::destroy($event->id);
+                if($hapus_db)
+                {
+                    return response()->json([
+                        'fail' => false,
+                    ]);
+                }
             }
         }
     }

@@ -65,11 +65,15 @@
                     <div class="pb-70 pt-10">
                         @foreach($pertanyaan as $p)
                         <div>
-                            <div class="brk-reply-item" data-brk-library="component__blog_page_css">
+                            <div class="brk-reply-item pb-20 pt-20 p-0" data-brk-library="component__blog_page_css">
                                 <a href="#" class="brk-reply-item__user">
-                                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                        data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt"
+                                    @if($p->user->avatar <> null)
+                                        <img class="img-avatar" src="{{ asset($p->user->avatar) }}" alt="">
+                                    @else
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-src="{{ Avatar::create($p->user->name)->toBase64() }}" alt="alt"
                                         class="lazyload">
+                                    @endif
                                 </a>
                                 <div class="brk-reply-item__content">
                                     <a href="{{ route('QA.detail', $p->slug) }}"
@@ -89,12 +93,12 @@
                                     </div>
                                     <div
                                         class="brk-dark-font-color font__family-open-sans font__size-md-14 font__size-13 line-height-1-625 mt-10">
-                                        {{ $p->deskripsi }}
+                                        <?= str_limit($p->deskripsi, 200) ?>
                                     </div>
                                     <div class="d-flex align-items-start mb-10 float-right">
                                         <span class="font-dark-color-2 font__Family-montserrat font__size-10 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Kategori:</span>
                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                            <li class="font__size-2 mb-40"><a href="#"  rel="tag">{{ $p->qkategori->nama }}</a></li>
+                                            <li class="font__size-2"><a href="#"  rel="tag">{{ $p->qkategori->nama }}</a></li>
                                         </ul>
                                     </div>
                                 </div>

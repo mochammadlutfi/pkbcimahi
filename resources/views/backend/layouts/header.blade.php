@@ -14,8 +14,13 @@
         <!-- END Left Section -->
 
         <!-- Right Section -->
-        <div class="content-header-section" id="app">
 
+
+        <div class="content-header-section" id="app">
+            <a class="btn btn-secondary mr-5 mb-5 btn-rounded" href="{{ url('/') }}" target="_blank">
+                <i class="si si-eye mr-5"></i>
+                Lihat Website
+            </a>
             <!-- Notifications -->
             {{-- @include('admin.layouts.notif') --}}
             <!-- END Notifications -->

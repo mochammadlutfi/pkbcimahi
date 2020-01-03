@@ -115,4 +115,77 @@ class GaleriController extends Controller
             }
         }
     }
+
+    public function edit($id){
+        $album = Album::find($id);
+        $res = Collect([
+            'id' => $album->id,
+            'nama' => $album->nama,
+            'slug' => $album->slug,
+            'foto' => asset('uploads/'.$album->foto),
+            'seo_keyword' => $album->seo_keyword,
+            'seo_description' => $album->seo_description,
+            'seo_tags' => $album->seo_tags,
+            'status' => $album->status
+        ]);
+        return response()->json($res);
+    }
+
+    public function update(Request $request)
+    {
+
+        $rules = [
+            'nama' => 'required',
+            'slug' => 'required',
+            // 'foto' => 'required',
+            'status' => 'required'
+        ];
+
+        $pesan = [
+            'nama.required' => 'Nama Album Wajib Diisi!',
+            'slug.required' => 'Slug Album Wajib Diisi!',
+            // 'foto.required' => 'Cover Album Wajib Diisi!',
+            'status.required' => 'Status Album Wajib Diisi!'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $pesan);
+        if ($validator->fails()){
+            return response()->json([
+                'fail' => true,
+                'errors' => $validator->errors()
+            ]);
+        }else{
+            if($request->hasfile('foto'))
+            {
+                $album = Album::find($id);
+                $file = public_path().'/uploads/'.$album->foto;
+                if (is_file($thumbnail)){
+                    $del_thumb = unlink($thumbnail);
+                    if($del_thumb)
+                    {
+                        $foto_file = $request->file('foto');
+                        $foto = Storage::disk('public')->put('galeri/album', $foto_file);
+                    }
+                }
+            }
+
+            $data = Album::find($request->album_id);
+            $data->nama = $request->nama;
+            $data->slug = $request->slug;
+            $data->seo_keyword = $request->seo_keyword;
+            $data->seo_description = $request->seo_description;
+            $data->seo_tags = $request->seo_tags;
+            $data->status = $request->status;
+            if($request->hasfile('foto'))
+            {
+                $data->foto = $foto;
+            }
+            if($data->save())
+            {
+                return response()->json([
+                    'fail' => false,
+                ]);
+            }
+        }
+    }
 }

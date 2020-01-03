@@ -72,4 +72,31 @@ class SliderController extends Controller
             }
         }
     }
+
+    public function hapus($id)
+    {
+        $slider = Slider::find($id);
+        $thumbnail = public_path().'/uploads/'.$slider->thumbnail;
+        $path = public_path().'/uploads/'.$slider->path;
+        // dd($file);
+        if (is_file($thumbnail)){
+            $del_thumb = unlink($thumbnail);
+            if($del_thumb)
+            {
+                if (is_file($path)){
+                    $del_path = unlink($path);
+                    if($del_path)
+                    {
+                        $hapus_db = Slider::destroy($slider->id);
+                        if($hapus_db)
+                        {
+                            return response()->json([
+                                'fail' => false,
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

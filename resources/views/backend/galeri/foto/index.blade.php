@@ -30,7 +30,7 @@
                                         <a class="btn btn-sm btn-rounded btn-alt-primary min-width-75" href="javascript:void(0)">
                                             <i class="fa fa-eye"></i> Detail
                                         </a>
-                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)">
+                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)" onclick="hapus({{ $f->id }})">
                                             <i class="fa fa-times"></i> Hapus
                                         </a>
                                     </div>
@@ -48,5 +48,45 @@
 @stop
 
 @push('scripts')
-
+<script>
+function hapus(id) {
+    swal({
+        title: "Anda Yakin?",
+        text: "Data Yang Dihapus Tidak Akan Bisa Dikembalikan",
+        icon: "warning",
+        buttons: ["Batal", "Hapus"],
+        dangerMode: true,
+        closeOnClickOutside: false
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        $.ajax({
+            url: laroute.route('admin.galeri.foto_hapus', { id: id }),
+            type: "get",
+            dataType: "JSON",
+            success: function(data) {
+                swal({
+                    title: "Berhasil",
+                    text: "Foto Berhasil Dihapus",
+                    timer: 3000,
+                    buttons: false,
+                    icon: 'success',
+                    allowOutsideClick: false
+                });
+                window.setTimeout(function(){
+                    location.reload();
+                } ,1500);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error deleting data');
+            }
+        });
+        } else {
+            window.setTimeout(function(){
+                location.reload();
+            } ,1500);
+        }
+    });
+}
+</script>
 @endpush

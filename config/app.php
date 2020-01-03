@@ -170,7 +170,6 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
-
         /*
          * Application Service Providers...
          */

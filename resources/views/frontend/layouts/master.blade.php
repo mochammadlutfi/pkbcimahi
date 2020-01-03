@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-brk-skin="brk-blue.css">
 <head>
-	{{-- <title>@yield('title')</title> --}}
+
+    @include('frontend.layouts.meta')
 
 	<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">
 	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">

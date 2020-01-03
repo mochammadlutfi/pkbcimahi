@@ -6,6 +6,7 @@ use App\Models\Slider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Models\Event;
 use GuzzleHttp\Exception\RequestException;
 
 class HomeController extends Controller
@@ -32,10 +33,12 @@ class HomeController extends Controller
         $client = new Client();
         $req = $client->get('https://blog.pkbcimahi.or.id/wp-json/wp/v2/posts?_embed&per_page=6');
 
+        $event = Event::latest()->limit(3)->get();
+
         $blog = json_decode($req->getBody()->getContents(), true);
         // dd($res);
         // print("<pre>".print_r($blog, true)."</pre");
-        return view('frontend/beranda', compact('title', 'slider', 'blog'));
+        return view('frontend/beranda', compact('title', 'slider', 'blog', 'event'));
     }
 
     public function wp_api()
