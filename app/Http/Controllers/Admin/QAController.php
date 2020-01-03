@@ -98,7 +98,7 @@ class QAController extends Controller
                 ->rawColumns(['action', 'status', 'judul', 'kategori'])
                 ->make(true);
         }
-        return view('backend.QA.pertanyaan', compact(''));
+        return view('backend.QA.pertanyaan');
 
     }
 

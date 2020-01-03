@@ -65,7 +65,7 @@ class QACategoryController extends Controller
                 ->rawColumns(['action', 'status', 'jumlah'])
                 ->make(true);
         }
-        return view('backend.QA.kategori', compact(''));
+        return view('backend.QA.kategori');
 
     }
 

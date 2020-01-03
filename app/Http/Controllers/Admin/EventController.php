@@ -70,14 +70,14 @@ class EventController extends Controller
                 ->rawColumns(['action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.event.index', compact(''));
+        return view('backend.event.index');
 
     }
 
     public function tambah()
     {
 
-        return view('backend.event.form', compact(''));
+        return view('backend.event.form');
     }
 
     public function simpan(Request $request)

@@ -64,7 +64,7 @@ class AdminController extends Controller
                 ->rawColumns(['img', 'action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.admin.index', compact(''));
+        return view('backend.admin.index');
 
     }
 
@@ -182,7 +182,7 @@ class AdminController extends Controller
 
         $data = Admin::find($id);
 
-        return view('backend.admin.edit', compact('data', ''));
+        return view('backend.admin.edit', compact('data'));
     }
 
     public function hapus($id)

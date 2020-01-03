@@ -63,7 +63,7 @@ class PenggunaController extends Controller
                 ->rawColumns(['img', 'action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.pengguna.index', compact(''));
+        return view('backend.pengguna.index');
 
     }
 

@@ -239,6 +239,8 @@ jQuery(document).ready(function () {
         // var formData = new FormData($('#form-pengguna')[0]);
         // formData.append('form', $('#form-pengguna')[0]);
         var poData = jQuery(document.forms['form-pengguna']).serializeArray();
+        var pesan;
+        pesan = "Kategori Baru Berhasil Ditambahkan";
         for (var i=0; i<poData.length; i++)
         {
             formData.append(poData[i].name, poData[i].value);
