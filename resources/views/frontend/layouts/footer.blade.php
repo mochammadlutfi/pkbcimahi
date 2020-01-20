@@ -11,20 +11,20 @@
                             <span class="marker">
                                 <img src="{{ asset('assets/frontend/img/gm-1.png') }}" alt="alt">
                             </span>
-                            <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22">Chicago, USA</h4>
+                            <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22">Cimahi, Jawa Barat</h4>
                             <div class="brk-map__infoicon--text">
                                 <ul class="font__size-15 line__height-21">
                                     <li class="brk-dark-font-color">
                                         <i class="fas fa-phone brk-base-font-color font__size-13"></i>
-                                        <a href="tel:8800123456789">8 800 123 456 789</a>
+                                        <a href="tel:8800123456789">1 800 232 3485</a>
                                     </li>
                                     <li class="brk-dark-font-color">
                                         <i class="far fa-clock brk-base-font-color font__size-13"></i>
-                                        <span>Mon - Sat 8:00 - 18:00<br>Sunday CLOSED</span>
+                                        <span>Sen-Sab (8.00 - 18.00)<br>Minggu Tutup</span>
                                     </li>
                                 </ul>
                             </div>
-                            <a href="#" class="btn border-radius-25 font__family-open-sans font__weight-bold btn-inside-out">
+                            <a href="https://www.google.com/maps/place/''DPC+PKB+Kota+Cimahi'/@-6.9249695,107.5599309,14z/data=!4m8!1m2!2m1!1spkb+di+dekat+Cimahi+Utara,+Kota+Cimahi,+Jawa+Barat!3m4!1s0x0:0x32ac2c685233a585!8m2!3d-6.923876!4d107.5542533" class="btn border-radius-25 font__family-open-sans font__weight-bold btn-inside-out">
                                 <span class="before">Get directions</span>
                                 <span class="text">Get directions</span>
                                 <span class="after">Get directions</span>
@@ -47,18 +47,18 @@
                                     <hr class="horiz-line" style="margin-bottom: 12px;">
                                     <div class="d-flex flex-wrap brk-footer__info-grid flex-sm-row flex-column mb-50">
                                         <p class="font__family-open-sans font__weight-bold font__size-14 mt-10">
-                                            <i class="brk-footer-icon text-middle fa fa-map-marker line__height-24"></i>Chicago
+                                            <i class="brk-footer-icon text-middle fa fa-map-marker line__height-24"></i>Cimahi, Jawa barat
                                         </p>
                                         <p class="font__family-open-sans font__weight-bold font__size-14 mt-10">
                                             <i class="brk-footer-icon text-middle fa fa-envelope line__height-24"></i>
-                                            <a href="mailto:i@nikadevs.com" class="show-inline-block">we@dev.com</a>
+                                            <a href="mailto:info@pkbcimahi.or.id" class="show-inline-block">info@pkbcimahi.or.id</a>
                                         </p>
                                         <p class="font__family-open-sans font__weight-bold font__size-14 mt-10">
                                             <i class="brk-footer-icon text-middle fa fa-comments line__height-24"></i>Contact
                                         </p>
                                         <p class="font__family-open-sans font__weight-bold font__size-14 mt-10">
                                             <i class="brk-footer-icon text-middle fa fa-phone line__height-24"></i>
-                                            <a href="#" class="show-inline-block">800 12 34 567</a>
+                                            <a href="#" class="show-inline-block">1 800 232 3485</a>
                                         </p>
                                     </div>
                                     <form action="#" name="subscribe" class="brk-subscribe-mail">
@@ -96,10 +96,10 @@
                         <span class="brk-dashed-logo__line"></span>
                     </div>
                     <div class="brk-social-links brk-white-font-color brk-social-links_opacity d-flex justify-content-center mb-40 font__size-12">
-                        <a href="#" class="brk-social-links__item">
+                        <a href="https://twitter.com/DPP_PKB/" class="brk-social-links__item">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="brk-social-links__item">
+                        <a href="https://www.instagram.com/dpcpkb_cimahi/" class="brk-social-links__item">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="brk-social-links__item">

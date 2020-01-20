@@ -111,11 +111,11 @@
                             <div class="brs-carousel brs-carousel_news" data-brk-library="slider__slick">
                                 <div class="brs-post brs-post_mini-vertical" data-brk-library="component__widgets">
                                     <a href="#" class="brs-post__img-container">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/img/fraksi/1.jpg') }}" alt="alt" class="brs-post__img lazyload">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('uploads/'. $data->avatar) }}" alt="alt" class="brs-post__img lazyload">
                                     </a>
                                     <div class="brs-post__about">
                                         <h2 class="brs-post__title font__family-montserrat font__size-16 font_weight-light line__height-18">
-                                            Ini Untuk Nama
+                                            {{ $data->name }}
                                         </h2>
                                         <h2 class="brs-post__title font__family-montserrat font__size-16 font_weight-light line__height-18 mt-10">
                                             Ini Untuk Jabatan

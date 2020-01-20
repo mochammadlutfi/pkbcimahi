@@ -61,7 +61,7 @@ Route::group(['prefix' => 'tentang'], function(){
 
 Route::group(['prefix' => 'fraksi'], function(){
     Route::get('/', 'FraksiController@index')->name('fraksi');
-    Route::get('/detail', 'FraksiController@detail')->name('fraksi.detail');
+    Route::get('/{id}', 'FraksiController@detail')->name('fraksi.detail');
 });
 
 	Route::namespace('Auth')->group(function(){

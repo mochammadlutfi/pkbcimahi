@@ -78,11 +78,11 @@
                                         <div class="brk-reply-item__header">
                                             <a class="brk-reply-item__header-like">
                                                 <i class="far fa-comments"></i>
-                                                <span>0</span>
+                                                <span>{{ $p->jawabannya->count() }}</span>
                                             </a>
                                             <a class="brk-reply-item__header-reply">
                                                 <i class="far fa-clock"></i>
-                                                <span class="font__weight-bold">{{ $p->created_at }}</span>
+                                                <span class="font__weight-bold">{{ $p->created_at->format('d-m-Y') }}</span>
                                             </a>
                                         </div>
                                         <span class="font__size-md-12 line-height-1-5">Oleh: {{ $p->user->name }}</span>

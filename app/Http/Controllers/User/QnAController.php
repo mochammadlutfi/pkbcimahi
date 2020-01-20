@@ -58,8 +58,9 @@ class QnAController extends Controller
     public function tambah()
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
+        $pertanyaan = Pertanyaan::latest()->limit(5)->get();
         $kategori = QKategori::latest()->get();
-        return view('frontend.QnA.tambah', compact('title', 'kategori'));
+        return view('frontend.QnA.tambah', compact('title', 'kategori', 'pertanyaan'));
     }
 
     public function cari()

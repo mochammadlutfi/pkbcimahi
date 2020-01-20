@@ -62,7 +62,7 @@
                                     <div class="brk-reply-item__header">
                                         <a href="#" class="brk-reply-item__header-reply">
                                             <i class="far fa-clock"></i>
-                                            <span class="font__weight-bold">10:00. Aug 12, 17</span>
+                                            <span class="font__weight-bold">{{ $tanya->created_at->format('d-m-Y') }}</span>
                                         </a>
 
                                     </div>
@@ -78,7 +78,7 @@
                                 <div class="d-flex align-items-start float-right">
                                     <span class="font-dark-color-2 font__Family-montserrat font__size-10 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Kategori:</span>
                                     <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                        <li class="font__size-2 mb-40"><a href="#" rel="tag">{{ $tanya->qkategori->nama }}</a></li>
+                                        <li class="font__size-2 mb-40"><a href="{{  route('QA.kategori', $tanya->qkategori->slug) }}" rel="tag">{{ $tanya->qkategori->nama }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                         <div class="brk-reply-item" data-brk-library="component__blog_page_css">
                             <a href="#" class="brk-reply-item__user">
                                     <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                    data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt"
+                                    data-src="{{ asset('uploads/'. $jawab->admin->avatar) }}" alt="alt"
                                     class="lazyload">
                             </a>
                             <div class="brk-reply-item__content">
@@ -95,7 +95,7 @@
                                     <div class="brk-reply-item__header">
                                         <a href="#" class="brk-reply-item__header-reply">
                                             <i class="far fa-clock"></i>
-                                            <span class="font__weight-bold">10:00. Aug 12, 17</span>
+                                            <span class="font__weight-bold">{{ $tanya->created_at->format('d-m-Y') }}</span>
                                         </a>
 
                                     </div>
@@ -146,7 +146,7 @@
                     <div class="list-group">
                         <span class="list-group-item list-group-item-action list-group-item-success active">List Kategori</span>
                         @foreach($kategori as $k)
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light"  style="color :black">{{ $k->nama }}</a>
+                            <a href="{{ route('QA.kategori', $k->slug) }}" class="list-group-item list-group-item-action list-group-item-light"  style="color :black">{{ $k->nama }}</a>
                         @endforeach
                     </div>
                 </div>

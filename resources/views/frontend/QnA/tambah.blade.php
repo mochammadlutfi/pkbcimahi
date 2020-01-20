@@ -82,37 +82,48 @@
                     </form>
                 </div>
                 <h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60 mb-10">Diskusi Dengan Fraksi Terbaru</h3>
-                @for ($i = 0; $i < 6; $i++)
+                @foreach($pertanyaan as $p)
                     <div>
-                        <div class="brk-reply-item" data-brk-library="component__blog_page_css">
+                        <div class="brk-reply-item pb-20 pt-20 p-0" data-brk-library="component__blog_page_css">
                             <a href="#" class="brk-reply-item__user">
-                                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt" class="lazyload">
+                                @if($p->user->avatar <> null)
+                                    <img class="img-avatar" src="{{ asset($p->user->avatar) }}" alt="">
+                                @else
+                                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                    data-src="{{ Avatar::create($p->user->name)->toBase64() }}" alt="alt"
+                                    class="lazyload">
+                                @endif
                             </a>
                             <div class="brk-reply-item__content">
-                                <a href="{{ url('/QnA_detail') }}" class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">ini Judul tOPIK?</a>
+                                <a href="{{ route('QA.detail', $p->slug) }}"
+                                    class="font__size-md-20 font__size-18 line-height-1-5 font__weight-bold">{{ $p->judul }}</a>
                                 <div class="d-sm-flex justify-content-sm-between">
                                     <div class="brk-reply-item__header">
                                         <a class="brk-reply-item__header-like">
                                             <i class="far fa-comments"></i>
-                                            <span>0</span>
+                                            <span>{{ $p->jawabannya->count() }}</span>
                                         </a>
                                         <a class="brk-reply-item__header-reply">
                                             <i class="far fa-clock"></i>
-                                            <span class="font__weight-bold">10:00. Aug 12, 17</span>
+                                            <span class="font__weight-bold">{{ $p->created_at->format('d-m-Y') }}</span>
                                         </a>
                                     </div>
-                                    <p href="#" class="font__size-md-17 font__size-15 line-height-1-5">Oleh: Rebeca Oliva</p>
+                                    <span class="font__size-md-12 line-height-1-5">Oleh: {{ $p->user->name }}</span>
                                 </div>
-                                <div class="brk-dark-font-color font__family-open-sans font__size-md-14 font__size-13 line-height-1-625 mt-10">
-                                    Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+                                <div
+                                    class="brk-dark-font-color font__family-open-sans font__size-md-14 font__size-13 line-height-1-625 mt-10">
+                                    <?= str_limit($p->deskripsi, 200) ?>
                                 </div>
-                                <div class="brk-dark-font-color font__family-open-sans font__size-md-14 font__size-13 line-height-1-625 mt-10">
-                                    <i class="fa fa-check-circle mt-1"></i> Dijawab Oleh:<a href="#"> Hatake Kakashi</a>
+                                <div class="d-flex align-items-start mb-10 float-right">
+                                    <span class="font-dark-color-2 font__Family-montserrat font__size-10 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Kategori:</span>
+                                    <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
+                                        <li class="font__size-2"><a href="{{ route('QA.kategori', $p->qkategori->slug) }}"  rel="tag">{{ $p->qkategori->nama }}</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                @endforeach
             </div>
         </div>
     </div>

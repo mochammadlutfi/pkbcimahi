@@ -21,11 +21,11 @@
 							</h3>
 							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
 								<li>
-									<a href="{{ url('beranda') }}">Beranda</a>
+									<a href="{{ route('home') }}">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li>
-									<a href="{{ url('event') }}">Event</a>
+									<a href="{{ route('event') }}">Event</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li class="active">{{ $event->judul }}</li>
@@ -37,8 +37,8 @@
 		</div>
 	</div>
 	<div class="container mt-80">
-		<div class="row">
-			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
+		<div class="row justify-content-md-center">
+			<div class="col-12 col-lg-8 col-xl-11 order-xs-1 order-lg-1">
 				<div class="brs-posts-container brs-posts-container_right-divider">
 					<div class="mb-60">
 						<div class="brs-post brs-post_slider" data-brk-library="component__blog">
@@ -59,7 +59,7 @@
 										{{ $event->judul }}</h2>
 								</div>
 							</div>
-							<div class="brs-post__description">
+							<div class="brs-post__description" style="word-wrap: break-word;">
 								<?= $event->deskripsi; ?>
 							</div>
 						</div>
