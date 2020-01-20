@@ -344,13 +344,13 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('kategori.hapus', { id: id }),
+            url: laroute.route('admin.galeri.hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {
                 swal({
                     title: "Berhasil",
-                    text: "Data Kategori Berhasil Dihapus",
+                    text: "Album Foto Berhasil Dihapus",
                     timer: 3000,
                     buttons: false,
                     icon: 'success',

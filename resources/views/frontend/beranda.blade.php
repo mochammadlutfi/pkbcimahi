@@ -340,14 +340,14 @@
 <section>
     <div class="container mt-20">
         <div class="text-center mb-25">
-            <h2 class="font__family-playfair font__style-italic font__weight-normal font__size-48 line__height-52 brk-library-rendered"
-                 >
+            <h2
+                class="font__family-playfair font__style-italic font__weight-normal font__size-48 line__height-52 brk-library-rendered">
                 <span class="brk-dark-font-color">Post Terbaru</span>
             </h2>
         </div>
         <div class="row">
             @foreach($blog as $b)
-            <div class="col-xl-4">
+            <div class="col-lg-4">
                 <div class="post-rounded brk-base-box-shadow">
                     <div class="post-rounded__thumb lazyload"
                         data-bg="{{ $b['_embedded']['wp:featuredmedia']['0']['source_url'] }}">
@@ -368,17 +368,18 @@
                         </p>
                     </div>
                 </div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
 
-    <div class="text-center mb-40 mt-25">
-        <a href="https://blog.pkbcimahi.or.id/"
-            class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color">
-            <span class="before">Berita Lainnya</span><span class="text">Berita Lainnya</span><span class="after">Berita
-                Lainnya</span>
-        </a>
-    </div>
+        <div class="text-center mb-40 mt-25">
+            <a href="https://blog.pkbcimahi.or.id/"
+                class="btn btn-inside-out btn-lg btn-inside-out-invert border-radius-30 font__weight-light pl-60 pr-60 brk-black-font-color">
+                <span class="before">Berita Lainnya</span><span class="text">Berita Lainnya</span><span
+                    class="after">Berita
+                    Lainnya</span>
+            </a>
+        </div>
 </section>
 <!--------------------------------------------------------------------- End of News -->
 <section class="mb-30 mt-30">

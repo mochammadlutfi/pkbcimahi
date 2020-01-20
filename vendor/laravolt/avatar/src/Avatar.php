@@ -7,11 +7,14 @@ use Illuminate\Contracts\Cache\Repository;
 use Intervention\Image\AbstractFont;
 use Intervention\Image\AbstractShape;
 use Intervention\Image\ImageManager;
+use Laravolt\Avatar\Concerns\AttributeSetter;
 use Laravolt\Avatar\Generator\DefaultGenerator;
 use Laravolt\Avatar\Generator\GeneratorInterface;
 
 class Avatar
 {
+    use AttributeSetter;
+
     protected $name;
 
     protected $chars;
@@ -22,11 +25,11 @@ class Avatar
 
     protected $height;
 
-    protected $availableBackgrounds;
+    protected $availableBackgrounds = [];
 
-    protected $availableForegrounds;
+    protected $availableForegrounds = [];
 
-    protected $fonts;
+    protected $fonts = [];
 
     protected $fontSize;
 
@@ -47,9 +50,9 @@ class Avatar
 
     protected $font = null;
 
-    protected $background = '#cccccc';
+    protected $background = '#CCCCCC';
 
-    protected $foreground = '#ffffff';
+    protected $foreground = '#FFFFFF';
 
     protected $initials = '';
 
@@ -79,15 +82,15 @@ class Avatar
         $this->driver = $config['driver'] ?? 'gd';
         $this->theme = $config['theme'] ?? null;
         $this->defaultTheme = $this->validateConfig($config);
-
-        // Apply fallback themes found in config file
-        $this->applyTheme($config);
+        $this->applyTheme($this->defaultTheme);
 
         // Add any additional themes for further use
-        $themes = $this->resolveTheme($this->theme, $config['themes'] ?? []);
+        $themes = $this->resolveTheme('*', $config['themes'] ?? []);
         foreach ($themes as $name => $config) {
             $this->addTheme($name, $config);
         }
+
+        $this->initTheme();
     }
 
     /**
@@ -107,8 +110,7 @@ class Avatar
     {
         $this->name = $name;
 
-        $this->setForeground($this->getRandomForeground());
-        $this->setBackground($this->getRandomBackground());
+        $this->initTheme();
 
         return $this;
     }
@@ -116,7 +118,6 @@ class Avatar
     public function applyTheme(array $config)
     {
         $config = $this->validateConfig($config);
-
         $this->shape = $config['shape'];
         $this->chars = $config['chars'];
         $this->availableBackgrounds = $config['backgrounds'];
@@ -130,26 +131,11 @@ class Avatar
         $this->uppercase = $config['uppercase'];
         $this->borderSize = $config['border']['size'];
         $this->borderColor = $config['border']['color'];
-
-        $this->setForeground($this->getRandomForeground());
-        $this->setBackground($this->getRandomBackground());
-        $this->setFont($this->getRandomFont());
     }
 
     public function addTheme(string $name, array $config)
     {
         $this->themes[$name] = $this->validateConfig($config);
-
-        return $this;
-    }
-
-    public function setTheme($theme)
-    {
-        if (is_string($theme) || is_array($theme)) {
-            $this->theme = $theme;
-        }
-
-        $this->setRandomTheme();
 
         return $this;
     }
@@ -181,15 +167,6 @@ class Avatar
         }
 
         return $themes;
-    }
-
-    public function setFont($font)
-    {
-        if (is_file($font)) {
-            $this->font = $font;
-        }
-
-        return $this;
     }
 
     public function toBase64()
@@ -224,7 +201,7 @@ class Avatar
         $radius = ($this->width - $this->borderSize) / 2;
         $center = $this->width / 2;
 
-        $svg = '<svg width="'.$this->width.'" height="'.$this->height.'" viewBox="0 0 '.$this->width.' '.$this->height.'">';
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'.$this->width.'" height="'.$this->height.'" viewBox="0 0 '.$this->width.' '.$this->height.'">';
 
         if ($this->shape == 'square') {
             $svg .= '<rect x="'.$x
@@ -284,67 +261,6 @@ class Avatar
         }
 
         return $url;
-    }
-
-    public function setBackground($hex)
-    {
-        $this->background = $hex;
-
-        return $this;
-    }
-
-    public function setForeground($hex)
-    {
-        $this->foreground = $hex;
-
-        return $this;
-    }
-
-    public function setDimension($width, $height = null)
-    {
-        if (!$height) {
-            $height = $width;
-        }
-        $this->width = $width;
-        $this->height = $height;
-
-        return $this;
-    }
-
-    public function setFontSize($size)
-    {
-        $this->fontSize = $size;
-
-        return $this;
-    }
-
-    public function setFontFamily($font)
-    {
-        $this->fontFamily = $font;
-
-        return $this;
-    }
-
-    public function setBorder($size, $color)
-    {
-        $this->borderSize = $size;
-        $this->borderColor = $color;
-
-        return $this;
-    }
-
-    public function setShape($shape)
-    {
-        $this->shape = $shape;
-
-        return $this;
-    }
-
-    public function setChars($chars)
-    {
-        $this->chars = $chars;
-
-        return $this;
     }
 
     public function getInitial()
@@ -487,15 +403,20 @@ class Avatar
         // Make it work for associative array
         $array = array_values($array);
 
-        if (strlen($this->name) == 0 || count($array) == 0) {
+        $name = $this->name;
+        if (strlen($name) === 0) {
+            $name = chr(rand(65, 90));
+        }
+
+        if (count($array) == 0) {
             return $default;
         }
 
-        $number = ord($this->name[0]);
+        $number = ord($name[0]);
         $i = 1;
-        $charLength = strlen($this->name);
+        $charLength = strlen($name);
         while ($i < $charLength) {
-            $number += ord($this->name[$i]);
+            $number += ord($name[$i]);
             $i++;
         }
 
@@ -532,5 +453,13 @@ class Avatar
         ];
 
         return $config + $this->defaultTheme + $fallback;
+    }
+
+    protected function initTheme()
+    {
+        $this->setRandomTheme();
+        $this->setForeground($this->getRandomForeground());
+        $this->setBackground($this->getRandomBackground());
+        $this->setFont($this->getRandomFont());
     }
 }

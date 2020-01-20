@@ -70,14 +70,14 @@ class EventController extends Controller
                 ->rawColumns(['action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.event.index', compact(''));
+        return view('backend.event.index');
 
     }
 
     public function tambah()
     {
 
-        return view('backend.event.form', compact(''));
+        return view('backend.event.form');
     }
 
     public function simpan(Request $request)
@@ -129,7 +129,6 @@ class EventController extends Controller
     public function edit($event_id)
     {
         $event = Event::find($event_id);
-
         return view('backend.event.edit', compact('event'));
     }
 

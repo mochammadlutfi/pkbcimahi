@@ -64,7 +64,7 @@ class AdminController extends Controller
                 ->rawColumns(['img', 'action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.admin.index', compact(''));
+        return view('backend.admin.index');
 
     }
 

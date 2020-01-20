@@ -79,6 +79,8 @@ return array(
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'BeyondCode\\DumpServer\\' => array($vendorDir . '/beyondcode/laravel-dump-server/src'),
     'Balping\\JsonRaw\\' => array($vendorDir . '/balping/json-raw-encoder/src'),
+    'Arcanedev\\Support\\' => array($vendorDir . '/arcanedev/support/src'),
+    'Arcanedev\\LaravelSettings\\' => array($vendorDir . '/arcanedev/laravel-settings/src'),
     'App\\' => array($baseDir . '/app'),
     'Ammonkc\\WpApi\\' => array($vendorDir . '/ammonkc/laravel-wp-api/src'),
 );

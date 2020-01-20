@@ -1,16 +1,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-<title>Admin | DPC PKB Kota Cimahi</title>
+<title>Admin | {{ settings()->get('app_name') }}</title>
 
-<meta name="description" content="Admin | DPC PKB Kota Cimahi">
-<meta name="author" content="DPC PKB Kota Cimahi">
+<meta name="description" content="Admin | {{ settings()->get('app_name') }}">
+<meta name="author" content="{{ settings()->get('app_name') }}">
 <meta name="robots" content="noindex, nofollow">
 
 <!-- Open Graph Meta -->
-<meta property="og:title" content="Admin | DPC PKB Kota Cimahi">
-<meta property="og:site_name" content="Admin | DPC PKB Kota Cimahi">
-<meta property="og:description" content="Admin | DPC PKB Kota Cimahi">
+<meta property="og:title" content="Admin | {{ settings()->get('app_name') }}">
+<meta property="og:site_name" content="Admin | {{ settings()->get('app_name') }}">
+<meta property="og:description" content="Admin | {{ settings()->get('app_description') }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
-<meta property="og:image" content="">
+<meta property="og:image" content="{{ settings()->get('app_logo') }}">

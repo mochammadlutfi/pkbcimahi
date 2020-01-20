@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-permission` will be documented in this file
 
+## 3.6.0 - 2020-01-17
+- Added Laravel 7.0 support
+- Allow splat operator for passing roles to `hasAnyRole()`
+
+## 3.5.0 - 2020-01-07
+- Added missing `guardName` to Exception `PermissionDoesNotExist` #1316
+
+## 3.4.1 - 2019-12-28
+- Fix 3.4.0 for Lumen
+
+## 3.4.0 - 2019-12-27
+- Make compatible with Swoole - ie: for long-running Laravel instances
+
 ## 3.3.1 - 2019-12-24
 - Expose Artisan commands to app layer, not just to console
 

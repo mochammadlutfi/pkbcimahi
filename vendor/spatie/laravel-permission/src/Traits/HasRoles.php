@@ -214,11 +214,13 @@ trait HasRoles
     /**
      * Determine if the model has any of the given role(s).
      *
-     * @param string|array|\Spatie\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
+     * Alias to hasRole() but without Guard controls
+     *
+     * @param string|int|array|\Spatie\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
      *
      * @return bool
      */
-    public function hasAnyRole($roles): bool
+    public function hasAnyRole(...$roles): bool
     {
         return $this->hasRole($roles);
     }
@@ -226,7 +228,7 @@ trait HasRoles
     /**
      * Determine if the model has all of the given role(s).
      *
-     * @param  string|\Spatie\Permission\Contracts\Role|\Illuminate\Support\Collection  $roles
+     * @param  string|array|\Spatie\Permission\Contracts\Role|\Illuminate\Support\Collection  $roles
      * @param  string|null  $guard
      * @return bool
      */

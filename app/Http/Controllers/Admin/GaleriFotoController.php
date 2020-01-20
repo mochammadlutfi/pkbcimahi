@@ -34,7 +34,63 @@ class GaleriFotoController extends Controller
     {
         $foto = Foto::where('album_id', $album_id)->latest()->get();
         $album = Album::find($album_id);
-        return view('backend.galeri.foto.index', compact('foto', 'album'));
+        $prev_berk = array();
+        $berkas = array();
+        foreach($foto as $d)
+        {
+            $berkas[] = array(
+                'caption' => $d->nama,
+                'key' => $d->id,
+                'url' => route('admin.galeri.foto_hapus'),
+            );
+            $prev_berk[] = asset('uploads/'.$d->path);
+        }
+        $berkas = json_encode($berkas);
+        $prev_berk = json_encode($prev_berk);
+
+        return view('backend.galeri.foto.index', compact('foto', 'album', 'berkas', 'prev_berk'));
+    }
+
+    public function file_upload(Request $request)
+    {
+        // dd($request->all());/
+        if($request->hasfile('files'))
+        {
+            foreach($request->file('files') as $f)
+            {
+                $name= $f->getClientOriginalName();
+                $path = Storage::disk('public')->put('galeri/foto/'.$request->album_id, $f);
+                $file = array(
+                    'album_id' => $request->album_id,
+                    'nama' => $name,
+                    'path' => $path,
+                );
+                Foto::insert($file);
+            }
+            return response()->json([
+                'nothing' => true,
+            ]);
+        }
+    }
+
+    public function hapus_file(Request $request)
+    {
+        $foto = Foto::find($request->key);
+        $file = public_path().'/uploads/'.$foto->path;
+        // dd($file);
+        if (is_file($file)){
+            $hapus_file = unlink($file);
+            if($hapus_file)
+            {
+                $hapus_db = Foto::destroy($foto->id);
+                if($hapus_db)
+                {
+                    return response()->json([
+                        'nothing' => true,
+                    ]);
+                }
+            }
+        }
     }
 
     public function tambah($album_id)
@@ -88,23 +144,5 @@ class GaleriFotoController extends Controller
         // }
     }
 
-    public function hapus($id)
-    {
-        $foto = Foto::find($id);
-        $path = public_path().'/uploads/'.$foto->path;
-        // dd($file);
-        if (is_file($path)){
-            $del_path = unlink($path);
-            if($del_path)
-            {
-                $hapus_db = Foto::destroy($foto->id);
-                if($hapus_db)
-                {
-                    return response()->json([
-                        'fail' => false,
-                    ]);
-                }
-            }
-        }
-    }
+
 }

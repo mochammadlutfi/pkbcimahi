@@ -1,6 +1,9 @@
 @extends('backend.layouts.master')
 
+@section('styles')
 
+<link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/file-input/fileinput.min.css') }}">
+@endsection
 
 @section('content')
 <div class="content">
@@ -20,24 +23,12 @@
                     </a>
                 </div>
                 <div class="block-content">
-                    <div class="row items-push">
-                        @foreach($foto as $f)
-                        <div class="col-md-4 animated fadeIn">
-                            <div class="options-container fx-item-zoom-in" style="height:200px">
-                                <img class="img-fluid options-item" src="{{ asset('uploads/'.$f->path) }}" alt="">
-                                <div class="options-overlay bg-black-op">
-                                    <div class="options-overlay-content">
-                                        <a class="btn btn-sm btn-rounded btn-alt-primary min-width-75" href="javascript:void(0)">
-                                            <i class="fa fa-eye"></i> Detail
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-alt-danger min-width-75" href="javascript:void(0)" onclick="hapus({{ $f->id }})">
-                                            <i class="fa fa-times"></i> Hapus
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input id="update-berkas" name="files[]" type="file" multiple>
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
@@ -48,7 +39,28 @@
 @stop
 
 @push('scripts')
+<script src="{{ asset('assets/backend/js/plugins/file-input/fileinput.min.js') }}"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/plugins/piexif.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/plugins/sortable.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/fileinput.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/locales/id.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/locales/es.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/themes/fa/theme.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/backend/js/plugins/file-input/themes/explorer-fa/theme.js') }}" type="text/javascript"></script>
 <script>
+$("#update-berkas").fileinput({
+    theme: 'fa',
+    uploadUrl: "{{ route('admin.galeri.foto_tambah') }}",
+    uploadAsync: true,
+    language: 'id',
+    overwriteInitial: false,
+    initialPreviewAsData: true,
+    initialPreview: <?= $prev_berk; ?>,
+    initialPreviewConfig: <?= $berkas; ?>,
+    uploadExtraData: {
+        album_id: "{{ $album->id }}",
+    }
+});
 function hapus(id) {
     swal({
         title: "Anda Yakin?",

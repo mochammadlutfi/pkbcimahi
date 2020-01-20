@@ -56,11 +56,13 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
         Route::group(['prefix' => 'foto'], function(){
             Route::get('/{id}', 'GaleriFotoController@index')->name('galeri.foto');
-            Route::get('/{id}/tambah', 'GaleriFotoController@tambah')->name('galeri.foto_tambah');
-            Route::post('/simpan','GaleriFotoController@simpan')->name('galeri.foto_simpan');
-            Route::get('/edit/{id}','GaleriFotoController@edit')->name('galeri.foto_edit');
-            Route::post('/update','GaleriFotoController@update')->name('galeri.foto_update');
-            Route::get('/hapus/{id}','GaleriFotoController@hapus')->name('galeri.foto_hapus');
+            // Route::get('/{id}/tambah', 'GaleriFotoController@tambah')->name('galeri.foto_tambah');
+            // Route::post('/simpan','GaleriFotoController@simpan')->name('galeri.foto_simpan');
+            // Route::get('/edit/{id}','GaleriFotoController@edit')->name('galeri.foto_edit');
+            // Route::post('/update','GaleriFotoController@update')->name('galeri.foto_update');
+            // Route::get('/hapus/{id}','GaleriFotoController@hapus')->name('galeri.foto_hapus');
+            Route::post('/tambah','GaleriFotoController@file_upload')->name('galeri.foto_tambah');
+            Route::post('/hapus','GaleriFotoController@hapus_file')->name('galeri.foto_hapus');
         });
     });
 
@@ -80,7 +82,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::post('/update','SliderController@update')->name('slider.update');
         Route::get('/hapus/{id}','SliderController@hapus')->name('slider.hapus');
     });
-
 
     Route::group(['prefix' => 'member'], function () {
         Route::get('/','PenggunaController@index')->name('member');
@@ -106,6 +107,11 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/edit/{id}','FraksiController@edit')->name('fraksi.edit');
         Route::post('/update','FraksiController@update')->name('fraksi.update');
         Route::get('/hapus/{id}','FraksiController@hapus')->name('fraksi.hapus');
+    });
+
+    Route::group(['prefix' => 'pengaturan'], function () {
+        Route::get('/','PengaturanController@umum')->name('pengaturan');
+        Route::match(['get', 'post'], '/umum', 'PengaturanController@umum')->name('pengaturan.umum');
     });
 
 });

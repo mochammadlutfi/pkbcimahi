@@ -18,7 +18,8 @@
         "laravolt/avatar": "^3.0",
         "spatie/laravel-permission": "^3.3",
         "te7a-houdini/laroute": "^1.0",
-        "yajra/laravel-datatables": "^1.5"
+        "yajra/laravel-datatables": "^1.5",
+        "arcanedev/laravel-settings": "^5.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

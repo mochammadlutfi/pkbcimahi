@@ -61,33 +61,6 @@
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
-        {{-- <script src="{{ asset('assets/backend/js/app.js') }}"></script> --}}
-
-        {{-- <script src="{{ asset('assets/backend/js/codebase.core.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/codebase.app.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/laroute.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/5.0.0/pusher.min.js" integrity="sha256-rumnpK3SJCNuEMjj5oRs5bACsVmCP/TKHg6R6MIWiPo=" crossorigin="anonymous"></script>
-        <!-- Page JS Plugins -->
-        <script src="{{ asset('assets/backend/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/select2/js/select2.full.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/chartjs/Chart.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/slick/slick.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-
-        @stack('scripts')
-        <script>
-            jQuery(function(){ Codebase.helpers(['datepicker', 'select2',]); });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        </script> --}}
-        <!-- Codebase Core JS -->
-        {{-- <script src="{{ asset('assets/backend/js/laroute.js') }}"></script> --}}
         <script src="{{ mix('/assets/backend/js/codebase.app.js') }}"></script>
         <script src="{{ asset('assets/backend/js/laroute.js') }}"></script>
         <script src="{{ asset('assets/backend/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>

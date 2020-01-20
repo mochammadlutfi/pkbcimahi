@@ -85,9 +85,6 @@ class HomeController extends Controller
 
     public function get_hari($tanggal)
     {
-        //fungsi mencari namahari
-        //format $tgl YYYY-MM-DD
-        //harviacode.com
         $tgl=substr($tanggal,8,2);
         $bln=substr($tanggal,5,2);
         $thn=substr($tanggal,0,4);

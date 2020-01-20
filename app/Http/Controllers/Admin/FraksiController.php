@@ -65,7 +65,7 @@ class FraksiController extends Controller
                 ->rawColumns(['img', 'action', 'status', 'tgl'])
                 ->make(true);
         }
-        return view('backend.fraksi.index', compact(''));
+        return view('backend.fraksi.index');
 
     }
 

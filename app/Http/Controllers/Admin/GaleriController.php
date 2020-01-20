@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Models\Foto;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -186,6 +186,34 @@ class GaleriController extends Controller
                     'fail' => false,
                 ]);
             }
+        }
+    }
+
+    public function hapus($id)
+    {
+        $album = Album::find($id);
+        $foto = Foto::where('album_id', $album->id)->get();
+        $del_album_img = unlink(public_path().'/uploads/'.$album->foto);
+        if($del_album_img)
+        {
+            $del_album = Album::destroy($album->id);
+            if($del_album)
+            {
+                foreach($foto as $f)
+                {
+                    $path = public_path().'/uploads/'.$f->path;
+                    if (is_file($path)){
+                        $del_path = unlink($path);
+                        if($del_path)
+                        {
+                            $hapus_db = Foto::destroy($f->id);
+                        }
+                    }
+                }
+            }
+            return response()->json([
+                'fail' => false,
+            ]);
         }
     }
 }

@@ -63,4 +63,15 @@
             <i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Admin</span>
         </a>
     </li>
+    <li class="{{ Request::is('admin/pengaturan/*', 'admin/pengaturan') ? 'open' : null }}">
+        <a class="nav-submenu" data-toggle="nav-submenu" href="#">
+            <i class="si si-wrench"></i>
+            <span class="sidebar-mini-hide">Pengaturan</span></a>
+        <ul>
+            <li>
+                <a class="{{ Request::is('admin/pengaturan/umum') ? 'active' : null}}"
+                    href="{{ route('admin.pengaturan.umum') }}">Umum</a>
+            </li>
+        </ul>
+    </li>
 </ul>
