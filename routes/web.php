@@ -47,6 +47,7 @@ Route::group(['prefix' => 'galeri'], function(){
     Route::get('/', 'GaleriController@index')->name('galeri');
     Route::get('/{slug}', 'GaleriController@detail')->name('galeri.detail');
     Route::get('/p/instagram', 'GaleriController@instagram')->name('galeri.instagram');
+    Route::get('/p/video', 'GaleriController@video')->name('galeri.video');
 });
 
 Route::group(['prefix' => 'tentang'], function(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Foto;
 use App\Models\Album;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -30,6 +31,15 @@ class GaleriController extends Controller
     {
         $title = 'Galeri Foto Instagram';
         return view('frontend.galeri.instagram', compact('title'));
+    }
+
+    public function video()
+    {
+
+        $video = Video::where('status', 1)->latest()->get();
+        $title = 'Video DPC PKB Kota Cimahi';
+
+        return view('frontend.galeri.video', compact('video', 'title'));
     }
 
     public function detail($slug)

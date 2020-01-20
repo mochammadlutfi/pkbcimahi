@@ -23,11 +23,22 @@
             </li>
         </ul>
     </li>
-    <li>
-        <a class="{{ Request::is('admin/galeri', 'admin/galeri/*') ? 'active' : null }}" href="{{ route('admin.galeri') }}">
-            <i class="si si-film"></i><span class="sidebar-mini-hide">Galeri</span>
-        </a>
+
+    <li class="{{ Request::is('admin/galeri', 'admin/galeri/*', 'admin/video', 'admin/video/*') ? 'open' : null }}">
+        <a class="nav-submenu" data-toggle="nav-submenu" href="#">
+            <i class="si si-film"></i>
+            <span class="sidebar-mini-hide">Galeri</span></a>
+        <ul>
+            <li>
+                <a class="{{ Request::is('admin/galeri', 'admin/galeri/*') ? 'active' : null }}" href="{{ route('admin.galeri') }}">Album</a>
+            </li>
+            <li>
+                <a class="{{ Request::is('admin/video', 'admin/video/*') ? 'active' : null}}"
+                    href="{{ route('admin.video') }}">Video</a>
+            </li>
+        </ul>
     </li>
+
     <li class="{{ Request::is('admin/event/*', 'admin/event') ? 'open' : null }}">
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
             <i class="si si-flag"></i>
