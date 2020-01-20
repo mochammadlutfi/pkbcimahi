@@ -188,7 +188,7 @@ class FraksiController extends Controller
 
         $data = Admin::find($id);
 
-        return view('backend.admin.edit', compact('data', ''));
+        return view('backend.admin.edit', compact('data'));
     }
 
     public function hapus($id)
