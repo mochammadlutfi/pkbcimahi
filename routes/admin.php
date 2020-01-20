@@ -64,6 +64,14 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         });
     });
 
+    Route::group(['prefix' => 'video'], function(){
+        Route::get('/', 'VideoController@index')->name('video');
+        Route::post('/simpan','VideoController@simpan')->name('video.simpan');
+        Route::get('/edit/{id}','VideoController@edit')->name('video.edit');
+        Route::post('/update','VideoController@update')->name('video.update');
+        Route::get('/hapus/{id}','VideoController@hapus')->name('video.hapus');
+    });
+
     Route::group(['prefix' => 'event'], function(){
         Route::get('/', 'EventController@index')->name('event');
         Route::get('/tambah', 'EventController@tambah')->name('event.tambah');

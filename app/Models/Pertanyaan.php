@@ -23,6 +23,11 @@ class Pertanyaan extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
+    public function jawabannya()
+    {
+        return $this->hasMany('App\Models\Jawaban', 'pertanyaan_id', 'id');
+    }
+
     public function qkategori()
     {
         return $this->belongsTo('App\Models\QKategori', 'kategori_id', 'id');

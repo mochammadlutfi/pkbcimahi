@@ -82,7 +82,7 @@
                                         <div class="brk-reply-item__header">
                                             <a class="brk-reply-item__header-like">
                                                 <i class="far fa-comments"></i>
-                                                <span>0</span>
+                                                <span>{{ $p->jawabannya->count() }}</span>
                                             </a>
                                             <a class="brk-reply-item__header-reply">
                                                 <i class="far fa-clock"></i>

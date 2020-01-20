@@ -157,6 +157,9 @@
 										<a href="{{ route('galeri') }}">Album</a>
 									</li>
 									<li class="dd-effect" style="opacity: 1; left: 0px;">
+										<a href="{{ route('galeri.video') }}">Video</a>
+                                    </li>
+									<li class="dd-effect" style="opacity: 1; left: 0px;">
 										<a href="{{ route('galeri.instagram') }}">Instagram</a>
                                     </li>
                                 </ul>
