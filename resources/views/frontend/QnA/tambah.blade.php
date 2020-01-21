@@ -140,17 +140,28 @@
 
 @push('scripts')
 <script>
-    console.log('sc');
-jQuery(function ($) {
-$(document).on('keyup', '#field-judul', function() {
-     console.log('sww');
-        var Text = $(this).val();
-        Text = Text.toLowerCase();
-        Text = Text.replace(/[^\w ]+/g, '');
-        Text = Text.replace(/ +/g, '-');
-        $("#field-slug").val(Text);
+    jQuery(function ($) {
+    
+    $(document).on('keyup', '#field-judul', function() {
+            var Text = $(this).val();
+            Text = Text.toLowerCase();
+            Text = Text.replace(/[^\w ]+/g, '');
+            Text = Text.replace(/ +/g, '-');
+            $("#field-slug").val(Text);
+        });
+
+        $('#field-judul').change(function(e) {
+            console.log('ok');
+            $.get("{{ route('QA.check_slug') }}", 
+              { 'judul': $(this).val() }, 
+              function( data ) {
+                $('#field-slug').val(data.slug);
+              }
+            );
+        });
     });
-});
+
+
 
 </script>
 @endpush

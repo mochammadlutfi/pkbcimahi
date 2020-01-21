@@ -37,6 +37,17 @@ class QnAController extends Controller
         return view('frontend/QnA/index', compact('pertanyaan', 'title', 'kategori'));
     }
 
+    public function check_slug(Request $request)
+    {
+        // Old version: without uniqueness
+        // $slug = str_slug($request->judul);
+
+        // New version: to generate unique slugs
+        $slug = SlugService::createSlug(Pertanyaan::class, 'slug', $request->judul);
+
+        return response()->json(['slug' => $slug]);
+    }
+
     public function detail($slug)
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
@@ -102,14 +113,5 @@ class QnAController extends Controller
         }
     }
 
-    public function check_slug(Request $request)
-    {
-        // Old version: without uniqueness
-        // $slug = str_slug($request->judul);
-
-        // New version: to generate unique slugs
-        $slug = SlugService::createSlug(Pertanyaan::class, 'slug', $request->judul);
-
-        return response()->json(['slug' => $slug]);
-    }
+    
 }

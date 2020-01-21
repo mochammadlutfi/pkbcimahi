@@ -39,9 +39,9 @@ Route::group(['prefix' => 'tanya-jawab'], function(){
     Route::get('/', 'QnAController@index')->name('QA');
     Route::get('/buat-pertanyaan', 'QnAController@tambah')->middleware('auth','verified')->name('QA.tambah');
     Route::post('/simpan', 'QnAController@simpan')->name('QA.simpan');
-    Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
     Route::get('/kategori/{slug}', 'QnAController@kategori')->name('QA.kategori');
     Route::get('/check_slug','QnAController@check_slug')->name('QA.check_slug');
+    Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
 });
 
 Route::group(['prefix' => 'galeri'], function(){
