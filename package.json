@@ -31,6 +31,8 @@
         "jquery-scroll-lock": "^3.1.3",
         "jquery.appear": "^1.0.1",
         "js-cookie": "^2.2.0",
+        "laravel-echo": "^1.6.1",
+        "pusher-js": "^5.0.3",
         "simplebar": "^2.6.1"
     }
 }

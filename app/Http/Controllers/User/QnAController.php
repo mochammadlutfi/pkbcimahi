@@ -4,13 +4,15 @@ namespace App\Http\Controllers\User;
 
 use App\Models\QKategori;
 use App\Models\Pertanyaan;
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\TanyaJawab;
 class QnAController extends Controller
 {
     /**
@@ -95,7 +97,31 @@ class QnAController extends Controller
             $data->user_id = auth()->user()->id;
             if($data->save())
             {
-                return redirect()->route('QA')->with('success','Product created successfully.');
+                if(\Notification::send(new TanyaJawab( Pertanyaan::latest('id')->first() ) ) )
+                {
+                    return redirect()->route('QA')->with('success','Product created successfully.');
+                }
+            }
+        }
+    }
+
+    public function coba()
+    {
+        $judul = 'Ini JUdul 2';
+        $data = new Pertanyaan();
+        $data->judul =
+        $data->slug = Str::slug($judul, '-');
+        $data->deskripsi = '$request->pertanyaan';
+        $data->kategori_id = 1;
+        $data->status = 0;
+        $data->user_id = 1;
+
+        $admin = Admin::all();
+        if($data->save())
+        {
+            if(Notification::send($admin, new TanyaJawab(Pertanyaan::latest('id')->first() ) ) )
+            {
+                return 'Berhasil Cuk';
             }
         }
     }

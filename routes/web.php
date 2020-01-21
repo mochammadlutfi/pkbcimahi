@@ -24,11 +24,11 @@ Route::get('/coba', function () {
 
     dd($u);
 });
-
 Auth::routes([ 'verify' => true ]);
 Route::namespace('User')->group(function(){
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/tes', 'QnAController@coba');
 
 Route::group(['prefix' => 'event'], function(){
     Route::get('/', 'EventController@index')->name('event');

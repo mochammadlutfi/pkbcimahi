@@ -14,3 +14,4 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
 <meta property="og:image" content="{{ settings()->get('app_logo') }}">
+<meta name="csrf-token" content="{{ csrf_token() }}">

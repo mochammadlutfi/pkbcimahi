@@ -27,9 +27,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Tgl Event</th>
+                                <th>Tanggal Acara</th>
                                 <th>Status</th>
-                                <th>Tgl Dibuat</th>
+                                <th>Tanggal Dibuat</th>
                                 <th></th>
                             </tr>
                         </thead>

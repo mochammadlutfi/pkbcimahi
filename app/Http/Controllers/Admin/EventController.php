@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Storage;
-
+use App\Helpers\GeneralHelp;
 class EventController extends Controller
 {
     /**
@@ -35,7 +35,7 @@ class EventController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tgl', function($row){
-                        return date('d-m-Y', strtotime($row->tgl));
+                        return GeneralHelp::tgl_indo($row->tgl);
                 })
                 ->addColumn('status', function($row){
 
@@ -49,7 +49,7 @@ class EventController extends Controller
                         return $status;
                 })
                 ->addColumn('created_at', function($row){
-                        return date('d-m-Y', strtotime($row->created_at));
+                        return GeneralHelp::tgl_indo($row->created_at);
                 })
                 ->addColumn('action', function($row){
 

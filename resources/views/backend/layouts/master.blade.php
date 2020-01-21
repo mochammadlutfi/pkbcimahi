@@ -1,29 +1,10 @@
 <!doctype html>
 <html lang="en" class="no-focus">
     <head>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         @include('backend.layouts.meta')
 
         <!-- Stylesheets -->
-
-        <!-- Page JS Plugins CSS -->
-
-        {{-- <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/slick/slick.css') }}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/slick/slick-theme.css') }}"> --}}
-        <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/datatables/dataTables.bootstrap4.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.css') }}">
-
-        @yield('styles')
-        {{--  --}}
-        <!-- Fonts and Codebase framework -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
-        {{-- <link rel="stylesheet" id="css-main" href="{{ asset('assets/backend/css/codebase.css') }}"> --}}
-        <link rel="stylesheet" id="css-main" href="{{ mix('/assets/backend/css/codebase.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.css') }}">
-        <!-- Scripts -->
-        <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
-        <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" id="css-theme" href="assets/backend/css/themes/flat.min.css"> -->
+        @include('backend.layouts.inc_top')
         <!-- END Stylesheets -->
     </head>
     <body>
@@ -61,21 +42,6 @@
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
-        <script src="{{ mix('/assets/backend/js/codebase.app.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/laroute.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-        <script src="{{ asset('assets/backend/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-        <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        </script>
-        <!-- Laravel Scaffolding JS -->
-        <script src="{{ mix('/assets/backend/js/laravel.app.js') }}"></script>
-        @stack('scripts')
+        @include('backend.layouts.inc_bottom')
     </body>
 </html>

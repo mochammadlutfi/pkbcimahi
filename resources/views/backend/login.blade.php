@@ -2,13 +2,15 @@
 <html lang="en" class="no-focus">
     <head>
 
-        {{-- @include('layouts.meta') --}}
+        @include('backend.layouts.meta')
         <!-- Stylesheets -->
 
         <!-- Fonts and Codebase framework -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
-        <link rel="stylesheet" id="css-main" href="{{ mix('/assets/backend/css/codebase.css') }}">
-
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
+        <link rel="stylesheet" id="css-main" href="{{ mix('/assets/backend/css/codebase.css') }}"> --}}
+        <!-- Stylesheets -->
+        @include('backend.layouts.inc_top')
+        <!-- END Stylesheets -->
     </head>
     <body>
         <div id="page-container" class="main-content-boxed">
@@ -90,6 +92,5 @@
         </div>
         <!-- END Page Container -->
         <script src="{{ mix('/assets/backend/js/codebase.app.js') }}"></script>
-        {{-- <script src="{{ asset('assets/backend/js/codebase.app.min.js') }}"></script> --}}
     </body>
 </html>

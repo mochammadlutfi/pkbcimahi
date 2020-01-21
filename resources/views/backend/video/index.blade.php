@@ -148,7 +148,7 @@ $(function () {
     $('#list-video').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "",
+        ajax: laroute.route('admin.video'),
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
@@ -187,7 +187,7 @@ jQuery(document).ready(function () {
             VID_REGEX = /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
             video_id = url.match(VID_REGEX)[1];
             console.log(video_id);
-            
+
             $('#img_preview').attr('src', ' https://img.youtube.com/vi/'+ video_id +'/mqdefault.jpg');
             $('#img_preview').hide();
             $('#img_preview').fadeIn(500);
@@ -317,7 +317,7 @@ function edit(id){
             urlvid = response.url;
             video_id = urlvid.match(VID_REGEX)[1];
             console.log(video_id);
-            
+
             $('#img_preview').attr('src', ' https://img.youtube.com/vi/'+ video_id +'/mqdefault.jpg');
 
             var keyword = response.seo_keyword;

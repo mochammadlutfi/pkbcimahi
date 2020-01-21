@@ -8,7 +8,7 @@ use App\Models\Pertanyaan;
 use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
-
+use App\Helpers\GeneralHelp;
 class QAController extends Controller
 {
     /**
@@ -59,7 +59,7 @@ class QAController extends Controller
                         return $status;
                 })
                 ->addColumn('tgl', function($row){
-                    return $row->created_at;
+                    return GeneralHelp::tgl_indo($row->created_at);
 
                 })
                 ->addColumn('action', function($row){
