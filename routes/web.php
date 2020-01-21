@@ -41,6 +41,7 @@ Route::group(['prefix' => 'tanya-jawab'], function(){
     Route::post('/simpan', 'QnAController@simpan')->name('QA.simpan');
     Route::get('/{slug}', 'QnAController@detail')->name('QA.detail');
     Route::get('/kategori/{slug}', 'QnAController@kategori')->name('QA.kategori');
+    Route::get('/check_slug','QnAController@check_slug')->name('QA.check_slug');
 });
 
 Route::group(['prefix' => 'galeri'], function(){
@@ -61,7 +62,9 @@ Route::group(['prefix' => 'tentang'], function(){
 
 Route::group(['prefix' => 'fraksi'], function(){
     Route::get('/', 'FraksiController@index')->name('fraksi');
-    Route::get('/{id}', 'FraksiController@detail')->name('fraksi.detail');
+    Route::get('/acepjamaludin', 'FraksiController@acepjamaludin')->name('fraksi.detail.acepjamaludin');
+    Route::get('/asepsutisna', 'FraksiController@asepsutisna')->name('fraksi.detail.asepsutisna');
+    Route::get('/dedelatif', 'FraksiController@dedelatif')->name('fraksi.detail.dedelatif');
 });
 
 	Route::namespace('Auth')->group(function(){

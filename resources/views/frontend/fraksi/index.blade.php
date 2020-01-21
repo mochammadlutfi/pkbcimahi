@@ -54,7 +54,7 @@ vendor\swiper\css
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center"
                              >
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.acepjamaludin')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Acep Jamaludin
                                     </h4>
                                 </a>
@@ -99,7 +99,7 @@ vendor\swiper\css
                     <div class="col-lg-3 col-sm-6">
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center">
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.asepsutisna')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Asep Sutisna
                                     </h4>
                                 </a>
@@ -145,7 +145,7 @@ vendor\swiper\css
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center"
                              >
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.dedelatif')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Dede Latif
                                     </h4>
                                 </a>
@@ -187,54 +187,6 @@ vendor\swiper\css
                             </div>
                         </article>
                     </div>
-                    @foreach($fraksi as $e)
-                        <div class="col-lg-3 col-sm-6">
-                            <article class="brk-team-persone-circle brk-base-box-shadow text-center"
-                                 >
-                                <div class="brk-team-persone-circle__name-position">
-                                    <a href="{{ route('fraksi.detail', $e->id) }}">
-                                        <h4 class="font__family-montserrat font__weight-bold font__size-18">{{  $e->name  }}
-                                        </h4>
-                                    </a>
-                                </div>
-                                <div class="brk-team-persone-circle__bg lazyload" data-bg="{{ asset('uploads/' .$e->avatar ) }}">
-                                    <span class="brk-team-persone-circle__bg-overlay">
-                                        <span class="before brk-base-bg-gradient-90deg"></span>
-                                        <svg viewBox="0 0 270 37">
-                                            <path d="M270,37H0V0A267.6,267.6,0,0,0,135.53,36.5,267.52,267.52,0,0,0,270,0Z"
-                                                fill="rgb(255, 255, 255)" />
-                                        </svg>
-                                    </span>
-                                    <ul class="brk-team-persone-circle__contacts">
-                                        <li>
-                                            <i class="fas fa-phone" aria-hidden="true"></i>
-                                            <a href="tel:88001234567">8 800 123 45 67</a>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-envelope" aria-hidden="true"></i>
-                                            <a href="mailto: {{ $e->email }} ">{{ $e->email }}</a>
-                                        </li>
-                                        <!-- <li>
-                                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                                            <a href="#">bernard.show</a>
-                                        </li>
-                                        <li>
-                                            <i class="fab fa-skype" aria-hidden="true"></i>
-                                            <a href="#">skype.show</a>
-                                        </li> -->
-                                    </ul>
-                                </div>
-                                <div class="brk-team-persone-circle__social-links">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </section>

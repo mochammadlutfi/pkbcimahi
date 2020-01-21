@@ -19,11 +19,22 @@ class FraksiController extends Controller
         return view('frontend.fraksi.index', compact('title', 'fraksi'));
     }
 
-    public function detail($id)
+    public function acepjamaludin()
     {
     	$title = 'Profile';
-        $data = Admin::where('id', $id)->first();
-        return view('frontend.fraksi.detail', compact('title', 'data'));
+        return view('frontend.fraksi.acepjamaludin', compact('title'));
+    }
+
+    public function dedelatif()
+    {
+        $title = 'Profile';
+        return view('frontend.fraksi.dedelatif', compact('title'));
+    }
+
+    public function asepsutisna()
+    {
+        $title = 'Profile';
+        return view('frontend.fraksi.asepsutisna', compact('title'));
     }
 
 }

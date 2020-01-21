@@ -67,9 +67,13 @@
                         <div>
                             <div class="brk-reply-item" data-brk-library="component__blog_page_css">
                                 <a href="#" class="brk-reply-item__user">
-                                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                        data-src="{{ asset('assets/frontend/img/55x55_1.jpg') }}" alt="alt"
+                                    @if($p->user->avatar <> null)
+                                        <img class="img-avatar" src="{{ asset('uploads/'.$p->user->avatar) }}" alt="">
+                                    @else
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-src="{{ Avatar::create($p->user->name)->toBase64() }}" alt="alt"
                                         class="lazyload">
+                                    @endif
                                 </a>
                                 <div class="brk-reply-item__content">
                                     <a href="{{ route('QA.detail', $p->slug) }}"

@@ -50,7 +50,7 @@
                         <div class="brk-reply-item pb-0" data-brk-library="component__blog_page_css">
                             <a href="#" class="brk-reply-item__user">
                                 @if($tanya->user->avatar <> null)
-                                    <img class="img-avatar" src="{{ asset($q->user->avatar) }}" alt="">
+                                    <img class="img-avatar" src="{{ asset('uploads/'.$tanya->user->avatar) }}" alt="">
                                 @else
                                     <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                     data-src="{{ Avatar::create($tanya->user->name)->toBase64() }}" alt="alt"

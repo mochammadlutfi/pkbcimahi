@@ -169,6 +169,15 @@ $(function () {
     });
 });
 
+$('#field-nama').change(function(e) {
+    $.get("{{ route('admin.galeri.check_slug') }}", 
+      { 'nama': $(this).val() }, 
+      function( data ) {
+        $('#field-slug').val(data.slug);
+      }
+    );
+  });
+
 jQuery(document).ready(function () {
     $("#field-foto").change(function (event) {
         RecurFadeIn();

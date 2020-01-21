@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class EventController extends Controller
 {
@@ -202,5 +203,16 @@ class EventController extends Controller
                 }
             }
         }
+    }
+
+    public function check_slug(Request $request)
+    {
+        // Old version: without uniqueness
+        // $slug = str_slug($request->judul);
+
+        // New version: to generate unique slugs
+        $slug = SlugService::createSlug(Event::class, 'slug', $request->judul);
+
+        return response()->json(['slug' => $slug]);
     }
 }

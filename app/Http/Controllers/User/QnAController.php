@@ -10,6 +10,7 @@ use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class QnAController extends Controller
 {
@@ -99,5 +100,16 @@ class QnAController extends Controller
                 return redirect()->route('QA')->with('success','Product created successfully.');
             }
         }
+    }
+
+    public function check_slug(Request $request)
+    {
+        // Old version: without uniqueness
+        // $slug = str_slug($request->judul);
+
+        // New version: to generate unique slugs
+        $slug = SlugService::createSlug(Pertanyaan::class, 'slug', $request->judul);
+
+        return response()->json(['slug' => $slug]);
     }
 }

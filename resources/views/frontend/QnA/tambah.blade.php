@@ -43,9 +43,10 @@
                     <form action="{{ route('QA.simpan') }}" class="brk-reply__form brk-form-strict" data-brk-library="component__form" method="POST">
                         @csrf
                         <div class="row">
+                            <input type="text" id="field-slug" name="slug" readonly>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input name="judul" type="text" placeholder="Judul topik"  value="{{ old('judul') }}">
+                                    <input id="field-judul" name="judul" type="text" placeholder="Judul topik"  value="{{ old('judul') }}">
                                     @if ($errors->has('judul'))
                                         <span class="text-danger" role="alert">
                                             <strong>{{ $errors->first('judul') }}</strong>
@@ -87,7 +88,7 @@
                         <div class="brk-reply-item pb-20 pt-20 p-0" data-brk-library="component__blog_page_css">
                             <a href="#" class="brk-reply-item__user">
                                 @if($p->user->avatar <> null)
-                                    <img class="img-avatar" src="{{ asset($p->user->avatar) }}" alt="">
+                                    <img class="img-avatar" src="{{ asset('uploads/'.$p->user->avatar) }}" alt="">
                                 @else
                                     <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                     data-src="{{ Avatar::create($p->user->name)->toBase64() }}" alt="alt"
@@ -136,3 +137,21 @@
     </div>
 </div>
 @stop
+
+@push('scripts')
+<script>
+    console.log('sc');
+jQuery(function ($) {
+$(document).on('keyup', '#field-judul', function() {
+     console.log('sww');
+        var Text = $(this).val();
+        Text = Text.toLowerCase();
+        Text = Text.replace(/[^\w ]+/g, '');
+        Text = Text.replace(/ +/g, '-');
+        $("#field-slug").val(Text);
+    });
+});
+
+</script>
+@endpush
+

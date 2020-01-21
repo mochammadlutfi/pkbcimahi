@@ -171,6 +171,16 @@
 <script src="{{ asset('assets/backend/js/plugins/summernote/summernote-bs4.min.js') }}"></script>
 <script src="{{ asset('assets/backend/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <script>
+
+    $('#field-judul').change(function(e) {
+        $.get("{{ route('admin.event.check_slug') }}", 
+          { 'judul': $(this).val() }, 
+          function( data ) {
+            $('#field-slug').val(data.slug);
+          }
+        );
+    });
+
     $("#field-foto").change(function (event) {
         RecurFadeIn();
         readURL(this);
@@ -186,6 +196,7 @@
         Text = Text.replace(/ +/g, '-');
         $("#field-slug").val(Text);
     });
+
 
     function readURL(input) {
         if (input.files && input.files[0]) {
