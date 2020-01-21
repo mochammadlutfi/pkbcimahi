@@ -8,6 +8,8 @@ use App\Models\Pertanyaan;
 use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+
 use App\Helpers\GeneralHelp;
 class QAController extends Controller
 {
@@ -153,5 +155,4 @@ class QAController extends Controller
             ]);
         }
     }
-
 }

@@ -94,8 +94,8 @@ class ProfileController extends Controller
                 'email' =>  $request->email,
             ]);
         }
-        dd($data);
-        return redirect('/profile');
+        // dd($data);
+        return redirect('/profile')->with('status','Profile Berhasil diubah!');;
     }
 
 }

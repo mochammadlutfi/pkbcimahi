@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -14,13 +15,26 @@ class FraksiController extends Controller
     public function index()
     {
     	$title = 'Fraksi DPC PKB Kota Cimahi';
-        return view('frontend.fraksi.index', compact('title'));
+        $fraksi = Admin::latest()->get();
+        return view('frontend.fraksi.index', compact('title', 'fraksi'));
     }
 
-    public function detail()
+    public function acepjamaludin()
     {
     	$title = 'Profile';
-        return view('frontend.fraksi.detail', compact('title'));
+        return view('frontend.fraksi.acepjamaludin', compact('title'));
+    }
+
+    public function dedelatif()
+    {
+        $title = 'Profile';
+        return view('frontend.fraksi.dedelatif', compact('title'));
+    }
+
+    public function asepsutisna()
+    {
+        $title = 'Profile';
+        return view('frontend.fraksi.asepsutisna', compact('title'));
     }
 
 }

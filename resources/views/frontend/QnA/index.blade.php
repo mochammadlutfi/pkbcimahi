@@ -68,7 +68,7 @@
                             <div class="brk-reply-item pb-20 pt-20 p-0" data-brk-library="component__blog_page_css">
                                 <a href="#" class="brk-reply-item__user">
                                     @if($p->user->avatar <> null)
-                                        <img class="img-avatar" src="{{ asset($p->user->avatar) }}" alt="">
+                                        <img class="img-avatar" src="{{ asset('uploads/'. $p->user->avatar) }}" alt="">
                                     @else
                                         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                         data-src="{{ Avatar::create($p->user->name)->toBase64() }}" alt="alt"
@@ -86,7 +86,7 @@
                                             </a>
                                             <a class="brk-reply-item__header-reply">
                                                 <i class="far fa-clock"></i>
-                                                <span class="font__weight-bold">{{ $p->created_at }}</span>
+                                                <span class="font__weight-bold">{{ $p->created_at->format('d-m-Y') }}</span>
                                             </a>
                                         </div>
                                         <span class="font__size-md-12 line-height-1-5">Oleh: {{ $p->user->name }}</span>
@@ -98,8 +98,8 @@
                                     <div class="d-flex align-items-start mb-10 float-right">
                                         <span class="font-dark-color-2 font__Family-montserrat font__size-10 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Kategori:</span>
                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                            <li class="font__size-2"><a href="#"  rel="tag">{{ $p->qkategori->nama }}</a></li>
-                                        </ul>
+                                        <li class="font__size-2"><a href="{{ route('QA.kategori', $p->qkategori->slug) }}"  rel="tag">{{ $p->qkategori->nama }}</a></li>
+                                    </ul>
                                     </div>
                                 </div>
                             </div>

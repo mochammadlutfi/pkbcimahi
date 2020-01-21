@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class GaleriController extends Controller
 {
@@ -188,6 +189,18 @@ class GaleriController extends Controller
             }
         }
     }
+
+    public function check_slug(Request $request)
+    {
+        // Old version: without uniqueness
+        // $slug = str_slug($request->judul);
+
+        // New version: to generate unique slugs
+        $slug = SlugService::createSlug(Album::class, 'slug', $request->nama);
+
+        return response()->json(['slug' => $slug]);
+    }
+
 
     public function hapus($id)
     {

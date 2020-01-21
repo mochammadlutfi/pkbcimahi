@@ -53,6 +53,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/edit/{id}','GaleriController@edit')->name('galeri.edit');
         Route::post('/update','GaleriController@update')->name('galeri.update');
         Route::get('/hapus/{id}','GaleriController@hapus')->name('galeri.hapus');
+        Route::get('/check_slug','GaleriController@check_slug')->name('galeri.check_slug');
 
         Route::group(['prefix' => 'foto'], function(){
             Route::get('/{id}', 'GaleriFotoController@index')->name('galeri.foto');
@@ -81,6 +82,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/edit/{id}','EventController@edit')->name('event.edit');
         Route::post('/update','EventController@update')->name('event.update');
         Route::get('/hapus/{id}','EventController@hapus')->name('event.hapus');
+        Route::get('/check_slug','EventController@check_slug')->name('event.check_slug');
     });
 
     Route::group(['prefix' => 'slider'], function(){

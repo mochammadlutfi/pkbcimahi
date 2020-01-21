@@ -24,7 +24,7 @@
 							</h3>
 							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
 								<li>
-									<a href="#">Beranda</a>
+									<a href="{{ route('home') }}">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li class="active">PKB Event's</li>
@@ -40,7 +40,7 @@
 		<div class="row">
 			@foreach($event as $e)
 				<div class="col-12 col-md-6 col-lg-4">
-					<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" data-brk-library="component__shop_cards">
+					<div class="brk-sc-bonus text-center pl-50 pr-50 pb-40 pt-50 d-flex flex-column mb-30" data-brk-library="component__shop_cards" style="word-wrap: break-word;">
 						<h6 class="brk-sc-bonus__subtitle font__family-montserrat brk-white-font-color font__size-14 font__weight-bold line__height-14 brk-bg-primary">
 							{{ $e->tgl }}
 						</h6>
@@ -48,7 +48,7 @@
 							<span class="text-uppercase font__weight-medium">Ayo! Ikuti</span><br><span class="font__family-playfair font__style-italic">{{ $e->judul }}</span>
 						</h5>
 						<p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">
-							ini deskripsi ini deskripsi  ini deskripsi  ini deskripsi  ini deskripsi
+							<?= str_limit($e->deskripsi, 150) ?>
 						</p>
 						<a href="{{ route('event.detail', $e->slug) }}" class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link mt-2">Lihat Event</a>
 					</div>

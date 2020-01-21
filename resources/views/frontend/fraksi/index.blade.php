@@ -54,7 +54,7 @@ vendor\swiper\css
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center"
                              >
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.acepjamaludin')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Acep Jamaludin
                                     </h4>
                                 </a>
@@ -99,7 +99,7 @@ vendor\swiper\css
                     <div class="col-lg-3 col-sm-6">
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center">
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.asepsutisna')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Asep Sutisna
                                     </h4>
                                 </a>
@@ -145,7 +145,7 @@ vendor\swiper\css
                         <article class="brk-team-persone-circle brk-base-box-shadow text-center"
                              >
                             <div class="brk-team-persone-circle__name-position">
-                                <a href="#">
+                                <a href="{{ route('fraksi.detail.dedelatif')}}">
                                     <h4 class="font__family-montserrat font__weight-bold font__size-18">Dede Latif
                                     </h4>
                                 </a>

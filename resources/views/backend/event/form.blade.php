@@ -182,6 +182,16 @@
         $("#field-slug").val(Text);
     });
 
+
+    $('#field-judul').change(function(e) {
+        $.get("{{ route('admin.event.check_slug') }}", 
+          { 'judul': $(this).val() }, 
+          function( data ) {
+            $('#field-slug').val(data.slug);
+          }
+        );
+    });
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

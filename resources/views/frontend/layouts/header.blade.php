@@ -113,7 +113,7 @@
 					<nav class="brk-nav brk-header__item rendered">
 						<ul class="brk-nav__menu">
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="#">
+								<a href="https://blog.pkbcimahi.or.id/">
 									<span>Berita</span>
 								</a>
 							</li>

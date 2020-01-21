@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Pertanyaan extends Model
 {
     protected $table = 'pertanyaan';
     protected $primaryKey = 'id';
-
+    use Sluggable;
      /**
      * The attributes that are mass assignable.
      *
@@ -17,6 +18,16 @@ class Pertanyaan extends Model
     protected $fillable = [
         'judul', 'slug', 'deskripsi', 'seo_keyword', 'seo_description', 'seo_tags', 'status', 'user_id'
     ];
+
+    
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'judul'
+            ]
+        ];
+    }
 
     public function user()
     {

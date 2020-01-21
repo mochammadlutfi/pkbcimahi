@@ -77,7 +77,7 @@
 											<i class="fal fa-chevron-right icon"></i>
 										</li>
 										<li>
-											<a href="#"></a>
+											<a href="#">Profile</a>
 										</li>
 									</ol>
 								</div>
@@ -95,7 +95,14 @@
 								<div class="brk-backgrounds__canvas brk-particles-standart"></div>
 							</div>
 							<div class="z-index-2 mt-25 pl-15 pr-15">
-								<img src="{{ asset('uploads/'.auth()->user()->avatar) }}" alt="logo" class="">
+								@if(auth()->user()->avatar <> null)
+                                    <img src="{{ asset('uploads/'.auth()->user()->avatar) }}" alt="logo" class="">
+                                @else
+                                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                    data-src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" alt="alt"
+                                    class="lazyload">
+                                @endif
+								
 								<!-- <a href="index.html" class="btn-backgrounds btn-backgrounds_transparent btn-backgrounds_left-icon font__family-montserrat font__weight-normal text-uppercase font__size-13 text-center" mb-30 style="padding-left:85px; padding-right: 60px;" data-brk-library="component__button">
 									<span class="text">Ubah Foto</span>
 									<span class="before"><i class="fas fa-arrow-left"></i></span>
@@ -114,6 +121,11 @@
 										<form action="{{ url('/profile/update')  }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" enctype="multipart/form-data" method="POST">
 											
               								@csrf
+              								@if (session('status'))
+							                    <div class="alert alert-success mt-10" role="alert">
+							                        {{ session('status') }}
+							                    </div>
+							                @endif
               								<input type="hidden" name="id" value="{{ auth()->user()->id }}">
               								<div class="form-group">
 												<input type="text" name="name" placeholder="Username" value="{{ auth()->user()->name }}" class="form-control @error('name') is-invalid @enderror">

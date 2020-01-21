@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Album extends Model
 {
+    use Sluggable;
     protected $table = 'album';
     protected $primaryKey = 'id';
 
@@ -14,6 +16,16 @@ class Album extends Model
      *
      * @var array
      */
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'nama'
+            ]
+        ];
+    }
+
     protected $fillable = [
         'nama', 'slug', 'foto', 'seo_keyword', 'seo_description', 'seo_tags', 'status'
     ];

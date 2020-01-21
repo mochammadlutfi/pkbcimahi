@@ -11,6 +11,8 @@ use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\TanyaJawab;
 class QnAController extends Controller
@@ -38,6 +40,17 @@ class QnAController extends Controller
         return view('frontend/QnA/index', compact('pertanyaan', 'title', 'kategori'));
     }
 
+    public function check_slug(Request $request)
+    {
+        // Old version: without uniqueness
+        // $slug = str_slug($request->judul);
+
+        // New version: to generate unique slugs
+        $slug = SlugService::createSlug(Pertanyaan::class, 'slug', $request->judul);
+
+        return response()->json(['slug' => $slug]);
+    }
+
     public function detail($slug)
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
@@ -60,8 +73,9 @@ class QnAController extends Controller
     public function tambah()
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
+        $pertanyaan = Pertanyaan::latest()->limit(5)->get();
         $kategori = QKategori::latest()->get();
-        return view('frontend.QnA.tambah', compact('title', 'kategori'));
+        return view('frontend.QnA.tambah', compact('title', 'kategori', 'pertanyaan'));
     }
 
     public function cari()
