@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\QKategori;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Jawaban;
 use Illuminate\Support\Facades\Validator;
@@ -32,9 +33,12 @@ class QnAController extends Controller
     public function index()
     {
         $title = 'Tanya Fraksi PKB Kota Cimahi';
-        $pertanyaan = Pertanyaan::latest()->get();
+        $pertanyaan = Pertanyaan::latest()->paginate(10);
         $kategori = QKategori::latest()->get();
+        
         return view('frontend/QnA/index', compact('pertanyaan', 'title', 'kategori'));
+
+        
     }
 
     public function check_slug(Request $request)

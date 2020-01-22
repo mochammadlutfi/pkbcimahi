@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 @section('styles')
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/components/tags.css ') }}">
+    
 @endsection
 @section('title', $title)
 @section('content')
@@ -105,7 +106,10 @@
                             </div>
                         </div>
                         @endforeach
+                        
+                        {{ $pertanyaan->links() }}
                     </div>
+                    
 				</div>
 				<div class="col-12 col-lg-4 col-xl-3">
                     <div class="mb-60">

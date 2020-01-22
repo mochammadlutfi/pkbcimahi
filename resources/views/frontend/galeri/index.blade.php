@@ -82,6 +82,7 @@
                     </div>
                     @endforeach
                 </div>
+                {{ $galeri->links() }}
             </div>
         </div>
     </main>
