@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Foto;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -20,7 +21,7 @@ class EventController extends Controller
     public function index()
     {
 
-        $event = Event::where('status', 1)->latest()->get();
+        $event = Event::where('status', 1)->latest()->paginate(6);
 
         return view('frontend.event.index', compact('event'));
     }

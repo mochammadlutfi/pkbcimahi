@@ -59,11 +59,12 @@
                     </div>
                     @endforeach
                 </div>
+                {{ $foto->links() }}
             </div>
         </div>
     </main>
 </div>
 @stop
 @push('scripts')
-
+    <script src="{{ asset('assets/frontend/vendor/fancybox/js/jquery.fancybox.min.js') }}"></script>
 @endpush
