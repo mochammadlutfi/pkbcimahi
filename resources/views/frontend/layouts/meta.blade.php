@@ -14,3 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
 <meta property="og:image" content="">
+
+<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">
+<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
+

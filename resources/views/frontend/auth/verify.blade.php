@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-brk-skin="brk-blue.css">
 <head>
-	<title>@yield('title')</title>
+
+    @include('frontend.layouts.meta')
 
 	<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">
 	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
@@ -46,7 +47,7 @@
 	<link rel="stylesheet" id="brk-direction-bootstrap" href="{{ asset('assets/frontend/vendor/slickCarousel/css/slick.css') }}">
 	<!-- vendor -->
 
-	
+
 </head>
 <body>
 	<div class="main-page">
@@ -65,7 +66,7 @@
 							<div class="card-body">
 							<h5 class="card-title text-center">Verifikasi Email Anda</h5>
 								@if (session('resent'))
-								
+
 								<div class="alert alert-clean fade alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show mt-10" role="alert" data-brk-library="component__alert">
 									<button type="button" class="close font__size-18" data-dismiss="alert">
 										<span aria-hidden="true">
@@ -91,12 +92,12 @@
 	</div>
 </div>
 
-	
-	
+
+
 	<!-- js	 -->
 	<!-- beranda -->
 	<script defer="defer" src="{{ asset('assets/frontend/js/scripts.min.js') }} "></script>
-	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>	
+	<script defer="defer" src="{{ asset('assets/frontend/js/assets/swiper-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/flexmenu.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/sliders-skin.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/widgets.js') }} "></script>
@@ -110,8 +111,8 @@
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/recaptcha.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/assets/jquery.particleground.min.js') }} "></script>
 	<script defer="defer" src="{{ asset('assets/frontend/js/components/backgrounds.js') }} "></script>
-	
-	
+
+
 	<!-- js	 -->
 
 	<!-- vendor -->
