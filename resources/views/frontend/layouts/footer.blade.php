@@ -41,9 +41,8 @@
                                         <img src="{{ asset('assets/img/logo-light.png') }}" alt="alt">
                                     </a>
                                     <hr class="horiz-line" style="margin-top: 20px; margin-bottom: 47px;">
-                                    <p class="font__family-open-sans font__size-14 line__height-21 brk-white-font-color">Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
-                                        eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra fequis, feugiat arutr, tellus.
-                                        Phasellus viverra nulla ut metus varius laoreet. </p>
+                                    <p class="font__family-open-sans font__size-14 line__height-21 brk-white-font-color">Partai Kebangkitan Bangsa (PKB), adalah sebuah partai politik yang berideologi Konservatisme di Indonesia.
+                                        Partai Kebangkitan Bangsa (PKB) didirikan di Jakarta pada tanggal 23 Juli 1998 (29 Rabi’ul Awal 1419 Hijriyah) yang dideklarasikan oleh para kiai-kiai Nahdlatul Ulama, seperti Munasir Ali, Ilyas Ruchiyat, Abdurrahman Wahid, A. Mustofa Bisri, dan A. Muhith Muzadi). </p>
                                     <hr class="horiz-line" style="margin-bottom: 12px;">
                                     <div class="d-flex flex-wrap brk-footer__info-grid flex-sm-row flex-column mb-50">
                                         <p class="font__family-open-sans font__weight-bold font__size-14 mt-10">
@@ -96,23 +95,18 @@
                         <span class="brk-dashed-logo__line"></span>
                     </div>
                     <div class="brk-social-links brk-white-font-color brk-social-links_opacity d-flex justify-content-center mb-40 font__size-12">
+                        
                         <a href="https://twitter.com/DPP_PKB/" class="brk-social-links__item">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://www.instagram.com/dpcpkb_cimahi/" class="brk-social-links__item">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-google-plus-g"></i>
+                        <a href="https://www.facebook.com/dpcpkbkotacimahi/" class="brk-social-links__item">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="brk-social-links__item">
                             <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-vimeo"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-vk"></i>
                         </a>
                     </div>
                     <div class="brk-footer__rights pt-15 pb-20 text-center">

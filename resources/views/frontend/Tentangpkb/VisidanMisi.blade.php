@@ -26,12 +26,14 @@
 								<li>
 									<a href="{{ url('/') }}">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
-								 </span>
-										</li>
-								<li>
-									<a href="{{ url('/QnA') }}">Tentang</a>
-								 </span>
-										</li>
+								</li>
+	                            <li>
+	                                <a href="#">Tentang</a>
+	                                <i class="fal fa-chevron-right icon"></i>
+	                            </li>
+	                            <li>
+	                                <a href="{{ route('tentang.visi_misi') }}">Visi dan Misi</a>
+	                            </li>
 							</ol>
 						</div>
 					</div>

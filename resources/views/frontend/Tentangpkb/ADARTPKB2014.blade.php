@@ -28,8 +28,12 @@
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li>
-									<a href="{{ url('/QnA') }}">Tentang</a>
-								</li>
+	                                <a href="#">Tentang</a>
+	                                <i class="fal fa-chevron-right icon"></i>
+	                            </li>
+	                            <li>
+	                                <a href="{{ route('tentang.ad_art') }}">AD ART PKB 2014</a>
+	                            </li>
 							</ol>
 						</div>
 					</div>

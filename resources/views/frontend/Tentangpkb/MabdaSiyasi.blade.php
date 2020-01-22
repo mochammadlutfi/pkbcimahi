@@ -28,8 +28,12 @@
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
 								<li>
-									<a href="{{ url('/QnA') }}">Tentang</a>
-								</li>
+	                                <a href="#">Tentang</a>
+	                                <i class="fal fa-chevron-right icon"></i>
+	                            </li>
+	                            <li>
+	                                <a href="{{ route('tentang.mabda_siyasi') }}">Mabda Siyasi</a>
+	                            </li>
 							</ol>
 						</div>
 					</div>

@@ -43,7 +43,7 @@
                     <form action="{{ route('QA.simpan') }}" class="brk-reply__form brk-form-strict" data-brk-library="component__form" method="POST">
                         @csrf
                         <div class="row">
-                            <input type="text" id="field-slug" name="slug" readonly>
+                            <input type="hidden" id="field-slug" name="slug" readonly>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <input id="field-judul" name="judul" type="text" placeholder="Judul topik"  value="{{ old('judul') }}">

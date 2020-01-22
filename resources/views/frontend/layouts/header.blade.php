@@ -149,7 +149,7 @@
 								</a>
 							</li>
 							<li class="brk-nav__children brk-nav__drop-down-effect">
-								<a href="{{ route('galeri') }}">
+								<a href="#">
 									<span>Galeri</span>
                                 </a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat brk-location-screen-left">
@@ -201,9 +201,9 @@
 								<span class="font__family-montserrat font__weight-bold font__size-18">Bagikan situs web kami</span>
 							</div>
 							<div class="brk-social-links__content">
-								<a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-								<a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-								<a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+								<a href="https://twitter.com/DPP_PKB/"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+								<a href="https://www.instagram.com/dpcpkb_cimahi/"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+								<a href="https://www.facebook.com/dpcpkbkotacimahi/"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
 								<a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
 
 							</div>

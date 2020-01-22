@@ -27,9 +27,13 @@
 									<a href="{{ url('/') }}">Beranda</a>
 									<i class="fal fa-chevron-right icon"></i>
 								</li>
-								<li>
-									<a href="{{ url('/QnA') }}">Tentang</a>
-								</li>
+	                            <li>
+	                                <a href="#">Tentang</a>
+	                                <i class="fal fa-chevron-right icon"></i>
+	                            </li>
+	                            <li>
+	                                <a href="{{ route('tentang.makna_logo') }}">Makna Logo PKB</a>
+	                            </li>
 							</ol>
 						</div>
 					</div>

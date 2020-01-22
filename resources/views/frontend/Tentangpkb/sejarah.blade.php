@@ -27,7 +27,7 @@
                                 <i class="fal fa-chevron-right icon"></i>
                             </li>
                             <li>
-                                <a href="{{ route('galeri') }}">Tentang</a>
+                                <a href="#">Tentang</a>
                                 <i class="fal fa-chevron-right icon"></i>
                             </li>
                             <li>
