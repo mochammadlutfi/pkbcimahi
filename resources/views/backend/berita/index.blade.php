@@ -8,27 +8,29 @@
 <div class="content">
     <nav class="breadcrumb bg-white push">
         <a class="breadcrumb-item" href="{{ route('admin.beranda') }}">Beranda</a>
-        <span class="breadcrumb-item active">Galeri</span>
+        <span class="breadcrumb-item active">Berita</span>
     </nav>
     <div class="row">
         <div class="col-lg-12">
             <!-- Default Elements -->
             <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Kelola Galeri</h3>
-                    <button id="btn_tambah" type="button" class="btn btn-secondary mr-5 mb-5 float-right btn-rounded">
+                    <h3 class="block-title">Kelola Berita</h3>
+                    <a href="{{ route('admin.berita.tambah') }}" class="btn btn-secondary mr-5 mb-5 float-right btn-rounded">
                         <i class="si si-plus mr-5"></i>
-                        Tambah Galeri Baru
-                    </button>
+                        Tambah Berita Baru
+                    </a>
                 </div>
                 <div class="block-content">
-                    <table class="table table-hover table-striped" id="list-album">
+                    <table class="table table-hover table-striped" id="list-kategori">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Judul</th>
+                                <th>Kategori</th>
+                                <th>Auth</th>
+                                <th>Tanggal</th>
                                 <th>Status</th>
-                                <th>Jumlah Foto</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -45,7 +47,7 @@
         <div class="modal-content">
             <div class="block mb-0">
                 <div class="block-header block-header-default">
-                        <h3 class="block-title modal-title">Tambah Album Baru</h3>
+                        <h3 class="block-title modal-title">Tambah Berita Baru</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                             <i class="si si-close"></i>
@@ -53,22 +55,34 @@
                     </div>
                 </div>
                 <div class="block-content">
-                    <form id="form-album">
+                    <form id="form-berita">
                         @csrf
-                        <input type="hidden" name="album_id" value="">
+                        <input type="hidden" name="kategori_id" value="">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group row">
                                     <div class="col-lg-12">
-                                        <label class="col-form-label" for="field-nama">Nama Album</label>
-                                        <input type="text" class="form-control" id="field-nama" name="nama" placeholder="Masukan Nama Album">
-                                        <div class="invalid-feedback" id="error-nama">Invalid feedback</div>
+                                        <label class="col-form-label" for="field-judul">Judul</label>
+                                        <input type="text" class="form-control" id="field-judul" name="judul" placeholder="Masukan Judul Berita">
+                                        <div class="invalid-feedback" id="error-judul">Invalid feedback</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="col-form-label" for="field-slug">Slug</label>
                                         <input type="text" class="form-control" id="field-slug" name="slug" placeholder="Slug Album" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label" for="field-b_kategori_id">Kategori</label>
+                                        <select class="form-control" name="b_kategori_id" id="field-status">
+                                            <option value="">Pilih</option>
+                                            @foreach ($kategori as $k)
+                                                <option value="{{ $k->id }}">{{ $k->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback" id="error-status">Invalid feedback</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -118,6 +132,13 @@
                                                 <label class="custom-file-label" for="field-foto">Pilih File</label>
                                             </div>
                                             <div id="error-foto" class="text-danger"></div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label" for="field-foto_desk">Deskripsi Foto</label>
+                                                    <input type="text" class="form-control" id="field-foto_desk" name="foto_desk" placeholder="Masukan Deksripsi Foto">
+                                                    <div class="invalid-feedback" id="error-foto_desk">Invalid feedback</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -137,27 +158,36 @@
 @stop
 @push('scripts')
 <script src="{{ asset('assets/backend/js/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+
 <script>
 $(function () {
-    $('#list-album').DataTable({
+    $('#list-kategori').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "",
+        ajax: "{{ route('admin.berita') }}",
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'nama',
-                name: 'nama'
+                data: 'judul',
+                name: 'judul'
+            },
+            {
+                data: 'kategori',
+                name: 'kategori'
+            },
+            {
+                data: 'auth',
+                name: 'auth'
+            },
+            {
+                data: 'tgl',
+                name: 'tgl'
             },
             {
                 data: 'status',
                 name: 'status'
-            },
-            {
-                data: 'jml_foto',
-                name: 'jml_foto'
             },
             {
                 data: 'action',
@@ -169,14 +199,14 @@ $(function () {
     });
 });
 
-$('#field-nama').change(function(e) {
-    $.get("{{ route('admin.galeri.check_slug') }}",
-      { 'nama': $(this).val() },
+$('#field-judul').change(function(e) {
+    $.get("{{ route('admin.berita.check_slug') }}",
+      { 'judul': $(this).val() },
       function( data ) {
         $('#field-slug').val(data.slug);
       }
     );
-  });
+});
 
 jQuery(document).ready(function () {
     $("#field-foto").change(function (event) {
@@ -215,7 +245,7 @@ jQuery(document).ready(function () {
 
     $(document).on('click', '#btn_tambah', function () {
         save_method = 'tambah';
-        $('#form-album')[0].reset();
+        $('#form-berita')[0].reset();
         $('#modal_title').text('Tambah Data Kategori');
         $('#modal_form').modal({
             backdrop: 'static',
@@ -223,7 +253,7 @@ jQuery(document).ready(function () {
         })
     });
 
-    $(document).on('keyup', '#field-nama', function() {
+    $(document).on('keyup', '#field-judul', function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^\w ]+/g, '');
@@ -247,17 +277,17 @@ jQuery(document).ready(function () {
         width: '100%'
     });
 
-    $("#form-album").submit(function (e) {
+    $("#form-berita").submit(function (e) {
         e.preventDefault();
-        var formData = new FormData($('#form-album')[0]);
+        var formData = new FormData($('#form-berita')[0]);
 
         var link;
         var pesan;
         if (save_method == 'tambah') {
-            link = "{{ route('admin.galeri.simpan') }}";
+            link = "{{ route('admin.berita.simpan') }}";
             pesan = "Album Baru Berhasil Ditambahkan";
         } else {
-            link = "{{ route('admin.galeri.update') }}";
+            link = "{{ route('admin.berita.update') }}";
             pesan = "Album Berhasil Diperbaharui";
         }
 
@@ -302,12 +332,12 @@ jQuery(document).ready(function () {
 
 function edit(id){
     save_method = 'update';
-    $('#form-album')[0].reset();
+    $('#form-berita')[0].reset();
     $('.form-group').removeClass('has-error');
     $('.help-block').empty();
 
     $.ajax({
-        url : laroute.route('admin.galeri.edit', {id : id}),
+        url : laroute.route('admin.berita.edit', {id : id}),
         type: "GET",
         dataType: "JSON",
         success: function(response)
@@ -353,7 +383,7 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('admin.galeri.hapus', { id: id }),
+            url: laroute.route('admin.berita.hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {

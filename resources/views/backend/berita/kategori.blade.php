@@ -8,27 +8,28 @@
 <div class="content">
     <nav class="breadcrumb bg-white push">
         <a class="breadcrumb-item" href="{{ route('admin.beranda') }}">Beranda</a>
-        <span class="breadcrumb-item active">Galeri</span>
+        <a class="breadcrumb-item" href="{{ route('admin.berita') }}">Berita</a>
+        <span class="breadcrumb-item active">Kategori</span>
     </nav>
     <div class="row">
         <div class="col-lg-12">
             <!-- Default Elements -->
             <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Kelola Galeri</h3>
+                    <h3 class="block-title">Kelola Kategori Berita</h3>
                     <button id="btn_tambah" type="button" class="btn btn-secondary mr-5 mb-5 float-right btn-rounded">
                         <i class="si si-plus mr-5"></i>
-                        Tambah Galeri Baru
+                        Tambah Kategori Baru
                     </button>
                 </div>
                 <div class="block-content">
-                    <table class="table table-hover table-striped" id="list-album">
+                    <table class="table table-hover table-striped" id="list-kategori">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Jumlah Berita</th>
                                 <th>Status</th>
-                                <th>Jumlah Foto</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -45,7 +46,7 @@
         <div class="modal-content">
             <div class="block mb-0">
                 <div class="block-header block-header-default">
-                        <h3 class="block-title modal-title">Tambah Album Baru</h3>
+                        <h3 class="block-title modal-title">Tambah Kategori Baru</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                             <i class="si si-close"></i>
@@ -53,16 +54,16 @@
                     </div>
                 </div>
                 <div class="block-content">
-                    <form id="form-album">
+                    <form id="form-kategori">
                         @csrf
-                        <input type="hidden" name="album_id" value="">
+                        <input type="hidden" name="kategori_id" value="">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group row">
                                     <div class="col-lg-12">
-                                        <label class="col-form-label" for="field-nama">Nama Album</label>
-                                        <input type="text" class="form-control" id="field-nama" name="nama" placeholder="Masukan Nama Album">
-                                        <div class="invalid-feedback" id="error-nama">Invalid feedback</div>
+                                        <label class="col-form-label" for="field-name">Nama Kategori</label>
+                                        <input type="text" class="form-control" id="field-name" name="name" placeholder="Masukan Nama Kategori">
+                                        <div class="invalid-feedback" id="error-name">Invalid feedback</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -72,16 +73,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-lg-12">
-                                        <label class="col-form-label" for="field-status">Status</label>
-                                        <select class="form-control" name="status" id="field-status">
-                                            <option value="">Pilih</option>
-                                            <option value="1">Publikasi</option>
-                                            <option value="0">Tidak Publikasi</option>
-                                        </select>
-                                        <div class="invalid-feedback" id="error-status">Invalid feedback</div>
+                                    <label class="col-12" for="description">Deksripsi Kategori</label>
+                                    <div class="col-12">
+                                        <textarea class="form-control" id="field-description" name="description" placeholder="Masukan description" rows="9"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-lg-6">
                                 <div class="form-group row">
                                     <label class="col-12" for="seo_keyword">SEO Keyword</label>
                                     <div class="col-12">
@@ -97,28 +95,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12" for="seo_deskripsi">SEO Deksripsi</label>
+                                    <label class="col-12" for="seo_description">SEO Deksripsi</label>
                                     <div class="col-12">
-                                        <textarea class="form-control" id="deskripsi_seo" name="seo_deskripsi" maxlength="115" data-always-show="true" data-placement="top" placeholder="Masukan SEO Deskripsi" rows="2"></textarea>
+                                        <textarea class="form-control" id="seo_description" name="seo_description" maxlength="115" data-always-show="true" data-placement="top" placeholder="Masukan SEO description" rows="2"></textarea>
                                         <div class="form-text text-muted font-size-sm text-right">Maksimal 115 Karakter</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <div class="row justify-content-center mb-10">
-                                        <div class="col-12">
-                                            <img id="img_preview" src="{{ asset('assets/img/placeholder.png') }}" width="100%"/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input js-custom-file-input-enabled" id="field-foto" name="foto" data-toggle="custom-file-input">
-                                                <label class="custom-file-label" for="field-foto">Pilih File</label>
-                                            </div>
-                                            <div id="error-foto" class="text-danger"></div>
-                                        </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label" for="field-status">Status</label>
+                                        <select class="form-control" name="status" id="field-status">
+                                            <option value="">Pilih</option>
+                                            <option value="1">Publikasi</option>
+                                            <option value="0">Tidak Publikasi</option>
+                                        </select>
+                                        <div class="invalid-feedback" id="error-status">Invalid feedback</div>
                                     </div>
                                 </div>
                             </div>
@@ -139,25 +130,25 @@
 <script src="{{ asset('assets/backend/js/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
 <script>
 $(function () {
-    $('#list-album').DataTable({
+    $('#list-kategori').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "",
+        ajax: "{{ route('admin.berita.bkategori') }}",
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'nama',
-                name: 'nama'
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'jumlah',
+                name: 'jumlah'
             },
             {
                 data: 'status',
                 name: 'status'
-            },
-            {
-                data: 'jml_foto',
-                name: 'jml_foto'
             },
             {
                 data: 'action',
@@ -169,61 +160,18 @@ $(function () {
     });
 });
 
-$('#field-nama').change(function(e) {
-    $.get("{{ route('admin.galeri.check_slug') }}",
-      { 'nama': $(this).val() },
-      function( data ) {
-        $('#field-slug').val(data.slug);
-      }
-    );
-  });
-
 jQuery(document).ready(function () {
-    $("#field-foto").change(function (event) {
-        RecurFadeIn();
-        readURL(this);
-    });
-    $("#field-foto").on('click', function (event) {
-        RecurFadeIn();
-    });
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            var filename = $("#field-foto").val();
-            filename = filename.substring(filename.lastIndexOf('\\') + 1);
-            reader.onload = function (e) {
-                // debugger;
-                $('#img_preview').attr('src', e.target.result);
-                $('#img_preview').hide();
-                $('#img_preview').fadeIn(500);
-                $('.custom-file-label').text(filename);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-        $(".alert").removeClass("loading").hide();
-    }
-
-    function RecurFadeIn() {
-        FadeInAlert("Wait for it...");
-    }
-
-    function FadeInAlert(text) {
-        $(".alert").show();
-        $(".alert").text(text).addClass("loading");
-    }
 
     $(document).on('click', '#btn_tambah', function () {
         save_method = 'tambah';
-        $('#form-album')[0].reset();
-        $('#modal_title').text('Tambah Data Kategori');
+        $('#form-kategori')[0].reset();
         $('#modal_form').modal({
             backdrop: 'static',
             keyboard: false
         })
     });
 
-    $(document).on('keyup', '#field-nama', function() {
+    $(document).on('keyup', '#field-name', function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^\w ]+/g, '');
@@ -247,18 +195,18 @@ jQuery(document).ready(function () {
         width: '100%'
     });
 
-    $("#form-album").submit(function (e) {
+    $("#form-kategori").submit(function (e) {
         e.preventDefault();
-        var formData = new FormData($('#form-album')[0]);
+        var formData = new FormData($('#form-kategori')[0]);
 
         var link;
         var pesan;
         if (save_method == 'tambah') {
-            link = "{{ route('admin.galeri.simpan') }}";
-            pesan = "Album Baru Berhasil Ditambahkan";
+            link = "{{ route('admin.berita.bkategori_simpan') }}";
+            pesan = "Kategori Baru Berhasil Ditambahkan";
         } else {
-            link = "{{ route('admin.galeri.update') }}";
-            pesan = "Album Berhasil Diperbaharui";
+            link = "{{ route('admin.berita.bkategori_update') }}";
+            pesan = "Kategori Berhasil Diperbaharui";
         }
 
         $.ajax({
@@ -302,24 +250,22 @@ jQuery(document).ready(function () {
 
 function edit(id){
     save_method = 'update';
-    $('#form-album')[0].reset();
+    $('#form-kategori')[0].reset();
     $('.form-group').removeClass('has-error');
     $('.help-block').empty();
 
     $.ajax({
-        url : laroute.route('admin.galeri.edit', {id : id}),
+        url : laroute.route('admin.berita.bkategori_edit', {id : id}),
         type: "GET",
         dataType: "JSON",
         success: function(response)
         {
-            $('#modal_title').text('Perbaharui Data Album');
-            $('[name="album_id"]').val(response.id);
-            $('[name="nama"]').val(response.nama);
+            $('[name="kategori_id"]').val(response.id);
+            $('[name="name"]').val(response.name);
             $('[name="slug"]').val(response.slug);
-            $('[name="deskripsi"]').val(response.deskripsi);
-            $('[name="deskripsi_seo"]').val(response.seo_description);
+            $('[name="description"]').val(response.description);
+            $('[name="seo_description"]').val(response.seo_description);
             $('[name="status"]').val(response.status);
-            $('#img_preview').attr('src', response.foto);
             var keyword = response.seo_keyword;
             if(keyword)
             {
@@ -330,6 +276,7 @@ function edit(id){
             {
                 $('#seo_tags').importTags(response.seo_tags);
             }
+            $('#modal_title').text('Perbaharui Data Kategori');
             $('#modal_form').modal({
                 backdrop: 'static',
                 keyboard: false
@@ -353,13 +300,13 @@ function hapus(id) {
     .then((willDelete) => {
         if (willDelete) {
         $.ajax({
-            url: laroute.route('admin.galeri.hapus', { id: id }),
+            url: laroute.route('admin.berita.bkategori_hapus', { id: id }),
             type: "get",
             dataType: "JSON",
             success: function(data) {
                 swal({
                     title: "Berhasil",
-                    text: "Album Foto Berhasil Dihapus",
+                    text: "Data Kategori Berhasil Dihapus",
                     timer: 3000,
                     buttons: false,
                     icon: 'success',

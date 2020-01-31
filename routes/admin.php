@@ -47,6 +47,24 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         });
     });
 
+    Route::group(['prefix' => 'berita'], function(){
+        Route::get('/article', 'BeritaController@index')->name('berita');
+        Route::get('/tambah', 'BeritaController@tambah')->name('berita.tambah');
+        Route::post('/simpan','BeritaController@simpan')->name('berita.simpan');
+        Route::get('/berita/{id}', 'BeritaController@edit')->name('berita.edit');
+        Route::post('/update','BeritaController@update')->name('berita.update');
+        Route::get('/hapus/{id}','BeritaController@hapus')->name('berita.hapus');
+        Route::get('/check_slug','BeritaController@check_slug')->name('berita.check_slug');
+
+        Route::group(['prefix' => 'bkategori'], function(){
+            Route::get('/', 'BCategoryController@index')->name('berita.bkategori');
+            Route::post('/simpan','BCategoryController@simpan')->name('berita.bkategori_simpan');
+            Route::get('/edit/{id}','BCategoryController@edit')->name('berita.bkategori_edit');
+            Route::post('/update','BCategoryController@update')->name('berita.bkategori_update');
+            Route::get('/hapus/{id}','BCategoryController@hapus')->name('berita.bkategori_hapus');
+        });
+    });
+
     Route::group(['prefix' => 'galeri'], function(){
         Route::get('/', 'GaleriController@index')->name('galeri');
         Route::post('/simpan','GaleriController@simpan')->name('galeri.simpan');
